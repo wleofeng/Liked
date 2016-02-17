@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C2D2BCD1C75302D00F407AF /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C2D2BCC1C75302D00F407AF /* Person.m */; };
+		4C2D2BD11C75304600F407AF /* ChoosePersonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C2D2BD01C75304600F407AF /* ChoosePersonViewController.m */; };
+		4C2D2BD71C75304E00F407AF /* ChoosePersonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C2D2BD41C75304E00F407AF /* ChoosePersonView.m */; };
+		4C2D2BD81C75304E00F407AF /* ImageLabelView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C2D2BD61C75304E00F407AF /* ImageLabelView.m */; };
 		4CC1DB0D1C751A9B004E3970 /* WJFGiphyAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CC1DB0C1C751A9B004E3970 /* WJFGiphyAPIClient.m */; };
-		4CC1DB101C7523D0004E3970 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CC1DB0F1C7523D0004E3970 /* Person.m */; };
-		4CC1DB151C7523E2004E3970 /* ChoosePersonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CC1DB121C7523E2004E3970 /* ChoosePersonView.m */; };
-		4CC1DB161C7523E2004E3970 /* ImageLabelView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CC1DB141C7523E2004E3970 /* ImageLabelView.m */; };
-		4CC1DB191C7523F0004E3970 /* ChoosePersonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CC1DB181C7523F0004E3970 /* ChoosePersonViewController.m */; };
 		4CC2027E1C6EAF4C0022A859 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CC2027D1C6EAF4C0022A859 /* main.m */; };
 		4CC202811C6EAF4C0022A859 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CC202801C6EAF4C0022A859 /* AppDelegate.m */; };
 		4CC202841C6EAF4C0022A859 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CC202831C6EAF4C0022A859 /* ViewController.m */; };
@@ -44,16 +44,16 @@
 
 /* Begin PBXFileReference section */
 		0C3B18626B8C83E944E62FF9 /* Pods-Liked.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Liked.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Liked/Pods-Liked.debug.xcconfig"; sourceTree = "<group>"; };
+		4C2D2BCB1C75302D00F407AF /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
+		4C2D2BCC1C75302D00F407AF /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
+		4C2D2BCF1C75304600F407AF /* ChoosePersonViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChoosePersonViewController.h; sourceTree = "<group>"; };
+		4C2D2BD01C75304600F407AF /* ChoosePersonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChoosePersonViewController.m; sourceTree = "<group>"; };
+		4C2D2BD31C75304E00F407AF /* ChoosePersonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChoosePersonView.h; sourceTree = "<group>"; };
+		4C2D2BD41C75304E00F407AF /* ChoosePersonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChoosePersonView.m; sourceTree = "<group>"; };
+		4C2D2BD51C75304E00F407AF /* ImageLabelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageLabelView.h; sourceTree = "<group>"; };
+		4C2D2BD61C75304E00F407AF /* ImageLabelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageLabelView.m; sourceTree = "<group>"; };
 		4CC1DB0B1C751A9B004E3970 /* WJFGiphyAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJFGiphyAPIClient.h; sourceTree = "<group>"; };
 		4CC1DB0C1C751A9B004E3970 /* WJFGiphyAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJFGiphyAPIClient.m; sourceTree = "<group>"; };
-		4CC1DB0E1C7523D0004E3970 /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
-		4CC1DB0F1C7523D0004E3970 /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
-		4CC1DB111C7523E2004E3970 /* ChoosePersonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChoosePersonView.h; sourceTree = "<group>"; };
-		4CC1DB121C7523E2004E3970 /* ChoosePersonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChoosePersonView.m; sourceTree = "<group>"; };
-		4CC1DB131C7523E2004E3970 /* ImageLabelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageLabelView.h; sourceTree = "<group>"; };
-		4CC1DB141C7523E2004E3970 /* ImageLabelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageLabelView.m; sourceTree = "<group>"; };
-		4CC1DB171C7523F0004E3970 /* ChoosePersonViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChoosePersonViewController.h; sourceTree = "<group>"; };
-		4CC1DB181C7523F0004E3970 /* ChoosePersonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChoosePersonViewController.m; sourceTree = "<group>"; };
 		4CC202791C6EAF4C0022A859 /* Liked.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Liked.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CC2027D1C6EAF4C0022A859 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		4CC2027F1C6EAF4C0022A859 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -113,6 +113,35 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		4C2D2BCA1C75302D00F407AF /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				4C2D2BCB1C75302D00F407AF /* Person.h */,
+				4C2D2BCC1C75302D00F407AF /* Person.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		4C2D2BCE1C75304600F407AF /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				4C2D2BCF1C75304600F407AF /* ChoosePersonViewController.h */,
+				4C2D2BD01C75304600F407AF /* ChoosePersonViewController.m */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		4C2D2BD21C75304E00F407AF /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4C2D2BD31C75304E00F407AF /* ChoosePersonView.h */,
+				4C2D2BD41C75304E00F407AF /* ChoosePersonView.m */,
+				4C2D2BD51C75304E00F407AF /* ImageLabelView.h */,
+				4C2D2BD61C75304E00F407AF /* ImageLabelView.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		4CC202701C6EAF4C0022A859 = {
 			isa = PBXGroup;
 			children = (
@@ -145,9 +174,9 @@
 				4CC202C21C6EB5B00022A859 /* WJFConstants.h */,
 				4CC202C31C6EB5B00022A859 /* WJFConstants.m */,
 				4CC202BE1C6EB4E20022A859 /* APIClient */,
-				4CC202B11C6EB1FF0022A859 /* Models */,
-				4CC202B61C6EB1FF0022A859 /* Views */,
-				4CC202B91C6EB1FF0022A859 /* Controllers */,
+				4C2D2BCA1C75302D00F407AF /* Models */,
+				4C2D2BD21C75304E00F407AF /* Views */,
+				4C2D2BCE1C75304600F407AF /* Controllers */,
 				4CC202851C6EAF4C0022A859 /* Main.storyboard */,
 				4CC202881C6EAF4C0022A859 /* Assets.xcassets */,
 				4CC2028A1C6EAF4C0022A859 /* LaunchScreen.storyboard */,
@@ -181,38 +210,6 @@
 				4CC202A31C6EAF4C0022A859 /* Info.plist */,
 			);
 			path = LikedUITests;
-			sourceTree = "<group>";
-		};
-		4CC202B11C6EB1FF0022A859 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				4CC1DB0E1C7523D0004E3970 /* Person.h */,
-				4CC1DB0F1C7523D0004E3970 /* Person.m */,
-			);
-			name = Models;
-			path = ../../../../../../var/folders/d5/3mr60pl50198_0mwh65kg_b00000gn/T/CocoaPods/Try/MDCSwipeToChoose/Examples/LikedOrNope/LikedOrNope/Models;
-			sourceTree = "<group>";
-		};
-		4CC202B61C6EB1FF0022A859 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				4CC1DB111C7523E2004E3970 /* ChoosePersonView.h */,
-				4CC1DB121C7523E2004E3970 /* ChoosePersonView.m */,
-				4CC1DB131C7523E2004E3970 /* ImageLabelView.h */,
-				4CC1DB141C7523E2004E3970 /* ImageLabelView.m */,
-			);
-			name = Views;
-			path = ../../../../../../var/folders/d5/3mr60pl50198_0mwh65kg_b00000gn/T/CocoaPods/Try/MDCSwipeToChoose/Examples/LikedOrNope/LikedOrNope/Views;
-			sourceTree = "<group>";
-		};
-		4CC202B91C6EB1FF0022A859 /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				4CC1DB171C7523F0004E3970 /* ChoosePersonViewController.h */,
-				4CC1DB181C7523F0004E3970 /* ChoosePersonViewController.m */,
-			);
-			name = Controllers;
-			path = ../../../../../../var/folders/d5/3mr60pl50198_0mwh65kg_b00000gn/T/CocoaPods/Try/MDCSwipeToChoose/Examples/LikedOrNope/LikedOrNope/Controllers;
 			sourceTree = "<group>";
 		};
 		4CC202BE1C6EB4E20022A859 /* APIClient */ = {
@@ -416,15 +413,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				4CC202C11C6EB54F0022A859 /* WJFInstagramAPIClient.m in Sources */,
-				4CC1DB101C7523D0004E3970 /* Person.m in Sources */,
 				4CC202841C6EAF4C0022A859 /* ViewController.m in Sources */,
+				4C2D2BCD1C75302D00F407AF /* Person.m in Sources */,
 				4CC1DB0D1C751A9B004E3970 /* WJFGiphyAPIClient.m in Sources */,
-				4CC1DB191C7523F0004E3970 /* ChoosePersonViewController.m in Sources */,
 				4CC202C41C6EB5B00022A859 /* WJFConstants.m in Sources */,
-				4CC1DB161C7523E2004E3970 /* ImageLabelView.m in Sources */,
+				4C2D2BD81C75304E00F407AF /* ImageLabelView.m in Sources */,
 				4CC202811C6EAF4C0022A859 /* AppDelegate.m in Sources */,
+				4C2D2BD11C75304600F407AF /* ChoosePersonViewController.m in Sources */,
 				4CC2027E1C6EAF4C0022A859 /* main.m in Sources */,
-				4CC1DB151C7523E2004E3970 /* ChoosePersonView.m in Sources */,
+				4C2D2BD71C75304E00F407AF /* ChoosePersonView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
