@@ -5,8 +5,9 @@
 
 target 'Liked' do
 
-pod "MDCSwipeToChoose"
-pod "AFNetworking"
+pod 'MDCSwipeToChoose'
+pod 'AFNetworking'
+pod 'Firebase'
 
 end
 
