@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "ChoosePersonViewController.h"
+#import "WJFGiphyAPIClient.h"
 
 @interface AppDelegate ()
 
@@ -24,7 +25,11 @@
     
     self.window.rootViewController = [ChoosePersonViewController new];
     
-    return YES;
+    //Test code here
+    [WJFGiphyAPIClient fetchTrendingGIFsWithLimit:10 completion:^(NSArray *responseArray) {
+        NSLog(@"Giphy response: %@",responseArray);
+    }];
+    
     return YES;
 }
 

@@ -7,7 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <AFNetworking/AFNetworking.h>
 
 @interface WJFGiphyAPIClient : NSObject
+
++ (void)fetchTrendingGIFsWithLimit:(NSUInteger)number completion:(void (^)(NSArray *responseArray))completionHandler;
 
 @end
