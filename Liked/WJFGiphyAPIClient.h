@@ -12,5 +12,6 @@
 @interface WJFGiphyAPIClient : NSObject
 
 + (void)fetchTrendingGIFsWithLimit:(NSUInteger)number completion:(void (^)(NSArray *responseArray))completionHandler;
++ (void)fetchRandomGIFsWithTag:(NSString *)tag completion:(void (^)(NSArray *responseArray))completionHandler;
 
 @end

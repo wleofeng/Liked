@@ -26,9 +26,13 @@
     self.window.rootViewController = [ChoosePersonViewController new];
     
     //Test code here
-    [WJFGiphyAPIClient fetchTrendingGIFsWithLimit:10 completion:^(NSArray *responseArray) {
-        NSLog(@"Giphy response: %@",responseArray);
+    [WJFGiphyAPIClient fetchTrendingGIFsWithLimit:0 completion:^(NSArray *responseArray) {
+        NSLog(@"trending GIF: %@",responseArray);
     }];
+    
+//    [WJFGiphyAPIClient fetchRandomGIFsWithTag:nil completion:^(NSArray *responseArray) {
+//        NSLog(@"random GIF:%@", responseArray);
+//    }];
     
     return YES;
 }

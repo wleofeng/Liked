@@ -8,6 +8,7 @@ target 'Liked' do
 pod 'MDCSwipeToChoose'
 pod 'AFNetworking'
 pod 'Firebase'
+pod 'Realm'
 
 end
 

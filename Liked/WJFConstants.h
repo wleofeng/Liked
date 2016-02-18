@@ -12,6 +12,7 @@
 
 extern NSString *const INSTAGRAM_CLIENT_ID;
 extern NSString *const INSTAGRAM_CLIENT_SECRET;
+
 extern NSString *const GIPHY_PUBLIC_BETA_KEY;
 
 @end
