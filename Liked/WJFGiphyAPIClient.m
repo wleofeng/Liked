@@ -9,13 +9,13 @@
 #import "WJFGiphyAPIClient.h"
 #import "WJFConstants.h"
 
-static NSString *const GIPHY_BASE_URL = @"https://api.giphy.com/v1";
+static NSString *const GIPHY_BASE_URL = @"https://api.giphy.com";
 
 @implementation WJFGiphyAPIClient
 
 + (void)fetchTrendingGIFsWithLimit:(NSUInteger)maxNumber completion:(void (^)(NSArray *responseArray))completionHandler
 {
-    NSString *url = [NSString stringWithFormat:@"%@/gifs/trending?api_key=%@", GIPHY_BASE_URL, GIPHY_PUBLIC_BETA_KEY];
+    NSString *url = [NSString stringWithFormat:@"%@/v1/gifs/trending?api_key=%@", GIPHY_BASE_URL, GIPHY_PUBLIC_BETA_KEY];
     
     NSDictionary *parameters;
     if (maxNumber) {
@@ -32,7 +32,7 @@ static NSString *const GIPHY_BASE_URL = @"https://api.giphy.com/v1";
 
 + (void)fetchRandomGIFsWithTag:(NSString * _Nullable)tag completion:(void (^)(NSArray *responseArray))completionHandler
 {
-    NSString *url = [NSString stringWithFormat:@"%@/gifs/random?api_key=%@", GIPHY_BASE_URL, GIPHY_PUBLIC_BETA_KEY];
+    NSString *url = [NSString stringWithFormat:@"%@/v1/gifs/random?api_key=%@", GIPHY_BASE_URL, GIPHY_PUBLIC_BETA_KEY];
     
     NSDictionary *parameters;
     if (tag) {
@@ -47,4 +47,18 @@ static NSString *const GIPHY_BASE_URL = @"https://api.giphy.com/v1";
     }];
 }
 
++ (void)fetchGIFsWithSearchTerm:(NSString *)searchTerm completion:(void (^)(NSArray *responseArray))completionHandler
+{
+    NSString *url = [NSString stringWithFormat:@"%@/v1/gifs/search?api_key=%@", GIPHY_BASE_URL, GIPHY_PUBLIC_BETA_KEY];
+    
+    NSDictionary *parameters;
+    parameters = @{@"q": searchTerm};
+    
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    [manager GET:url parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        completionHandler(responseObject[@"data"]);
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"Fail: %@",error.localizedDescription);
+    }];
+}
 @end

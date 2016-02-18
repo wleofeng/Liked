@@ -9,6 +9,8 @@ pod 'MDCSwipeToChoose'
 pod 'AFNetworking'
 pod 'Firebase'
 pod 'Realm'
+pod 'YYWebImage'
+pod 'Masonry'
 
 end
 

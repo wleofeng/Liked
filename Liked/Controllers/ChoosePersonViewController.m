@@ -69,7 +69,7 @@ static const CGFloat ChoosePersonButtonVerticalPadding = 20.f;
     [self constructLikedButton];
 }
 
-- (NSUInteger)supportedInterfaceOrientations {
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations {
     return UIInterfaceOrientationMaskPortrait;
 }
 

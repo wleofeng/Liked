@@ -9,6 +9,8 @@
 #import "AppDelegate.h"
 #import "ChoosePersonViewController.h"
 #import "WJFGiphyAPIClient.h"
+#import "WJFGif.h"
+#import <YYWebImage/YYWebImage.h>
 
 @interface AppDelegate ()
 
@@ -18,20 +20,28 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     
-    self.window.rootViewController = [ChoosePersonViewController new];
+    self.window.rootViewController = [[ChoosePersonViewController alloc]init];
     
     //Test code here
-    [WJFGiphyAPIClient fetchTrendingGIFsWithLimit:0 completion:^(NSArray *responseArray) {
-        NSLog(@"trending GIF: %@",responseArray);
-    }];
+//    [WJFGiphyAPIClient fetchTrendingGIFsWithLimit:0 completion:^(NSArray *responseArray) {
+//        NSLog(@"trending GIF: %@",responseArray);
+//    }];
     
 //    [WJFGiphyAPIClient fetchRandomGIFsWithTag:nil completion:^(NSArray *responseArray) {
 //        NSLog(@"random GIF:%@", responseArray);
+//    }];
+    
+//    [WJFGiphyAPIClient fetchGIFsWithSearchTerm:@"funny cat" completion:^(NSArray *responseArray) {
+//        WJFGif *gif = [[WJFGif alloc]initWithFileName:responseArray[0][@"id"] url:responseArray[0][@"images"][@"original"][@"url"] likeCount:0];
+//        
+//        UIImageView *imageView = [YYAnimatedImageView new];
+//        imageView.yy_imageURL = [NSURL URLWithString:gif.url];
+//        
+//        NSLog(@"Search Result: %@", responseArray);
 //    }];
     
     return YES;
