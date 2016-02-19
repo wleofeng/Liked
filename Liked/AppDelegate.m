@@ -11,6 +11,7 @@
 #import "WJFGiphyAPIClient.h"
 #import "WJFGif.h"
 #import <YYWebImage/YYWebImage.h>
+#import "WJFChooseGifViewController.h"
 
 @interface AppDelegate ()
 
@@ -20,11 +21,11 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    self.window.backgroundColor = [UIColor whiteColor];
-    [self.window makeKeyAndVisible];
-    
-    self.window.rootViewController = [[ChoosePersonViewController alloc]init];
+//    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+//    self.window.backgroundColor = [UIColor whiteColor];
+//    [self.window makeKeyAndVisible];
+//    
+//    self.window.rootViewController = [[ChoosePersonViewController alloc]init];
     
     //Test code here
 //    [WJFGiphyAPIClient fetchTrendingGIFsWithLimit:0 completion:^(NSArray *responseArray) {
@@ -43,6 +44,14 @@
 //        
 //        NSLog(@"Search Result: %@", responseArray);
 //    }];
+    
+    //New view controller
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    self.window.backgroundColor = [UIColor whiteColor];
+    [self.window makeKeyAndVisible];
+    
+    self.window.rootViewController = [[WJFChooseGifViewController alloc]init];
+    
     
     return YES;
 }

@@ -22,7 +22,7 @@
 // THE SOFTWARE.
 //
 
-#import "ChoosePersonView.h"
+#import "WJFChooseGifView.h"
 #import "ImageLabelView.h"
 #import "Person.h"
 #import "WJFGiphyAPIClient.h"
@@ -32,30 +32,34 @@
 
 static const CGFloat ChoosePersonViewImageLabelWidth = 42.f;
 
-@interface ChoosePersonView ()
+@interface WJFChooseGifView ()
 @property (nonatomic, strong) UIView *informationView;
 @property (nonatomic, strong) UILabel *nameLabel;
 @property (nonatomic, strong) ImageLabelView *cameraImageLabelView;
 @property (nonatomic, strong) ImageLabelView *interestsImageLabelView;
 @property (nonatomic, strong) ImageLabelView *friendsImageLabelView;
+@property (nonatomic, strong) YYAnimatedImageView *animatedImageView;
+
 @end
 
-@implementation ChoosePersonView
+@implementation WJFChooseGifView
 
 #pragma mark - Object Lifecycle
 
 - (instancetype)initWithFrame:(CGRect)frame
-                       person:(Person *)person
+                       gif:(WJFGif *)gif
                       options:(MDCSwipeToChooseViewOptions *)options {
     self = [super initWithFrame:frame options:options];
     if (self) {
-        _person = person;
-        self.imageView.image = _person.image;
+        _gif = gif;
+//        self.imageView.image = gif.image;
+        self.animatedImageView = [[YYAnimatedImageView alloc]init];
+        self.animatedImageView.yy_imageURL = [NSURL URLWithString:gif.url];
 
         self.autoresizingMask = UIViewAutoresizingFlexibleHeight |
                                 UIViewAutoresizingFlexibleWidth |
                                 UIViewAutoresizingFlexibleBottomMargin;
-        self.imageView.autoresizingMask = self.autoresizingMask;
+        self.animatedImageView.autoresizingMask = self.autoresizingMask;
 
         [self constructInformationView];
     }
@@ -78,9 +82,9 @@ static const CGFloat ChoosePersonViewImageLabelWidth = 42.f;
     [self addSubview:_informationView];
 
     [self constructNameLabel];
-    [self constructCameraImageLabelView];
-    [self constructInterestsImageLabelView];
-    [self constructFriendsImageLabelView];
+//    [self constructCameraImageLabelView];
+//    [self constructInterestsImageLabelView];
+//    [self constructFriendsImageLabelView];
 }
 
 - (void)constructNameLabel {
@@ -91,34 +95,34 @@ static const CGFloat ChoosePersonViewImageLabelWidth = 42.f;
                               floorf(CGRectGetWidth(_informationView.frame)/2),
                               CGRectGetHeight(_informationView.frame) - topPadding);
     _nameLabel = [[UILabel alloc] initWithFrame:frame];
-    _nameLabel.text = [NSString stringWithFormat:@"%@, %@", _person.name, @(_person.age)];
+//    _nameLabel.text = [NSString stringWithFormat:@"%@, %@", _person.name, @(_person.age)];
     [_informationView addSubview:_nameLabel];
 }
 
-- (void)constructCameraImageLabelView {
-    CGFloat rightPadding = 10.f;
-    UIImage *image = [UIImage imageNamed:@"camera"];
-    _cameraImageLabelView = [self buildImageLabelViewLeftOf:CGRectGetWidth(_informationView.bounds) - rightPadding
-                                                      image:image
-                                                       text:[@(_person.numberOfPhotos) stringValue]];
-    [_informationView addSubview:_cameraImageLabelView];
-}
-
-- (void)constructInterestsImageLabelView {
-    UIImage *image = [UIImage imageNamed:@"book"];
-    _interestsImageLabelView = [self buildImageLabelViewLeftOf:CGRectGetMinX(_cameraImageLabelView.frame)
-                                                         image:image
-                                                          text:[@(_person.numberOfPhotos) stringValue]];
-    [_informationView addSubview:_interestsImageLabelView];
-}
-
-- (void)constructFriendsImageLabelView {
-    UIImage *image = [UIImage imageNamed:@"group"];
-    _friendsImageLabelView = [self buildImageLabelViewLeftOf:CGRectGetMinX(_interestsImageLabelView.frame)
-                                                      image:image
-                                                       text:[@(_person.numberOfSharedFriends) stringValue]];
-    [_informationView addSubview:_friendsImageLabelView];
-}
+//- (void)constructCameraImageLabelView {
+//    CGFloat rightPadding = 10.f;
+//    UIImage *image = [UIImage imageNamed:@"camera"];
+//    _cameraImageLabelView = [self buildImageLabelViewLeftOf:CGRectGetWidth(_informationView.bounds) - rightPadding
+//                                                      image:image
+//                                                       text:[@(_person.numberOfPhotos) stringValue]];
+//    [_informationView addSubview:_cameraImageLabelView];
+//}
+//
+//- (void)constructInterestsImageLabelView {
+//    UIImage *image = [UIImage imageNamed:@"book"];
+//    _interestsImageLabelView = [self buildImageLabelViewLeftOf:CGRectGetMinX(_cameraImageLabelView.frame)
+//                                                         image:image
+//                                                          text:[@(_person.numberOfPhotos) stringValue]];
+//    [_informationView addSubview:_interestsImageLabelView];
+//}
+//
+//- (void)constructFriendsImageLabelView {
+//    UIImage *image = [UIImage imageNamed:@"group"];
+//    _friendsImageLabelView = [self buildImageLabelViewLeftOf:CGRectGetMinX(_interestsImageLabelView.frame)
+//                                                      image:image
+//                                                       text:[@(_person.numberOfSharedFriends) stringValue]];
+//    [_informationView addSubview:_friendsImageLabelView];
+//}
 
 - (ImageLabelView *)buildImageLabelViewLeftOf:(CGFloat)x image:(UIImage *)image text:(NSString *)text {
     CGRect frame = CGRectMake(x - ChoosePersonViewImageLabelWidth,

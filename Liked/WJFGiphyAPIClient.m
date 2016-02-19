@@ -13,8 +13,7 @@ static NSString *const GIPHY_BASE_URL = @"https://api.giphy.com";
 
 @implementation WJFGiphyAPIClient
 
-+ (void)fetchTrendingGIFsWithLimit:(NSUInteger)maxNumber completion:(void (^)(NSArray *responseArray))completionHandler
-{
++ (void)fetchTrendingGIFsWithLimit:(NSUInteger)maxNumber completion:(void (^)(NSArray *responseArray))completionHandler {
     NSString *url = [NSString stringWithFormat:@"%@/v1/gifs/trending?api_key=%@", GIPHY_BASE_URL, GIPHY_PUBLIC_BETA_KEY];
     
     NSDictionary *parameters;
@@ -30,8 +29,7 @@ static NSString *const GIPHY_BASE_URL = @"https://api.giphy.com";
     }];
 }
 
-+ (void)fetchRandomGIFsWithTag:(NSString * _Nullable)tag completion:(void (^)(NSArray *responseArray))completionHandler
-{
++ (void)fetchRandomGIFsWithTag:(NSString * _Nullable)tag completion:(void (^)(NSArray *responseArray))completionHandler {
     NSString *url = [NSString stringWithFormat:@"%@/v1/gifs/random?api_key=%@", GIPHY_BASE_URL, GIPHY_PUBLIC_BETA_KEY];
     
     NSDictionary *parameters;
@@ -47,8 +45,7 @@ static NSString *const GIPHY_BASE_URL = @"https://api.giphy.com";
     }];
 }
 
-+ (void)fetchGIFsWithSearchTerm:(NSString *)searchTerm completion:(void (^)(NSArray *responseArray))completionHandler
-{
++ (void)fetchGIFsWithSearchTerm:(NSString *)searchTerm completion:(void (^)(NSArray *responseArray))completionHandler {
     NSString *url = [NSString stringWithFormat:@"%@/v1/gifs/search?api_key=%@", GIPHY_BASE_URL, GIPHY_PUBLIC_BETA_KEY];
     
     NSDictionary *parameters;
@@ -61,4 +58,5 @@ static NSString *const GIPHY_BASE_URL = @"https://api.giphy.com";
         NSLog(@"Fail: %@",error.localizedDescription);
     }];
 }
+
 @end

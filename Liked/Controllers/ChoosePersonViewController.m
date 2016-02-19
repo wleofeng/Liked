@@ -25,12 +25,18 @@
 #import "ChoosePersonViewController.h"
 #import "Person.h"
 #import <MDCSwipeToChoose/MDCSwipeToChoose.h>
+#import "WJFGiphyAPIClient.h"
+#import "WJFGif.h"
+#import <YYWebImage/YYWebImage.h>
+#import <Masonry/Masonry.h>
 
 static const CGFloat ChoosePersonButtonHorizontalPadding = 80.f;
 static const CGFloat ChoosePersonButtonVerticalPadding = 20.f;
 
 @interface ChoosePersonViewController ()
 @property (nonatomic, strong) NSMutableArray *people;
+@property (nonatomic, strong) NSMutableArray *gif;
+
 @end
 
 @implementation ChoosePersonViewController
@@ -43,6 +49,7 @@ static const CGFloat ChoosePersonButtonVerticalPadding = 20.f;
         // This view controller maintains a list of ChoosePersonView
         // instances to display.
         _people = [[self defaultPeople] mutableCopy];
+//        _gif = [[self defaultGif]mutableCopy];
     }
     return self;
 }
@@ -147,6 +154,20 @@ static const CGFloat ChoosePersonButtonVerticalPadding = 20.f;
              numberOfSharedInterests:1
                       numberOfPhotos:2],
     ];
+}
+
+- (void)defaultGif {
+    //This shoudl put the app into loading mode... getting more GIF from API
+    [WJFGiphyAPIClient fetchGIFsWithSearchTerm:@"funny cat" completion:^(NSArray *responseArray) {
+//        NSDictionary *gifDict = responseArray[8];
+        
+//        WJFGif *gif = [[WJFGif alloc]initWithFileName:gifDict[@"id"] url:gifDict[@"images"][@"original"][@"url"] likeCount:0];
+//        self.imageView.yy_imageURL = [NSURL URLWithString:gif.url];
+//        NSLog(@"Search Result: %@", responseArray);
+        
+//        NSArray *gifArray = [responseArray copy];
+        self.gif = [responseArray mutableCopy]; //At completion, this should kick off view reload
+    }];
 }
 
 - (ChoosePersonView *)popPersonViewWithFrame:(CGRect)frame {
