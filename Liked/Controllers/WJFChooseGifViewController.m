@@ -9,6 +9,7 @@
 #import "WJFChooseGifViewController.h"
 #import "WJFGiphyAPIClient.h"
 #import "WJFGif.h"
+#import <MBProgressHUD/MBProgressHUD.h>
 #import <YYWebImage/YYWebImage.h>
 #import <Masonry/Masonry.h>
 
@@ -17,6 +18,8 @@
 
 @property (nonatomic, strong) NSMutableArray *gifArray;
 @property (nonatomic, strong) MDCSwipeToChooseView *swipeView;
+@property (nonatomic, strong) NSOperationQueue *bgQueue;
+@property (nonatomic, strong) MBProgressHUD *hud;
 
 @end
 
@@ -25,8 +28,28 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.bgQueue = [[NSOperationQueue alloc]init];
+    
+    self.hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+//    self.hud.mode = MBProgressHUDModeIndeterminate;
+    self.hud.mode = MBProgressHUDAnimationFade;
+    self.hud.labelText = @"Loading";
+    self.hud.labelFont = [UIFont fontWithName:@"Moon-Bold" size:14.0f];
+    self.hud.hidden = YES;
+    
+    [self createSwipeView];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    [self fetchGifWithSearchTermFromAPI];
+}
+
+- (void)createSwipeView {
     // You can customize MDCSwipeToChooseView using MDCSwipeToChooseViewOptions.
     MDCSwipeToChooseViewOptions *options = [MDCSwipeToChooseViewOptions new];
+    options.delegate = self;
     options.likedText = @"Keep";
     options.likedColor = [UIColor blueColor];
     options.nopeText = @"Delete";
@@ -37,41 +60,49 @@
     };
     
     self.swipeView = [[MDCSwipeToChooseView alloc] initWithFrame:self.view.bounds
-                                                                     options:options];
-//    self.swipeView.contentMode = UIViewContentModeScaleAspectFit;
+                                                         options:options];
     
     [self.view addSubview:self.swipeView];
-
-//    [self.swipeView mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.edges.equalTo(self.view);
-//    }];
 }
 
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-    
+- (void)fetchGifWithSearchTermFromAPI {
     [WJFGiphyAPIClient fetchGIFsWithSearchTerm:@"funny cat" completion:^(NSArray *responseArray) {
-        NSDictionary *gifDict = responseArray[19];
-        WJFGif *gif = [[WJFGif alloc]initWithFileName:gifDict[@"id"] url:gifDict[@"images"][@"original"][@"url"] likeCount:0];
-        self.swipeView.imageView.yy_imageURL = [NSURL URLWithString:gif.url];
+        self.gifArray = [responseArray mutableCopy];
+        
+        [self addSwipeViewImage];
     }];
 }
 
+- (void)fetchTrendingGifFromAPI {
+    [WJFGiphyAPIClient fetchTrendingGIFsWithLimit:30 completion:^(NSArray *responseArray) {
+        self.gifArray = [responseArray mutableCopy];
+        
+        [self addSwipeViewImage];
+    }];
+}
 
-//- (void)defaultGif {
-//    //This shoudl put the app into loading mode... getting more GIF from API
-//    [WJFGiphyAPIClient fetchGIFsWithSearchTerm:@"funny cat" completion:^(NSArray *responseArray) {
-////        self.gifArray = [responseArray mutableCopy];
-//                NSDictionary *gifDict = responseArray[8];
-//        
-//                WJFGif *gif = [[WJFGif alloc]initWithFileName:gifDict[@"id"] url:gifDict[@"images"][@"original"][@"url"] likeCount:0];
-//                self.imageView.yy_imageURL = [NSURL URLWithString:gif.url];
-//        //        NSLog(@"Search Result: %@", responseArray);
-//        
-//        //        NSArray *gifArray = [responseArray copy];
-//
-//    }];
-//}
+- (void)addSwipeViewImage {
+    [self.hud setHidden:NO];
+    
+    [self.bgQueue cancelAllOperations];
+    
+    [self.bgQueue addOperationWithBlock:^{
+        if (self.gifArray.count) {
+            NSDictionary *gifDict = [self.gifArray firstObject];
+            
+            WJFGif *gif = [[WJFGif alloc]initWithFileName:gifDict[@"id"] url:gifDict[@"images"][@"downsized"][@"url"] likeCount:0 size:[gifDict[@"images"][@"downsized"][@"size"] floatValue]];
+        
+            [self.gifArray removeObjectAtIndex:0];
+            
+            [[NSOperationQueue mainQueue]addOperationWithBlock:^{
+                [self.swipeView.imageView yy_setImageWithURL:[NSURL URLWithString:gif.url] options:YYWebImageOptionProgressive];
+                NSLog(@"new picture added!! URL: %@", gif.url);
+                
+                [self.hud setHidden:YES];
+            }];
+        }
+    }];
+}
 
 #pragma mark - MDCSwipeToChooseDelegate Callbacks
 
@@ -101,6 +132,10 @@
     } else {
         NSLog(@"Photo saved!");
     }
+    
+    [self.swipeView removeFromSuperview];
+    [self createSwipeView];
+    [self addSwipeViewImage];
 }
 
 @end

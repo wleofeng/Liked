@@ -11,19 +11,21 @@
 @implementation WJFGif
 
 - (instancetype)init {
-    self = [self initWithFileName:@"" url:@"" likeCount:0];
+    self = [self initWithFileName:@"" url:@"" likeCount:0 size:0];
     return self;
 }
 
 - (instancetype)initWithFileName:(NSString *)id
                              url:(NSString *)url
-                       likeCount:(NSUInteger)likeCount {
+                       likeCount:(NSUInteger)likeCount
+                            size:(CGFloat)size {
     self = [super init];
     if (self) {
         _id = id;
         _url = url;
         _likeCount = likeCount;
         _image = [self getImageByUrl:url];
+        _size = size;
     }
     return self;
 }

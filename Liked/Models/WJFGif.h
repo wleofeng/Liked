@@ -15,11 +15,13 @@
 @property (nonatomic, copy) NSString *url;
 @property (nonatomic, assign) NSUInteger likeCount;
 @property (nonatomic, strong) UIImage *image;
+@property (nonatomic, assign) CGFloat size;
 
 - (instancetype)init;
 - (instancetype)initWithFileName:(NSString *)id
                              url:(NSString *)url
-                       likeCount:(NSUInteger)likeCount;
+                       likeCount:(NSUInteger)likeCount
+                            size:(CGFloat)size;
 
 
 @end

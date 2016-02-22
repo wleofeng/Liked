@@ -42,8 +42,8 @@
     [WJFGiphyAPIClient fetchGIFsWithSearchTerm:@"funny cat" completion:^(NSArray *responseArray) {
         NSDictionary *gifDict = responseArray[8];
         
-        WJFGif *gif = [[WJFGif alloc]initWithFileName:gifDict[@"id"] url:gifDict[@"images"][@"original"][@"url"] likeCount:0];
-        self.imageView.yy_imageURL = [NSURL URLWithString:gif.url];
+//        WJFGif *gif = [[WJFGif alloc]initWithFileName:gifDict[@"id"] url:gifDict[@"images"][@"original"][@"url"] likeCount:0];
+//        self.imageView.yy_imageURL = [NSURL URLWithString:gif.url];
 //        NSLog(@"Search Result: %@", responseArray);
     }];
 }
