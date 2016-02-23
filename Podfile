@@ -13,6 +13,8 @@ pod 'YYWebImage'
 pod 'Masonry'
 pod 'Button'
 pod 'MBProgressHUD'
+pod 'MMDrawerController'
+pod 'FontAwesomeKit'
 
 end
 

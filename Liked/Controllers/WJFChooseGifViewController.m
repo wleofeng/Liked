@@ -17,8 +17,8 @@
 @interface WJFChooseGifViewController ()
 
 @property (nonatomic, strong) NSMutableArray *gifArray;
-@property (nonatomic, strong) MDCSwipeToChooseView *swipeView;
 @property (nonatomic, strong) NSOperationQueue *bgQueue;
+@property (nonatomic, strong) MDCSwipeToChooseView *swipeView;
 @property (nonatomic, strong) MBProgressHUD *hud;
 
 @end
@@ -43,16 +43,18 @@
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
-    [self fetchGifWithSearchTermFromAPI];
+//    [self fetchGifWithSearchTermFromAPI];
+    [self fetchTrendingGifFromAPI];
 }
 
 - (void)createSwipeView {
     // You can customize MDCSwipeToChooseView using MDCSwipeToChooseViewOptions.
     MDCSwipeToChooseViewOptions *options = [MDCSwipeToChooseViewOptions new];
     options.delegate = self;
-    options.likedText = @"Keep";
-    options.likedColor = [UIColor blueColor];
-    options.nopeText = @"Delete";
+    options.likedText = @"LIKE";
+    options.likedColor = [UIColor whiteColor];
+    options.nopeText = @"NOPE";
+    options.nopeColor = [UIColor redColor];
     options.onPan = ^(MDCPanState *state){
         if (state.thresholdRatio == 1.f && state.direction == MDCSwipeDirectionLeft) {
             NSLog(@"Let go now to delete the photo!");
@@ -74,7 +76,7 @@
 }
 
 - (void)fetchTrendingGifFromAPI {
-    [WJFGiphyAPIClient fetchTrendingGIFsWithLimit:30 completion:^(NSArray *responseArray) {
+    [WJFGiphyAPIClient fetchTrendingGIFsWithLimit:100 completion:^(NSArray *responseArray) {
         self.gifArray = [responseArray mutableCopy];
         
         [self addSwipeViewImage];
@@ -83,6 +85,7 @@
 
 - (void)addSwipeViewImage {
     [self.hud setHidden:NO];
+    [self.swipeView setHidden:YES]; //Hide swipeView to avoid user interaction
     
     [self.bgQueue cancelAllOperations];
     
@@ -99,6 +102,7 @@
                 NSLog(@"new picture added!! URL: %@", gif.url);
                 
                 [self.hud setHidden:YES];
+                [self.swipeView setHidden:NO];
             }];
         }
     }];
@@ -113,16 +117,17 @@
 
 // Sent before a choice is made. Cancel the choice by returning `NO`. Otherwise return `YES`.
 - (BOOL)view:(UIView *)view shouldBeChosenWithDirection:(MDCSwipeDirection)direction {
-    if (direction == MDCSwipeDirectionLeft) {
-        return YES;
-    } else {
-        // Snap the view back and cancel the choice.
-        [UIView animateWithDuration:0.16 animations:^{
-            view.transform = CGAffineTransformIdentity;
-            view.center = [view superview].center;
-        }];
-        return NO;
-    }
+//    if (direction == MDCSwipeDirectionLeft) {
+//        return YES;
+//    } else {
+//        // Snap the view back and cancel the choice.
+//        [UIView animateWithDuration:0.16 animations:^{
+//            view.transform = CGAffineTransformIdentity;
+//            view.center = [view superview].center;
+//        }];
+//        return NO;
+//    }
+    return YES;
 }
 
 // This is called then a user swipes the view fully left or right.
