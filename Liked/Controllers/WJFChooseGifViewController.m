@@ -13,6 +13,11 @@
 #import <YYWebImage/YYWebImage.h>
 #import <Masonry/Masonry.h>
 
+//Drawer
+#import "MMLogoView.h"
+#import "MMDrawerBarButtonItem.h"
+#import "UIViewController+MMDrawerController.h"
+
 
 @interface WJFChooseGifViewController ()
 
@@ -37,7 +42,10 @@
     self.hud.labelFont = [UIFont fontWithName:@"Moon-Bold" size:14.0f];
     self.hud.hidden = YES;
     
-    [self createSwipeView];
+    [self setupSwipeView];
+    
+    [self setupLeftMenuButton];
+    [self setupRightMenuButton];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -47,7 +55,7 @@
     [self fetchTrendingGifFromAPI];
 }
 
-- (void)createSwipeView {
+- (void)setupSwipeView {
     // You can customize MDCSwipeToChooseView using MDCSwipeToChooseViewOptions.
     MDCSwipeToChooseViewOptions *options = [MDCSwipeToChooseViewOptions new];
     options.delegate = self;
@@ -139,8 +147,31 @@
     }
     
     [self.swipeView removeFromSuperview];
-    [self createSwipeView];
+    [self setupSwipeView];
     [self addSwipeViewImage];
+}
+
+#pragma View Methods
+-(void)setupLeftMenuButton
+{
+    MMDrawerBarButtonItem * leftDrawerButton = [[MMDrawerBarButtonItem alloc] initWithTarget:self action:@selector(leftDrawerButtonPress:)];
+    [self.navigationItem setLeftBarButtonItem:leftDrawerButton animated:YES];
+}
+
+-(void)setupRightMenuButton{
+    MMDrawerBarButtonItem * rightDrawerButton = [[MMDrawerBarButtonItem alloc] initWithTarget:self action:@selector(rightDrawerButtonPress:)];
+    [self.navigationItem setRightBarButtonItem:rightDrawerButton animated:YES];
+}
+
+#pragma mark - Button Handlers
+-(void)leftDrawerButtonPress:(id)sender
+{
+    [self.mm_drawerController toggleDrawerSide:MMDrawerSideLeft animated:YES completion:nil];
+}
+
+-(void)rightDrawerButtonPress:(id)sender
+{
+    [self.mm_drawerController toggleDrawerSide:MMDrawerSideRight animated:YES completion:nil];
 }
 
 @end
