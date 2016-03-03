@@ -19,22 +19,8 @@
 // THE SOFTWARE.
 
 
-#import <UIKit/UIKit.h>
-#import "UIViewController+MMDrawerController.h"
-#import "MMExampleViewController.h"
+#import "WJFSideDrawerViewController.h"
 
-typedef NS_ENUM(NSInteger, MMDrawerSection){
-    MMDrawerSectionViewSelection,
-    MMDrawerSectionDrawerWidth,
-    MMDrawerSectionShadowToggle,
-    MMDrawerSectionOpenDrawerGestures,
-    MMDrawerSectionCloseDrawerGestures,
-    MMDrawerSectionCenterHiddenInteraction,
-    MMDrawerSectionStretchDrawer,
-};
-
-@interface MMExampleSideDrawerViewController : MMExampleViewController <UITableViewDataSource,UITableViewDelegate>
-@property (nonatomic, strong) UITableView * tableView;
-@property (nonatomic,strong) NSArray * drawerWidths;
+@interface WJFLeftSideDrawerViewController : WJFSideDrawerViewController
 
 @end

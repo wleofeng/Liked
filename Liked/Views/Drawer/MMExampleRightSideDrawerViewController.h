@@ -18,8 +18,8 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-#import "MMExampleSideDrawerViewController.h"
+#import "WJFSideDrawerViewController.h"
 
-@interface MMExampleRightSideDrawerViewController : MMExampleSideDrawerViewController
+@interface MMExampleRightSideDrawerViewController : WJFSideDrawerViewController
 
 @end

@@ -18,9 +18,10 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
+#import <UIKit/UIKit.h>
 
-#import "MMExampleSideDrawerViewController.h"
+@interface WJFViewController : UIViewController
 
-@interface MMExampleLeftSideDrawerViewController : MMExampleSideDrawerViewController
+-(void)contentSizeDidChange:(NSString*)size;
 
 @end

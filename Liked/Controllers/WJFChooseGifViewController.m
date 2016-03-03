@@ -45,7 +45,7 @@
     [self setupSwipeView];
     
     [self setupLeftMenuButton];
-    [self setupRightMenuButton];
+//    [self setupRightMenuButton]; Not implementing the right menu button for now
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -73,6 +73,8 @@
                                                          options:options];
     
     [self.view addSubview:self.swipeView];
+    
+    [self setContentViewLayoutConstraintForView:self.swipeView]; //Set auto layout constraints
 }
 
 - (void)fetchGifWithSearchTermFromAPI {

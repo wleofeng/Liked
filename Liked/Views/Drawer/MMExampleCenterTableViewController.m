@@ -25,7 +25,7 @@
 #import "MMDrawerBarButtonItem.h"
 #import "MMLogoView.h"
 #import "MMCenterTableViewCell.h"
-#import "MMExampleLeftSideDrawerViewController.h"
+#import "WJFLeftSideDrawerViewController.h"
 #import "MMExampleRightSideDrawerViewController.h"
 #import "MMNavigationController.h"
 
@@ -311,7 +311,7 @@ typedef NS_ENUM(NSInteger, MMCenterViewControllerSection){
             }
             else {
                 if(drawerSide == MMDrawerSideLeft){
-                    UIViewController * vc = [[MMExampleLeftSideDrawerViewController alloc] init];
+                    UIViewController * vc = [[WJFLeftSideDrawerViewController alloc] init];
                     UINavigationController * navC = [[MMNavigationController alloc] initWithRootViewController:vc];
                     [self.mm_drawerController setLeftDrawerViewController:navC];
                     [self setupLeftMenuButton];

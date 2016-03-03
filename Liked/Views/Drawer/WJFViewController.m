@@ -18,13 +18,13 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-#import "MMExampleViewController.h"
+#import "WJFViewController.h"
 
-@interface MMExampleViewController ()
+@interface WJFViewController ()
 
 @end
 
-@implementation MMExampleViewController
+@implementation WJFViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

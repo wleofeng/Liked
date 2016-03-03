@@ -18,10 +18,19 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
+
 #import <UIKit/UIKit.h>
+#import "UIViewController+MMDrawerController.h"
+#import "WJFViewController.h"
 
-@interface MMExampleViewController : UIViewController
+typedef NS_ENUM(NSInteger, MMDrawerSection){
+    WJFDrawerSectionGif,
+    WJFDrawerSectionFavorite,
+};
 
--(void)contentSizeDidChange:(NSString*)size;
+@interface WJFSideDrawerViewController : WJFViewController <UITableViewDataSource,UITableViewDelegate>
+
+@property (nonatomic, strong) UITableView * tableView;
+@property (nonatomic,strong) NSArray * drawerWidths;
 
 @end

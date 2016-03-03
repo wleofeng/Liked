@@ -17,11 +17,12 @@
 #import <MMDrawerController/MMDrawerController.h>
 #import "MMDrawerController.h"
 #import "MMExampleCenterTableViewController.h"
-#import "MMExampleLeftSideDrawerViewController.h"
+#import "WJFLeftSideDrawerViewController.h"
 #import "MMExampleRightSideDrawerViewController.h"
 #import "MMDrawerVisualState.h"
 #import "MMExampleDrawerVisualStateManager.h"
 #import "MMNavigationController.h"
+#import "WJFSideDrawerViewController.h"
 
 @interface WJFAppDelegate ()
 
@@ -51,25 +52,26 @@
 //    self.window.rootViewController = drawerController;
 
     //Integration with drawer
-    UIViewController * leftSideDrawerViewController = [[MMExampleLeftSideDrawerViewController alloc] init];
-    
+    UIViewController * leftSideDrawerViewController = [[WJFSideDrawerViewController alloc] init];
     UIViewController * centerViewController = [[WJFChooseGifViewController alloc]init];
     
-    UIViewController * rightSideDrawerViewController = [[MMExampleRightSideDrawerViewController alloc] init];
+//    UIViewController * rightSideDrawerViewController = [[MMExampleRightSideDrawerViewController alloc] init];
     
     UINavigationController * navigationController = [[MMNavigationController alloc] initWithRootViewController:centerViewController];
     [navigationController setRestorationIdentifier:@"MMExampleCenterNavigationControllerRestorationKey"];
-    UINavigationController * rightSideNavController = [[MMNavigationController alloc] initWithRootViewController:rightSideDrawerViewController];
-    [rightSideNavController setRestorationIdentifier:@"MMExampleRightNavigationControllerRestorationKey"];
+//    UINavigationController * rightSideNavController = [[MMNavigationController alloc] initWithRootViewController:rightSideDrawerViewController];
+//    [rightSideNavController setRestorationIdentifier:@"MMExampleRightNavigationControllerRestorationKey"];
     UINavigationController * leftSideNavController = [[MMNavigationController alloc] initWithRootViewController:leftSideDrawerViewController];
     [leftSideNavController setRestorationIdentifier:@"MMExampleLeftNavigationControllerRestorationKey"];
-    self.drawerController = [[MMDrawerController alloc]
-                             initWithCenterViewController:navigationController
-                             leftDrawerViewController:leftSideNavController
-                             rightDrawerViewController:rightSideNavController];
+//    self.drawerController = [[MMDrawerController alloc]
+//                             initWithCenterViewController:navigationController
+//                             leftDrawerViewController:leftSideNavController
+//                             rightDrawerViewController:rightSideNavController];
+    self.drawerController = [[MMDrawerController alloc] initWithCenterViewController:navigationController leftDrawerViewController:leftSideDrawerViewController];
+    
     [self.drawerController setShowsShadow:NO];
     [self.drawerController setRestorationIdentifier:@"MMDrawer"];
-    [self.drawerController setMaximumRightDrawerWidth:200.0];
+//    [self.drawerController setMaximumRightDrawerWidth:200.0];
     [self.drawerController setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeAll];
     [self.drawerController setCloseDrawerGestureModeMask:MMCloseDrawerGestureModeAll];
     

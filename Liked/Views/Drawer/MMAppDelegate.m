@@ -22,7 +22,7 @@
 #import "MMAppDelegate.h"
 #import "MMDrawerController.h"
 #import "MMExampleCenterTableViewController.h"
-#import "MMExampleLeftSideDrawerViewController.h"
+#import "WJFLeftSideDrawerViewController.h"
 #import "MMExampleRightSideDrawerViewController.h"
 #import "MMDrawerVisualState.h"
 #import "MMExampleDrawerVisualStateManager.h"
@@ -38,7 +38,7 @@
 @implementation MMAppDelegate
 -(BOOL)application:(UIApplication *)application willFinishLaunchingWithOptions:(NSDictionary *)launchOptions{
     
-    UIViewController * leftSideDrawerViewController = [[MMExampleLeftSideDrawerViewController alloc] init];
+    UIViewController * leftSideDrawerViewController = [[WJFLeftSideDrawerViewController alloc] init];
 
     UIViewController * centerViewController = [[MMExampleCenterTableViewController alloc] init];
     

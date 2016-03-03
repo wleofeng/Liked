@@ -10,11 +10,20 @@
 
 #import <UIKit/UIKit.h>
 #import "WJFChooseGifView.h"
+#import "WJFCenterViewController.h"
+//#import "WJFGif.h"
+//#import <MDCSwipeToChoose/MDCSwipeToChoose.h>
 
-@interface WJFChooseGifViewController : UIViewController <MDCSwipeToChooseDelegate>
+typedef NS_ENUM(NSInteger, WJFGifCategory) {
+    WJFTrendingGif,
+    WJFRandomGif,
+    WJFSearchGif
+};
+
+@interface WJFChooseGifViewController : WJFCenterViewController <MDCSwipeToChooseDelegate>
 
 @property (nonatomic, strong) WJFGif *currentGif;
-@property (nonatomic, strong) WJFChooseGifView *frontCardView;
-@property (nonatomic, strong) WJFChooseGifView *backCardView;
+//@property (nonatomic, strong) WJFChooseGifView *frontCardView;
+//@property (nonatomic, strong) WJFChooseGifView *backCardView;
 
 @end

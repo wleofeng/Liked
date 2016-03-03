@@ -15,6 +15,8 @@ pod 'Button'
 pod 'MBProgressHUD'
 pod 'MMDrawerController'
 pod 'FontAwesomeKit'
+pod 'ChameleonFramework'
+pod ‘Flurry-iOS-SDK/FlurrySDK’
 
 end
 

@@ -20,9 +20,9 @@
 
 
 #import <UIKit/UIKit.h>
-#import "MMExampleViewController.h"
+#import "WJFViewController.h"
 
-@interface MMExampleCenterTableViewController : MMExampleViewController <UITableViewDataSource,UITableViewDelegate>
+@interface MMExampleCenterTableViewController : WJFViewController <UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic,strong) UITableView * tableView;
 
 @end
