@@ -23,21 +23,14 @@
 //
 
 #import "WJFChooseGifView.h"
-#import "ImageLabelView.h"
-#import "Person.h"
 #import "WJFGiphyAPIClient.h"
 #import "WJFGif.h"
 #import <YYWebImage/YYWebImage.h>
 #import <Masonry/Masonry.h>
 
-static const CGFloat ChoosePersonViewImageLabelWidth = 42.f;
-
 @interface WJFChooseGifView ()
 @property (nonatomic, strong) UIView *informationView;
 @property (nonatomic, strong) UILabel *nameLabel;
-@property (nonatomic, strong) ImageLabelView *cameraImageLabelView;
-@property (nonatomic, strong) ImageLabelView *interestsImageLabelView;
-@property (nonatomic, strong) ImageLabelView *friendsImageLabelView;
 @property (nonatomic, strong) YYAnimatedImageView *animatedImageView;
 
 @end
@@ -82,9 +75,6 @@ static const CGFloat ChoosePersonViewImageLabelWidth = 42.f;
     [self addSubview:_informationView];
 
     [self constructNameLabel];
-//    [self constructCameraImageLabelView];
-//    [self constructInterestsImageLabelView];
-//    [self constructFriendsImageLabelView];
 }
 
 - (void)constructNameLabel {
@@ -124,16 +114,5 @@ static const CGFloat ChoosePersonViewImageLabelWidth = 42.f;
 //    [_informationView addSubview:_friendsImageLabelView];
 //}
 
-- (ImageLabelView *)buildImageLabelViewLeftOf:(CGFloat)x image:(UIImage *)image text:(NSString *)text {
-    CGRect frame = CGRectMake(x - ChoosePersonViewImageLabelWidth,
-                              0,
-                              ChoosePersonViewImageLabelWidth,
-                              CGRectGetHeight(_informationView.bounds));
-    ImageLabelView *view = [[ImageLabelView alloc] initWithFrame:frame
-                                                           image:image
-                                                            text:text];
-    view.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin;
-    return view;
-}
 
 @end

@@ -12,10 +12,6 @@
 		4C2546DA1C89D49600B162DA /* WJFTrendingGifViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C2546D91C89D49600B162DA /* WJFTrendingGifViewController.m */; };
 		4C2546DD1C89D70C00B162DA /* WJFSearchGifViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C2546DC1C89D70C00B162DA /* WJFSearchGifViewController.m */; };
 		4C2546E01C89D8BF00B162DA /* WJFRandomGifViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C2546DF1C89D8BF00B162DA /* WJFRandomGifViewController.m */; };
-		4C2D2BCD1C75302D00F407AF /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C2D2BCC1C75302D00F407AF /* Person.m */; };
-		4C2D2BD11C75304600F407AF /* ChoosePersonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C2D2BD01C75304600F407AF /* ChoosePersonViewController.m */; };
-		4C2D2BD71C75304E00F407AF /* ChoosePersonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C2D2BD41C75304E00F407AF /* ChoosePersonView.m */; };
-		4C2D2BD81C75304E00F407AF /* ImageLabelView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C2D2BD61C75304E00F407AF /* ImageLabelView.m */; };
 		4C2D2BDE1C75742800F407AF /* WJFGif.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C2D2BDD1C75742800F407AF /* WJFGif.m */; };
 		4CC1DB0D1C751A9B004E3970 /* WJFGiphyAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CC1DB0C1C751A9B004E3970 /* WJFGiphyAPIClient.m */; };
 		4CC2027E1C6EAF4C0022A859 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CC2027D1C6EAF4C0022A859 /* main.m */; };
@@ -74,14 +70,6 @@
 		4C2546DC1C89D70C00B162DA /* WJFSearchGifViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJFSearchGifViewController.m; sourceTree = "<group>"; };
 		4C2546DE1C89D8BF00B162DA /* WJFRandomGifViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJFRandomGifViewController.h; sourceTree = "<group>"; };
 		4C2546DF1C89D8BF00B162DA /* WJFRandomGifViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJFRandomGifViewController.m; sourceTree = "<group>"; };
-		4C2D2BCB1C75302D00F407AF /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
-		4C2D2BCC1C75302D00F407AF /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
-		4C2D2BCF1C75304600F407AF /* ChoosePersonViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChoosePersonViewController.h; sourceTree = "<group>"; };
-		4C2D2BD01C75304600F407AF /* ChoosePersonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChoosePersonViewController.m; sourceTree = "<group>"; };
-		4C2D2BD31C75304E00F407AF /* ChoosePersonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChoosePersonView.h; sourceTree = "<group>"; };
-		4C2D2BD41C75304E00F407AF /* ChoosePersonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChoosePersonView.m; sourceTree = "<group>"; };
-		4C2D2BD51C75304E00F407AF /* ImageLabelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageLabelView.h; sourceTree = "<group>"; };
-		4C2D2BD61C75304E00F407AF /* ImageLabelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageLabelView.m; sourceTree = "<group>"; };
 		4C2D2BDC1C75742800F407AF /* WJFGif.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJFGif.h; sourceTree = "<group>"; };
 		4C2D2BDD1C75742800F407AF /* WJFGif.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJFGif.m; sourceTree = "<group>"; };
 		4CC1DB0B1C751A9B004E3970 /* WJFGiphyAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJFGiphyAPIClient.h; sourceTree = "<group>"; };
@@ -176,8 +164,6 @@
 		4C2D2BCA1C75302D00F407AF /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				4C2D2BCB1C75302D00F407AF /* Person.h */,
-				4C2D2BCC1C75302D00F407AF /* Person.m */,
 				4C2D2BDC1C75742800F407AF /* WJFGif.h */,
 				4C2D2BDD1C75742800F407AF /* WJFGif.m */,
 			);
@@ -187,8 +173,6 @@
 		4C2D2BCE1C75304600F407AF /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				4C2D2BCF1C75304600F407AF /* ChoosePersonViewController.h */,
-				4C2D2BD01C75304600F407AF /* ChoosePersonViewController.m */,
 				4CE9B6E31C87BED400505C0B /* WJFCenterViewController.h */,
 				4CE9B6E41C87BED400505C0B /* WJFCenterViewController.m */,
 				4C2546D81C89D49600B162DA /* WJFTrendingGifViewController.h */,
@@ -204,12 +188,8 @@
 		4C2D2BD21C75304E00F407AF /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				4C2D2BD31C75304E00F407AF /* ChoosePersonView.h */,
-				4C2D2BD41C75304E00F407AF /* ChoosePersonView.m */,
 				4C1D7F711C767AE500453890 /* WJFChooseGifView.h */,
 				4C1D7F721C767AF800453890 /* WJFChooseGifView.m */,
-				4C2D2BD51C75304E00F407AF /* ImageLabelView.h */,
-				4C2D2BD61C75304E00F407AF /* ImageLabelView.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -526,21 +506,18 @@
 				4CC202841C6EAF4C0022A859 /* ViewController.m in Sources */,
 				4CEE1C161C7D124C00A7D1EF /* WJFLeftSideDrawerViewController.m in Sources */,
 				4C2D2BDE1C75742800F407AF /* WJFGif.m in Sources */,
-				4C2D2BCD1C75302D00F407AF /* Person.m in Sources */,
 				4CEE1C1D1C7D124C00A7D1EF /* MMSideDrawerTableViewCell.m in Sources */,
 				4CC1DB0D1C751A9B004E3970 /* WJFGiphyAPIClient.m in Sources */,
 				4CEE1C1C1C7D124C00A7D1EF /* MMSideDrawerSectionHeaderView.m in Sources */,
 				4CEE1C191C7D124C00A7D1EF /* WJFViewController.m in Sources */,
 				4CC202C41C6EB5B00022A859 /* WJFConstants.m in Sources */,
 				4CEE1C111C7D124C00A7D1EF /* MMAppDelegate.m in Sources */,
-				4C2D2BD81C75304E00F407AF /* ImageLabelView.m in Sources */,
 				4C2546DD1C89D70C00B162DA /* WJFSearchGifViewController.m in Sources */,
 				4C2546DA1C89D49600B162DA /* WJFTrendingGifViewController.m in Sources */,
 				4CEE1C1E1C7D124C00A7D1EF /* MMTableViewCell.m in Sources */,
 				4C2126201C85FA980000EF19 /* WJFSideDrawerViewController.m in Sources */,
 				4CC202811C6EAF4C0022A859 /* WJFAppDelegate.m in Sources */,
 				4C1D7F731C767AF800453890 /* WJFChooseGifView.m in Sources */,
-				4C2D2BD11C75304600F407AF /* ChoosePersonViewController.m in Sources */,
 				4CEE1C1B1C7D124C00A7D1EF /* MMNavigationController.m in Sources */,
 				4CE9B6E51C87BED400505C0B /* WJFCenterViewController.m in Sources */,
 				4CEE1C121C7D124C00A7D1EF /* MMCenterTableViewCell.m in Sources */,
@@ -549,7 +526,6 @@
 				4CEE1C171C7D124C00A7D1EF /* MMExampleRightSideDrawerViewController.m in Sources */,
 				4CEE1C141C7D124C00A7D1EF /* MMExampleCenterTableViewController.m in Sources */,
 				4CC2027E1C6EAF4C0022A859 /* main.m in Sources */,
-				4C2D2BD71C75304E00F407AF /* ChoosePersonView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

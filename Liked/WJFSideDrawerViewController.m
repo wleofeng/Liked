@@ -218,7 +218,6 @@
                     }];
                     break;
                 case 1:
-                    //TODO : fix random API bug
                     [self.mm_drawerController toggleDrawerSide:MMDrawerSideLeft animated:YES completion:^(BOOL finished) {
                         if (finished) {
                             [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowRandomGif" object:nil];

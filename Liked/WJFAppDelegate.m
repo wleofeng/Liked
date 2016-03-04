@@ -7,7 +7,6 @@
 //
 
 #import "WJFAppDelegate.h"
-#import "ChoosePersonViewController.h"
 #import "WJFGiphyAPIClient.h"
 #import "WJFGif.h"
 #import <YYWebImage/YYWebImage.h>
