@@ -13,8 +13,10 @@ typedef NS_ENUM(NSInteger, WJFCenterViewControllerType){
     WJFFavoriteViewController
 };
 
-@interface WJFCenterViewController : UIViewController
+@interface WJFCenterViewController : UIViewController 
 
-- (void)setContentViewLayoutConstraintForView:(UIView *)view;
+@property (nonatomic, strong) UIView *containerView;
+
+- (void)setEmbeddedViewController:(UIViewController *)controller;
 
 @end

@@ -31,6 +31,8 @@ typedef NS_ENUM(NSInteger, MMDrawerSection){
 @interface WJFSideDrawerViewController : WJFViewController <UITableViewDataSource,UITableViewDelegate>
 
 @property (nonatomic, strong) UITableView * tableView;
-@property (nonatomic,strong) NSArray * drawerWidths;
+@property (nonatomic, strong) NSArray * drawerWidths;
+@property (nonatomic, strong) NSMutableArray *navigationControllerArray;
+@property (nonatomic, strong) UINavigationController *navigationController;
 
 @end

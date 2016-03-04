@@ -26,6 +26,7 @@
 #import "MMLogoView.h"
 #import "MMNavigationController.h"
 #import <ChameleonFramework/Chameleon.h>
+//#import "WJFChooseGifViewController.h"
 
 @implementation WJFSideDrawerViewController
 
@@ -84,6 +85,12 @@
     [logo setAutoresizingMask:UIViewAutoresizingFlexibleLeftMargin|UIViewAutoresizingFlexibleRightMargin];
     [self.tableView addSubview:logo];
     [self.view setBackgroundColor:[UIColor clearColor]];
+    
+    //new nav VC
+    //    self.navigationControllerArray = [[NSMutableArray alloc] initWithObjects:@"",@"",@"",nil];
+    //    WJFChooseGifViewController *newCenterVC = [[WJFChooseGifViewController alloc] initWithCategory:WJFGifCategorySearch];
+    //    self.navigationController = [[MMNavigationController alloc] initWithRootViewController:newCenterVC];
+    //    [self.navigationController setRestorationIdentifier:@"MMExampleCenterNavigationControllerRestorationKey"];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -114,7 +121,7 @@
     // Return the number of rows in the section.
     switch (section) {
         case WJFDrawerSectionGif:
-            return 2;
+            return 3;
         case WJFDrawerSectionFavorite:
             return 1;
         default:
@@ -134,8 +141,20 @@
     
     switch (indexPath.section) {
         case WJFDrawerSectionGif:
+            switch (indexPath.row) {
+                case 0:
+                    [cell.textLabel setText:@"Trending"];
+                    break;
+                case 1:
+                    [cell.textLabel setText:@"Random"];
+                    break;
+                case 2:
+                    [cell.textLabel setText:@"Search"];
+                    break;
+            }
             break;
         case WJFDrawerSectionFavorite:
+            [cell.textLabel setText:@"Liked Giphy"];
             break;
         default:
             break;
@@ -179,16 +198,55 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    /*
+     Change the center view here? Check how to change the center view
+     Send out a notification to change the center view content?
+     OR load another container view?
+     May be keep all the view controllers initialized and just switch based on case
+     There is no point to initilize a new VC each time a menu row is pressed
+     http://stackoverflow.com/questions/22057908/mmdrawercontroller-and-instantiating-many-view-controllers
+     */
+    
     switch (indexPath.section) {
-        case WJFDrawerSectionGif:
+        case WJFDrawerSectionGif: {
+            switch (indexPath.row) {
+                case 0:
+                    [self.mm_drawerController toggleDrawerSide:MMDrawerSideLeft animated:YES completion:^(BOOL finished) {
+                        if (finished) {
+                            [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowTrendingGif" object:nil];
+                        }
+                    }];
+                    break;
+                case 1:
+                    //TODO : fix random API bug
+                    [self.mm_drawerController toggleDrawerSide:MMDrawerSideLeft animated:YES completion:^(BOOL finished) {
+                        if (finished) {
+                            [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowRandomGif" object:nil];
+                        }
+                    }];
+                    break;
+                case 2:
+                    [self.mm_drawerController toggleDrawerSide:MMDrawerSideLeft animated:YES completion:^(BOOL finished) {
+                        if (finished) {
+                            [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowSearchGif" object:nil];
+                        }
+                    }];
+                    break;
+            }
             break;
-        case WJFDrawerSectionFavorite:
+        }
+        case WJFDrawerSectionFavorite: {
+            //TODO: more work here
             break;
+        }
         default:
             break;
     }
+    
     [tableView selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionNone];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    
 }
 
 @end

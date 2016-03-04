@@ -11,7 +11,6 @@
 #import "WJFGiphyAPIClient.h"
 #import "WJFGif.h"
 #import <YYWebImage/YYWebImage.h>
-#import "WJFChooseGifViewController.h"
 
 //Drawer
 #import <MMDrawerController/MMDrawerController.h>
@@ -23,10 +22,11 @@
 #import "MMExampleDrawerVisualStateManager.h"
 #import "MMNavigationController.h"
 #import "WJFSideDrawerViewController.h"
+#import "WJFCenterViewController.h"
 
 @interface WJFAppDelegate ()
 
-@property (nonatomic,strong) MMDrawerController * drawerController;
+@property (nonatomic, strong) MMDrawerController * drawerController;
 
 @end
 
@@ -53,7 +53,7 @@
 
     //Integration with drawer
     UIViewController * leftSideDrawerViewController = [[WJFSideDrawerViewController alloc] init];
-    UIViewController * centerViewController = [[WJFChooseGifViewController alloc]init];
+    UIViewController * centerViewController = [[WJFCenterViewController alloc]init];
     
 //    UIViewController * rightSideDrawerViewController = [[MMExampleRightSideDrawerViewController alloc] init];
     
