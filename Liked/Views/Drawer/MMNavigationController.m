@@ -26,7 +26,8 @@
 
 @implementation MMNavigationController
 
--(UIStatusBarStyle)preferredStatusBarStyle{
+- (UIStatusBarStyle)preferredStatusBarStyle
+{
     if(self.mm_drawerController.showsStatusBarBackgroundView){
         return UIStatusBarStyleLightContent;
     }

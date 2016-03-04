@@ -26,7 +26,6 @@
 #import "MMLogoView.h"
 #import "MMNavigationController.h"
 #import <ChameleonFramework/Chameleon.h>
-//#import "WJFChooseGifViewController.h"
 
 @implementation WJFSideDrawerViewController
 
@@ -85,26 +84,16 @@
     [logo setAutoresizingMask:UIViewAutoresizingFlexibleLeftMargin|UIViewAutoresizingFlexibleRightMargin];
     [self.tableView addSubview:logo];
     [self.view setBackgroundColor:[UIColor clearColor]];
-    
-    //new nav VC
-    //    self.navigationControllerArray = [[NSMutableArray alloc] initWithObjects:@"",@"",@"",nil];
-    //    WJFChooseGifViewController *newCenterVC = [[WJFChooseGifViewController alloc] initWithCategory:WJFGifCategorySearch];
-    //    self.navigationController = [[MMNavigationController alloc] initWithRootViewController:newCenterVC];
-    //    [self.navigationController setRestorationIdentifier:@"MMExampleCenterNavigationControllerRestorationKey"];
 }
 
--(void)viewWillAppear:(BOOL)animated{
+- (void)viewWillAppear:(BOOL)animated
+{
     [super viewWillAppear:animated];
     [self.tableView reloadSections:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, self.tableView.numberOfSections-1)] withRowAnimation:UITableViewRowAnimationNone];
 }
 
-- (void)didReceiveMemoryWarning
+- (void)contentSizeDidChange:(NSString *)size
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
--(void)contentSizeDidChange:(NSString *)size{
     [self.tableView reloadData];
 }
 
@@ -198,15 +187,6 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    /*
-     Change the center view here? Check how to change the center view
-     Send out a notification to change the center view content?
-     OR load another container view?
-     May be keep all the view controllers initialized and just switch based on case
-     There is no point to initilize a new VC each time a menu row is pressed
-     http://stackoverflow.com/questions/22057908/mmdrawercontroller-and-instantiating-many-view-controllers
-     */
-    
     switch (indexPath.section) {
         case WJFDrawerSectionGif: {
             switch (indexPath.row) {

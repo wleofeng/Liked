@@ -44,18 +44,24 @@
 
 - (void)setupTrendingGifViewController
 {
+    self.title = @"Trending";
+    
     WJFTrendingGifViewController *VC = [[WJFTrendingGifViewController alloc] init];
     [self setEmbeddedViewController:VC];
 }
 
 - (void)setupRandomGifViewController
 {
+    self.title = @"Random";
+    
     WJFRandomGifViewController *VC = [[WJFRandomGifViewController alloc] init];
     [self setEmbeddedViewController:VC];
 }
 
 - (void)setupSearchGifViewController
 {
+    self.title = @"Search";
+    
     WJFSearchGifViewController *VC = [[WJFSearchGifViewController alloc] init];
     [self setEmbeddedViewController:VC];
 }
@@ -89,36 +95,27 @@
 }
 
 #pragma View Methods
--(void)setupLeftMenuButton
+- (void)setupLeftMenuButton
 {
     MMDrawerBarButtonItem * leftDrawerButton = [[MMDrawerBarButtonItem alloc] initWithTarget:self action:@selector(leftDrawerButtonPress:)];
     [self.navigationItem setLeftBarButtonItem:leftDrawerButton animated:YES];
 }
 
--(void)setupRightMenuButton{
+- (void)setupRightMenuButton
+{
     MMDrawerBarButtonItem * rightDrawerButton = [[MMDrawerBarButtonItem alloc] initWithTarget:self action:@selector(rightDrawerButtonPress:)];
     [self.navigationItem setRightBarButtonItem:rightDrawerButton animated:YES];
 }
 
 #pragma mark - Button Handlers
--(void)leftDrawerButtonPress:(id)sender
+- (void)leftDrawerButtonPress:(id)sender
 {
     [self.mm_drawerController toggleDrawerSide:MMDrawerSideLeft animated:YES completion:nil];
 }
 
--(void)rightDrawerButtonPress:(id)sender
+- (void)rightDrawerButtonPress:(id)sender
 {
     [self.mm_drawerController toggleDrawerSide:MMDrawerSideRight animated:YES completion:nil];
 }
-
-//- (void)setContentViewLayoutConstraintForView:(UIView *)view
-//{
-//    [view mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.top.equalTo(self.mas_topLayoutGuideBottom);
-//        make.bottom.equalTo(self.view.mas_bottom);
-//        make.left.equalTo(self.view.mas_left);
-//        make.right.equalTo(self.view.mas_right);
-//    }];
-//}
 
 @end

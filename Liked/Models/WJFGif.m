@@ -10,7 +10,8 @@
 
 @implementation WJFGif
 
-- (instancetype)init {
+- (instancetype)init
+{
     self = [self initWithFileName:@"" url:@"" likeCount:0 size:0];
     return self;
 }
@@ -18,7 +19,8 @@
 - (instancetype)initWithFileName:(NSString *)id
                              url:(NSString *)url
                        likeCount:(NSUInteger)likeCount
-                            size:(CGFloat)size {
+                            size:(CGFloat)size
+{
     self = [super init];
     if (self) {
         _id = id;
@@ -30,7 +32,8 @@
     return self;
 }
 
-- (UIImage *)getImageByUrl:(NSString *)url {
+- (UIImage *)getImageByUrl:(NSString *)url
+{
     NSURL *imgUrl = [NSURL URLWithString:url];
     NSData *imgData = [NSData dataWithContentsOfURL:imgUrl];
     

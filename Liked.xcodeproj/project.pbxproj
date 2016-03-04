@@ -16,7 +16,6 @@
 		4CC1DB0D1C751A9B004E3970 /* WJFGiphyAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CC1DB0C1C751A9B004E3970 /* WJFGiphyAPIClient.m */; };
 		4CC2027E1C6EAF4C0022A859 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CC2027D1C6EAF4C0022A859 /* main.m */; };
 		4CC202811C6EAF4C0022A859 /* WJFAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CC202801C6EAF4C0022A859 /* WJFAppDelegate.m */; };
-		4CC202841C6EAF4C0022A859 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CC202831C6EAF4C0022A859 /* ViewController.m */; };
 		4CC202871C6EAF4C0022A859 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CC202851C6EAF4C0022A859 /* Main.storyboard */; };
 		4CC202891C6EAF4C0022A859 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CC202881C6EAF4C0022A859 /* Assets.xcassets */; };
 		4CC2028C1C6EAF4C0022A859 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CC2028A1C6EAF4C0022A859 /* LaunchScreen.storyboard */; };
@@ -78,8 +77,6 @@
 		4CC2027D1C6EAF4C0022A859 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		4CC2027F1C6EAF4C0022A859 /* WJFAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WJFAppDelegate.h; sourceTree = "<group>"; };
 		4CC202801C6EAF4C0022A859 /* WJFAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WJFAppDelegate.m; sourceTree = "<group>"; };
-		4CC202821C6EAF4C0022A859 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		4CC202831C6EAF4C0022A859 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		4CC202861C6EAF4C0022A859 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4CC202881C6EAF4C0022A859 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4CC2028B1C6EAF4C0022A859 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -221,8 +218,6 @@
 			children = (
 				4CC2027F1C6EAF4C0022A859 /* WJFAppDelegate.h */,
 				4CC202801C6EAF4C0022A859 /* WJFAppDelegate.m */,
-				4CC202821C6EAF4C0022A859 /* ViewController.h */,
-				4CC202831C6EAF4C0022A859 /* ViewController.m */,
 				4CC202C21C6EB5B00022A859 /* WJFConstants.h */,
 				4CC202C31C6EB5B00022A859 /* WJFConstants.m */,
 				4CC202BE1C6EB4E20022A859 /* APIClient */,
@@ -503,7 +498,6 @@
 			files = (
 				4C2546E01C89D8BF00B162DA /* WJFRandomGifViewController.m in Sources */,
 				4CC202C11C6EB54F0022A859 /* WJFInstagramAPIClient.m in Sources */,
-				4CC202841C6EAF4C0022A859 /* ViewController.m in Sources */,
 				4CEE1C161C7D124C00A7D1EF /* WJFLeftSideDrawerViewController.m in Sources */,
 				4C2D2BDE1C75742800F407AF /* WJFGif.m in Sources */,
 				4CEE1C1D1C7D124C00A7D1EF /* MMSideDrawerTableViewCell.m in Sources */,

@@ -61,7 +61,8 @@
 
 #pragma mark - Internal Methods
 
-- (void)constructInformationView {
+- (void)constructInformationView
+{
     CGFloat bottomHeight = 60.f;
     CGRect bottomFrame = CGRectMake(0,
                                     CGRectGetHeight(self.bounds) - bottomHeight,
@@ -77,7 +78,8 @@
     [self constructNameLabel];
 }
 
-- (void)constructNameLabel {
+- (void)constructNameLabel
+{
     CGFloat leftPadding = 12.f;
     CGFloat topPadding = 17.f;
     CGRect frame = CGRectMake(leftPadding,

@@ -31,12 +31,11 @@
     self.bgQueue = [[NSOperationQueue alloc]init];
     
     self.hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    //    self.hud.mode = MBProgressHUDModeIndeterminate;
     self.hud.mode = MBProgressHUDAnimationFade;
     self.hud.labelText = @"Loading";
     self.hud.labelFont = [UIFont fontWithName:@"Moon-Bold" size:14.0f];
     self.hud.hidden = YES;
-    
+        
     [self setupSwipeView];
 }
 

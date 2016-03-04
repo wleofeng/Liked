@@ -32,7 +32,5 @@ typedef NS_ENUM(NSInteger, MMDrawerSection){
 
 @property (nonatomic, strong) UITableView * tableView;
 @property (nonatomic, strong) NSArray * drawerWidths;
-@property (nonatomic, strong) NSMutableArray *navigationControllerArray;
-@property (nonatomic, strong) UINavigationController *navigationController;
 
 @end
