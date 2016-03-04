@@ -11,16 +11,14 @@
 
 @interface WJFGif : NSObject
 
-@property (nonatomic, copy) NSString *id;
+@property (nonatomic, copy) NSString *ID;
 @property (nonatomic, copy) NSString *url;
-@property (nonatomic, assign) NSUInteger likeCount;
 @property (nonatomic, strong) UIImage *image;
 @property (nonatomic, assign) CGFloat size;
 
 - (instancetype)init;
-- (instancetype)initWithFileName:(NSString *)id
+- (instancetype)initWithFileName:(NSString *)ID
                              url:(NSString *)url
-                       likeCount:(NSUInteger)likeCount
                             size:(CGFloat)size;
 
 

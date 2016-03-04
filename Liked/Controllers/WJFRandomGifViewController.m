@@ -89,7 +89,7 @@
     [self.bgQueue addOperationWithBlock:^{
         if (self.gifArray.count) {
             NSDictionary *gifDict = (NSDictionary *)self.gifArray;
-            WJFGif *gif = [[WJFGif alloc]initWithFileName:gifDict[@"id"] url:gifDict[@"fixed_height_downsampled_url"] likeCount:0 size:0];
+            WJFGif *gif = [[WJFGif alloc]initWithFileName:gifDict[@"id"] url:gifDict[@"fixed_height_downsampled_url"] size:0];
             
             [[NSOperationQueue mainQueue]addOperationWithBlock:^{
                 [self.swipeView.imageView yy_setImageWithURL:[NSURL URLWithString:gif.url] options:YYWebImageOptionProgressive];

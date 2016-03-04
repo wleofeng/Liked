@@ -87,7 +87,7 @@
     [self.bgQueue addOperationWithBlock:^{
         if (self.gifArray.count) {
             NSDictionary *gifDict = [self.gifArray firstObject];
-            WJFGif *gif = [[WJFGif alloc]initWithFileName:gifDict[@"id"] url:gifDict[@"images"][@"downsized"][@"url"] likeCount:0 size:[gifDict[@"images"][@"downsized"][@"size"] floatValue]];
+            WJFGif *gif = [[WJFGif alloc]initWithFileName:gifDict[@"id"] url:gifDict[@"images"][@"downsized"][@"url"] size:[gifDict[@"images"][@"downsized"][@"size"] floatValue]];
                 
                 [self.gifArray removeObjectAtIndex:0];
 
