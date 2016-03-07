@@ -12,6 +12,7 @@
 #import <MBProgressHUD/MBProgressHUD.h>
 #import <YYWebImage/YYWebImage.h>
 #import <Masonry/Masonry.h>
+#import "WJFGifRealm.h"
 
 @interface WJFSearchGifViewController ()
 
@@ -35,7 +36,7 @@
     self.hud.labelText = @"Loading";
     self.hud.labelFont = [UIFont fontWithName:@"Moon-Bold" size:14.0f];
     self.hud.hidden = YES;
-
+    
     [self setupSwipeView];
 }
 
@@ -58,7 +59,7 @@
     UIAlertAction *searchAction = [UIAlertAction actionWithTitle:@"Please show me now!" style:UIAlertActionStyleDefault
                                                          handler:^(UIAlertAction * _Nonnull action) {
                                                              if (alert.textFields[0].text.length) {
-                                                                [self fetchGifFromAPIWithSearchTerm:alert.textFields[0].text];
+                                                                 [self fetchGifFromAPIWithSearchTerm:alert.textFields[0].text];
                                                              } else {
                                                                  [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowRandomGif" object:nil];
                                                              }
@@ -115,7 +116,7 @@
         if (self.gifArray.count) {
             NSDictionary *gifDict = [self.gifArray firstObject];
             WJFGif *gif = [[WJFGif alloc]initWithFileName:gifDict[@"id"] url:gifDict[@"images"][@"downsized"][@"url"] size:[gifDict[@"images"][@"downsized"][@"size"] floatValue]];
-            
+            self.currentGif = gif;
             [self.gifArray removeObjectAtIndex:0];
             
             
@@ -157,7 +158,10 @@
     if (direction == MDCSwipeDirectionLeft) {
         NSLog(@"Photo deleted!");
     } else {
-        NSLog(@"Photo saved!");
+        WJFGifRealm *newGif = [[WJFGifRealm alloc] initWithGif:self.currentGif];
+        [WJFGifRealm saveGif:newGif completion:^{
+            NSLog(@"Gif saved to realm");
+        }];
     }
     
     [self.swipeView removeFromSuperview];

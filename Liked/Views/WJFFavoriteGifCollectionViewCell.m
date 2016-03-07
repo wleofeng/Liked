@@ -7,7 +7,38 @@
 //
 
 #import "WJFFavoriteGifCollectionViewCell.h"
+#import <Masonry/Masonry.h>
 
 @implementation WJFFavoriteGifCollectionViewCell
+
+//- (instancetype)init
+//{
+//    self = [super init];
+//    if (self) {
+//        _imageView = [[YYAnimatedImageView alloc] init];
+//        
+//        [self setupImageView];
+//    }
+//    
+//    return self;
+//}
+
+- (instancetype)initWithFrame:(CGRect)frame
+{
+    self = [super initWithFrame:frame];
+    if (self) {
+        _imageView = [[YYAnimatedImageView alloc] init];
+        [self setupImageView];
+    }
+    return self;
+}
+
+- (void)setupImageView
+{
+    [self.contentView addSubview:self.imageView];
+    [self.imageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.contentView);
+    }];
+}
 
 @end

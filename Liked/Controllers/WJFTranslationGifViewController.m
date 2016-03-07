@@ -12,6 +12,7 @@
 #import <MBProgressHUD/MBProgressHUD.h>
 #import <YYWebImage/YYWebImage.h>
 #import <Masonry/Masonry.h>
+#import "WJFGifRealm.h"
 
 @interface WJFTranslationGifViewController ()
 
@@ -109,6 +110,7 @@
         if (self.gifArray.count) {
             NSDictionary *gifDict = (NSDictionary *)self.gifArray;
             WJFGif *gif = [[WJFGif alloc]initWithFileName:gifDict[@"id"] url:gifDict[@"images"][@"downsized"][@"url"] size:[gifDict[@"images"][@"downsized"][@"size"] floatValue]];
+            self.currentGif = gif;
             
             [[NSOperationQueue mainQueue]addOperationWithBlock:^{
                 [self.swipeView.imageView yy_setImageWithURL:[NSURL URLWithString:gif.url] options:YYWebImageOptionProgressive];
@@ -148,7 +150,10 @@
     if (direction == MDCSwipeDirectionLeft) {
         NSLog(@"Photo deleted!");
     } else {
-        NSLog(@"Photo saved!");
+        WJFGifRealm *newGif = [[WJFGifRealm alloc] initWithGif:self.currentGif];
+        [WJFGifRealm saveGif:newGif completion:^{
+            NSLog(@"Gif saved to realm");
+        }];
     }
     
     [self.swipeView removeFromSuperview];

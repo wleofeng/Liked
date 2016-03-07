@@ -9,9 +9,6 @@
 #import "WJFAppDelegate.h"
 #import "WJFGiphyAPIClient.h"
 #import "WJFGif.h"
-#import <YYWebImage/YYWebImage.h>
-
-//Drawer
 #import "WJFLeftSideDrawerViewController.h"
 #import "WJFSideDrawerViewController.h"
 #import "WJFCenterViewController.h"
@@ -19,6 +16,7 @@
 #import "MMDrawerVisualState.h"
 #import "MMExampleDrawerVisualStateManager.h"
 #import "MMNavigationController.h"
+#import <YYWebImage/YYWebImage.h>
 
 @interface WJFAppDelegate ()
 
@@ -66,24 +64,6 @@
     [self.window setTintColor:tintColor];
     [self.window makeKeyAndVisible];
     [self.window setRootViewController:self.drawerController];
-
-    //Test code here
-//    [WJFGiphyAPIClient fetchTrendingGIFsWithLimit:0 completion:^(NSArray *responseArray) {
-//        NSLog(@"trending GIF: %@",responseArray);
-//    }];
-    
-//    [WJFGiphyAPIClient fetchRandomGIFsWithTag:nil completion:^(NSArray *responseArray) {
-//        NSLog(@"random GIF:%@", responseArray);
-//    }];
-    
-//    [WJFGiphyAPIClient fetchGIFsWithSearchTerm:@"funny cat" completion:^(NSArray *responseArray) {
-//        WJFGif *gif = [[WJFGif alloc]initWithFileName:responseArray[0][@"id"] url:responseArray[0][@"images"][@"original"][@"url"] likeCount:0];
-//        
-//        UIImageView *imageView = [YYAnimatedImageView new];
-//        imageView.yy_imageURL = [NSURL URLWithString:gif.url];
-//        
-//        NSLog(@"Search Result: %@", responseArray);
-//    }];
     
     return YES;
 }

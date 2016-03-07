@@ -6,6 +6,7 @@
 //  Copyright © 2016 Wo Jun Feng. All rights reserved.
 //
 
+#import <ChameleonFramework/Chameleon.h>
 #import "WJFTrendingGifViewController.h"
 #import "WJFGiphyAPIClient.h"
 #import "WJFGif.h"
@@ -52,9 +53,9 @@
     MDCSwipeToChooseViewOptions *options = [MDCSwipeToChooseViewOptions new];
     options.delegate = self;
     options.likedText = @"LIKE";
-    options.likedColor = [UIColor whiteColor];
+    options.likedColor = [UIColor flatGreenColor];
     options.nopeText = @"NOPE";
-    options.nopeColor = [UIColor redColor];
+    options.nopeColor = [UIColor flatRedColor];
     options.onPan = ^(MDCPanState *state){
         if (state.thresholdRatio == 1.f && state.direction == MDCSwipeDirectionLeft) {
             NSLog(@"Let go now to delete the photo!");

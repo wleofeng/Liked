@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <YYWebImage/YYWebImage.h>
 
 @interface WJFFavoriteGifCollectionViewCell : UICollectionViewCell
+
+@property (nonatomic, strong) YYAnimatedImageView *imageView;
+
+- (instancetype)initWithFrame:(CGRect)frame;
 
 @end

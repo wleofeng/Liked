@@ -6,15 +6,15 @@
 //  Copyright © 2016 Wo Jun Feng. All rights reserved.
 //
 
-#import "WJFCenterViewController.h"
 #import "MMDrawerBarButtonItem.h"
-#import "UIViewController+MMDrawerController.h"
+#import <Masonry/Masonry.h>
+#import "WJFCenterViewController.h"
 #import "WJFTrendingGifViewController.h"
 #import "WJFSearchGifViewController.h"
 #import "WJFRandomGifViewController.h"
 #import "WJFTranslationGifViewController.h"
 #import "WJFFavoriteGifViewController.h"
-#import <Masonry/Masonry.h>
+#import "UIViewController+MMDrawerController.h"
 
 @implementation WJFCenterViewController
 

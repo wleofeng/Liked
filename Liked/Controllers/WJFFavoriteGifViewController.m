@@ -7,12 +7,19 @@
 //
 
 #import "WJFFavoriteGifViewController.h"
+#import "WJFGifRealm.h"
+#import <YYWebImage/YYWebImage.h>
+#import "WJFFavoriteGifCollectionViewCell.h"
 
 @interface WJFFavoriteGifViewController ()
+
+@property (nonatomic, strong) NSArray *gifs;
 
 @end
 
 @implementation WJFFavoriteGifViewController
+
+#pragma mark - Life Cycle
 
 - (void)viewDidLoad
 {
@@ -21,33 +28,50 @@
     self.view = [[UIView alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
+    layout.scrollDirection = UICollectionViewScrollDirectionVertical;
     self.collectionView = [[UICollectionView alloc] initWithFrame:self.view.frame collectionViewLayout:layout];
     self.collectionView.dataSource = self;
     self.collectionView.delegate = self;
-
-    [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"cellIdentifier"];
+    
+    [self.collectionView registerClass:[WJFFavoriteGifCollectionViewCell class] forCellWithReuseIdentifier:@"WJFFavoriteGifCollectionViewCell"];
     [self.collectionView setBackgroundColor:[UIColor whiteColor]];
-
+    
     [self.view addSubview:self.collectionView];
 }
 
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+- (void)viewWillAppear:(BOOL)animated
 {
-    return 15;
+    [super viewWillAppear:animated];
+    self.gifs = [WJFGifRealm fetchAllGif];
 }
 
-// The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+}
+
+#pragma mark - Collection View Delegate Methods
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+    return self.gifs.count;
+}
+
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cellIdentifier" forIndexPath:indexPath];
+    WJFFavoriteGifCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"WJFFavoriteGifCollectionViewCell" forIndexPath:indexPath];
     
-    cell.backgroundColor = [UIColor blackColor];
+    WJFGifRealm *gif = self.gifs[indexPath.row];
+    NSURL *url = [NSURL URLWithString:gif.url];
+    [cell.imageView yy_setImageWithURL:url options:YYWebImageOptionProgressive];
+    
+    cell.backgroundColor = [UIColor blueColor];
     return cell;
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    return CGSizeMake(50, 50);
+    return CGSizeMake((self.view.frame.size.width/2)-5, 300);
 }
 
 

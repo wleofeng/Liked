@@ -8,15 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-typedef NS_ENUM(NSInteger, WJFCenterViewControllerType){
-    WJFGifViewController,
-    WJFFavoriteViewController
-};
-
 @interface WJFCenterViewController : UIViewController 
 
 @property (nonatomic, strong) UIView *containerView;
-
-- (void)setEmbeddedViewController:(UIViewController *)controller;
 
 @end
