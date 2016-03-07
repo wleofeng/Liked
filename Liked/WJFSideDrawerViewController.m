@@ -215,7 +215,11 @@
             break;
         }
         case WJFDrawerSectionFavorite: {
-            //TODO: more work here
+            [self.mm_drawerController toggleDrawerSide:MMDrawerSideLeft animated:YES completion:^(BOOL finished) {
+                if (finished) {
+                    [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowFavoriteGif" object:nil];
+                }
+            }];
             break;
         }
         default:

@@ -12,6 +12,7 @@
 #import "WJFTrendingGifViewController.h"
 #import "WJFSearchGifViewController.h"
 #import "WJFRandomGifViewController.h"
+#import "WJFFavoriteGifViewController.h"
 #import <Masonry/Masonry.h>
 
 @implementation WJFCenterViewController
@@ -30,18 +31,10 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setupTrendingGifViewController) name:@"ShowTrendingGif" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setupRandomGifViewController) name:@"ShowRandomGif" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setupSearchGifViewController) name:@"ShowSearchGif" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setupFavoriteGifViewController) name:@"ShowFavoriteGif" object:nil];
 }
 
-- (void)setupContainerViewLayoutConstraints
-{
-    [self.containerView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.mas_topLayoutGuideBottom);
-        make.bottom.equalTo(self.view.mas_bottom);
-        make.left.equalTo(self.view.mas_left);
-        make.right.equalTo(self.view.mas_right);
-    }];
-}
-
+#pragma mark - View Methods
 - (void)setupTrendingGifViewController
 {
     self.title = @"Trending";
@@ -64,6 +57,26 @@
     
     WJFSearchGifViewController *VC = [[WJFSearchGifViewController alloc] init];
     [self setEmbeddedViewController:VC];
+}
+
+- (void)setupFavoriteGifViewController
+{
+    self.title = @"Favoite";
+    
+    WJFFavoriteGifViewController *VC = [[WJFFavoriteGifViewController alloc] init];
+    [self setEmbeddedViewController:VC];
+}
+
+- (void)setupLeftMenuButton
+{
+    MMDrawerBarButtonItem * leftDrawerButton = [[MMDrawerBarButtonItem alloc] initWithTarget:self action:@selector(leftDrawerButtonPress:)];
+    [self.navigationItem setLeftBarButtonItem:leftDrawerButton animated:YES];
+}
+
+- (void)setupRightMenuButton
+{
+    MMDrawerBarButtonItem * rightDrawerButton = [[MMDrawerBarButtonItem alloc] initWithTarget:self action:@selector(rightDrawerButtonPress:)];
+    [self.navigationItem setRightBarButtonItem:rightDrawerButton animated:YES];
 }
 
 - (void)setEmbeddedViewController:(UIViewController *)controller
@@ -94,17 +107,14 @@
     [controller didMoveToParentViewController:self];
 }
 
-#pragma View Methods
-- (void)setupLeftMenuButton
+- (void)setupContainerViewLayoutConstraints
 {
-    MMDrawerBarButtonItem * leftDrawerButton = [[MMDrawerBarButtonItem alloc] initWithTarget:self action:@selector(leftDrawerButtonPress:)];
-    [self.navigationItem setLeftBarButtonItem:leftDrawerButton animated:YES];
-}
-
-- (void)setupRightMenuButton
-{
-    MMDrawerBarButtonItem * rightDrawerButton = [[MMDrawerBarButtonItem alloc] initWithTarget:self action:@selector(rightDrawerButtonPress:)];
-    [self.navigationItem setRightBarButtonItem:rightDrawerButton animated:YES];
+    [self.containerView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.mas_topLayoutGuideBottom);
+        make.bottom.equalTo(self.view.mas_bottom);
+        make.left.equalTo(self.view.mas_left);
+        make.right.equalTo(self.view.mas_right);
+    }];
 }
 
 #pragma mark - Button Handlers

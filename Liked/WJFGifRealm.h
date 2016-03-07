@@ -20,6 +20,8 @@
                        url:(NSString *)url
                       data:(NSData *)data
                       size:(float)size;
++ (void)saveGif:(WJFGifRealm *)gif completion:(void (^)())completionHandler;
+
 
 
 

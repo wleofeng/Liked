@@ -37,6 +37,29 @@
     return self;
 }
 
++ (void)saveGif:(WJFGifRealm *)gif completion:(void (^)())completionHandler
+{
+    RLMRealm *realm = [RLMRealm defaultRealm];
+    
+    [realm beginWriteTransaction];
+    [realm addOrUpdateObject:gif];
+    [realm commitWriteTransaction];
+    
+    completionHandler();
+}
+
++ (NSArray *)fetchAllGif
+{
+    RLMResults *results = [WJFGifRealm allObjects];
+    
+    NSMutableArray *array = [NSMutableArray arrayWithCapacity:results.count];
+    for (RLMObject *object in results) {
+        [array addObject:object];
+    }
+    return array;
+}
+
+
 
 
 @end

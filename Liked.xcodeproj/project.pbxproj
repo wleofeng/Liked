@@ -14,6 +14,7 @@
 		4C2546E01C89D8BF00B162DA /* WJFRandomGifViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C2546DF1C89D8BF00B162DA /* WJFRandomGifViewController.m */; };
 		4C2D2BDE1C75742800F407AF /* WJFGif.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C2D2BDD1C75742800F407AF /* WJFGif.m */; };
 		4CA9787D1C89F53D00859E49 /* WJFGifRealm.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CA9787C1C89F53D00859E49 /* WJFGifRealm.m */; };
+		4CA978831C8A291C00859E49 /* WJFFavoriteGifViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CA978821C8A291C00859E49 /* WJFFavoriteGifViewController.m */; };
 		4CC1DB0D1C751A9B004E3970 /* WJFGiphyAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CC1DB0C1C751A9B004E3970 /* WJFGiphyAPIClient.m */; };
 		4CC2027E1C6EAF4C0022A859 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CC2027D1C6EAF4C0022A859 /* main.m */; };
 		4CC202811C6EAF4C0022A859 /* WJFAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CC202801C6EAF4C0022A859 /* WJFAppDelegate.m */; };
@@ -74,6 +75,8 @@
 		4C2D2BDD1C75742800F407AF /* WJFGif.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJFGif.m; sourceTree = "<group>"; };
 		4CA9787B1C89F53D00859E49 /* WJFGifRealm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJFGifRealm.h; sourceTree = "<group>"; };
 		4CA9787C1C89F53D00859E49 /* WJFGifRealm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJFGifRealm.m; sourceTree = "<group>"; };
+		4CA978811C8A291C00859E49 /* WJFFavoriteGifViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJFFavoriteGifViewController.h; sourceTree = "<group>"; };
+		4CA978821C8A291C00859E49 /* WJFFavoriteGifViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJFFavoriteGifViewController.m; sourceTree = "<group>"; };
 		4CC1DB0B1C751A9B004E3970 /* WJFGiphyAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJFGiphyAPIClient.h; sourceTree = "<group>"; };
 		4CC1DB0C1C751A9B004E3970 /* WJFGiphyAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJFGiphyAPIClient.m; sourceTree = "<group>"; };
 		4CC202791C6EAF4C0022A859 /* Liked.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Liked.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -181,6 +184,8 @@
 				4C2546DC1C89D70C00B162DA /* WJFSearchGifViewController.m */,
 				4C2546DE1C89D8BF00B162DA /* WJFRandomGifViewController.h */,
 				4C2546DF1C89D8BF00B162DA /* WJFRandomGifViewController.m */,
+				4CA978811C8A291C00859E49 /* WJFFavoriteGifViewController.h */,
+				4CA978821C8A291C00859E49 /* WJFFavoriteGifViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -516,6 +521,7 @@
 				4CEE1C1D1C7D124C00A7D1EF /* MMSideDrawerTableViewCell.m in Sources */,
 				4CC1DB0D1C751A9B004E3970 /* WJFGiphyAPIClient.m in Sources */,
 				4CEE1C1C1C7D124C00A7D1EF /* MMSideDrawerSectionHeaderView.m in Sources */,
+				4CA978831C8A291C00859E49 /* WJFFavoriteGifViewController.m in Sources */,
 				4CEE1C191C7D124C00A7D1EF /* WJFViewController.m in Sources */,
 				4CC202C41C6EB5B00022A859 /* WJFConstants.m in Sources */,
 				4CA9787D1C89F53D00859E49 /* WJFGifRealm.m in Sources */,
