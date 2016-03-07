@@ -49,7 +49,7 @@
 
 - (void)setupSearchAlertView
 {
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Search"
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Search for"
                                                                    message:nil
                                                             preferredStyle:UIAlertControllerStyleAlert];
     [alert addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
