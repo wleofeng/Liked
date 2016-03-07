@@ -72,7 +72,7 @@
 
 - (void)setupFavoriteGifViewController
 {
-    self.title = @"Favoite";
+    self.title = @"Favorite";
     
     WJFFavoriteGifViewController *VC = [[WJFFavoriteGifViewController alloc] init];
     [self setEmbeddedViewController:VC];
