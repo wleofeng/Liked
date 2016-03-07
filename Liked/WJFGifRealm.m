@@ -13,7 +13,7 @@
 
 + (NSString *)primaryKey //override primary key
 {
-    return @"id";
+    return @"ID";
 }
 
 - (instancetype)init
@@ -37,13 +37,30 @@
     return self;
 }
 
+- (instancetype)initWithGif:(WJFGif *)gif
+{
+    NSURL *url = [NSURL URLWithString:gif.url];
+    NSData *data = [NSData dataWithContentsOfURL:url];
+    self = [self initWithId:gif.ID url:gif.url data:data size:gif.size];
+    return self;
+}
+
 + (void)saveGif:(WJFGifRealm *)gif completion:(void (^)())completionHandler
 {
     RLMRealm *realm = [RLMRealm defaultRealm];
     
-    [realm beginWriteTransaction];
-    [realm addOrUpdateObject:gif];
-    [realm commitWriteTransaction];
+    //    [realm beginWriteTransaction];
+    //    [realm addOrUpdateObject:gif];
+    //    [realm commitWriteTransaction];
+    
+    NSError *error;
+    [realm transactionWithBlock:^{
+        [realm addOrUpdateObject:gif];
+    } error:&error];
+    
+    if (error) {
+        NSLog(@"Realm save error: %@", error);
+    }
     
     completionHandler();
 }
@@ -58,8 +75,5 @@
     }
     return array;
 }
-
-
-
 
 @end

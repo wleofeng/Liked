@@ -14,5 +14,6 @@
 + (void)fetchTrendingGIFsWithLimit:(NSUInteger)number completion:(void (^)(NSArray *responseArray))completionHandler;
 + (void)fetchRandomGIFsWithTag:(NSString *)tag completion:(void (^)(NSArray *responseArray))completionHandler;
 + (void)fetchGIFsWithSearchTerm:(NSString *)searchTerm completion:(void (^)(NSArray *responseArray))completionHandler;
++ (void)fetchGIFsWithTranslationTerm:(NSString *)translationTerm completion:(void (^)(NSArray *responseArray))completionHandler;
 
 @end

@@ -20,10 +20,8 @@
 
 
 #import "WJFSideDrawerViewController.h"
-#import "MMExampleCenterTableViewController.h"
 #import "MMSideDrawerTableViewCell.h"
 #import "MMSideDrawerSectionHeaderView.h"
-#import "MMLogoView.h"
 #import "MMNavigationController.h"
 #import <ChameleonFramework/Chameleon.h>
 
@@ -76,13 +74,6 @@
     
     self.drawerWidths = @[@(160),@(200),@(240),@(280),@(320)]; //define widths here
     
-    CGSize logoSize = CGSizeMake(58, 62);
-    MMLogoView * logo = [[MMLogoView alloc] initWithFrame:CGRectMake(CGRectGetMidX(self.tableView.bounds)-logoSize.width/2.0,
-                                                                     -logoSize.height-logoSize.height/4.0,
-                                                                     logoSize.width,
-                                                                     logoSize.height)];
-    [logo setAutoresizingMask:UIViewAutoresizingFlexibleLeftMargin|UIViewAutoresizingFlexibleRightMargin];
-    [self.tableView addSubview:logo];
     [self.view setBackgroundColor:[UIColor clearColor]];
 }
 
@@ -110,7 +101,7 @@
     // Return the number of rows in the section.
     switch (section) {
         case WJFDrawerSectionGif:
-            return 3;
+            return 4;
         case WJFDrawerSectionFavorite:
             return 1;
         default:
@@ -140,6 +131,8 @@
                 case 2:
                     [cell.textLabel setText:@"Search"];
                     break;
+                case 3:
+                    [cell.textLabel setText:@"Translate"];
             }
             break;
         case WJFDrawerSectionFavorite:
@@ -152,7 +145,8 @@
     return cell;
 }
 
--(NSString*)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
+- (NSString*)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
     switch (section) {
         case WJFDrawerSectionGif:
             return @"Giphy";
@@ -163,7 +157,8 @@
     }
 }
 
--(UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+- (UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
     MMSideDrawerSectionHeaderView * headerView;
     headerView =  [[MMSideDrawerSectionHeaderView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(tableView.bounds), 56.0)];
     [headerView setAutoresizingMask:UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth];
@@ -171,15 +166,18 @@
     return headerView;
 }
 
--(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
     return 56.0;
 }
 
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
     return 40.0;
 }
 
--(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
     return 0.0;
 }
 
@@ -208,6 +206,13 @@
                     [self.mm_drawerController toggleDrawerSide:MMDrawerSideLeft animated:YES completion:^(BOOL finished) {
                         if (finished) {
                             [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowSearchGif" object:nil];
+                        }
+                    }];
+                    break;
+                case 3:
+                    [self.mm_drawerController toggleDrawerSide:MMDrawerSideLeft animated:YES completion:^(BOOL finished) {
+                        if (finished) {
+                            [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowTranslationGif" object:nil];
                         }
                     }];
                     break;

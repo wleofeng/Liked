@@ -26,7 +26,7 @@
 @end
 
 @implementation MMDisclosureIndicator
--(id)initWithFrame:(CGRect)frame{
+- (id)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
     if(self){
         [self setBackgroundColor:[UIColor clearColor]];
@@ -35,7 +35,7 @@
     return self;
 }
 
--(void)drawRect:(CGRect)rect{
+- (void)drawRect:(CGRect)rect{
     //// General Declarations
     CGContextRef context = UIGraphicsGetCurrentContext();
     
@@ -76,7 +76,8 @@
 
 @implementation MMCustomCheckmark
 
--(id)initWithFrame:(CGRect)frame{
+- (id)initWithFrame:(CGRect)frame
+{
     self = [super initWithFrame:frame];
     if(self) {
         [self setBackgroundColor:[UIColor clearColor]];
@@ -85,7 +86,8 @@
     return self;
 }
 
--(void)drawRect:(CGRect)rect{
+- (void)drawRect:(CGRect)rect
+{
     //// Color Declarations
     UIColor* checkMarkColor = self.color;
 
@@ -129,7 +131,8 @@
     [checkMarkPath fill];
 }
 
--(void)setSelected:(BOOL)selected{
+- (void)setSelected:(BOOL)selected
+{
     [super setSelected:selected];
     [self setNeedsDisplay];
 }

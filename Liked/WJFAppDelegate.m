@@ -12,16 +12,13 @@
 #import <YYWebImage/YYWebImage.h>
 
 //Drawer
-#import <MMDrawerController/MMDrawerController.h>
-#import "MMDrawerController.h"
-#import "MMExampleCenterTableViewController.h"
 #import "WJFLeftSideDrawerViewController.h"
-#import "MMExampleRightSideDrawerViewController.h"
+#import "WJFSideDrawerViewController.h"
+#import "WJFCenterViewController.h"
+#import <MMDrawerController/MMDrawerController.h>
 #import "MMDrawerVisualState.h"
 #import "MMExampleDrawerVisualStateManager.h"
 #import "MMNavigationController.h"
-#import "WJFSideDrawerViewController.h"
-#import "WJFCenterViewController.h"
 
 @interface WJFAppDelegate ()
 
@@ -33,39 +30,16 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-//    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-//    self.window.backgroundColor = [UIColor whiteColor];
-//    [self.window makeKeyAndVisible];
-
-//    self.window.rootViewController = [[ChoosePersonViewController alloc]init];
-    
-//    UIViewController * leftDrawer = [[MMExampleLeftSideDrawerViewController alloc] init];
-//    UIViewController * center = [[WJFChooseGifViewController alloc]init];
-//    UIViewController * rightDrawer = [[UIViewController alloc] init];
-//    
-//    MMDrawerController * drawerController = [[MMDrawerController alloc]
-//                                             initWithCenterViewController:center
-//                                             leftDrawerViewController:leftDrawer
-//                                             rightDrawerViewController:rightDrawer];
-//    
-//    self.window.rootViewController = drawerController;
-
     //Integration with drawer
     UIViewController * leftSideDrawerViewController = [[WJFSideDrawerViewController alloc] init];
     UIViewController * centerViewController = [[WJFCenterViewController alloc]init];
-    
-//    UIViewController * rightSideDrawerViewController = [[MMExampleRightSideDrawerViewController alloc] init];
-    
+
     UINavigationController * navigationController = [[MMNavigationController alloc] initWithRootViewController:centerViewController];
     [navigationController setRestorationIdentifier:@"MMExampleCenterNavigationControllerRestorationKey"];
-//    UINavigationController * rightSideNavController = [[MMNavigationController alloc] initWithRootViewController:rightSideDrawerViewController];
-//    [rightSideNavController setRestorationIdentifier:@"MMExampleRightNavigationControllerRestorationKey"];
+
     UINavigationController * leftSideNavController = [[MMNavigationController alloc] initWithRootViewController:leftSideDrawerViewController];
     [leftSideNavController setRestorationIdentifier:@"MMExampleLeftNavigationControllerRestorationKey"];
-//    self.drawerController = [[MMDrawerController alloc]
-//                             initWithCenterViewController:navigationController
-//                             leftDrawerViewController:leftSideNavController
-//                             rightDrawerViewController:rightSideNavController];
+
     self.drawerController = [[MMDrawerController alloc] initWithCenterViewController:navigationController leftDrawerViewController:leftSideDrawerViewController];
     
     [self.drawerController setShowsShadow:NO];
@@ -90,6 +64,7 @@
                                            blue:234.0/255.0
                                           alpha:1.0];
     [self.window setTintColor:tintColor];
+    [self.window makeKeyAndVisible];
     [self.window setRootViewController:self.drawerController];
 
     //Test code here

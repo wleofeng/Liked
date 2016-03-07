@@ -22,6 +22,6 @@
 
 @interface WJFViewController : UIViewController
 
--(void)contentSizeDidChange:(NSString*)size;
+- (void)contentSizeDidChange:(NSString*)size;
 
 @end

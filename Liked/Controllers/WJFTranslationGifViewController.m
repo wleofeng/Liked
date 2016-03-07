@@ -1,21 +1,19 @@
 //
-//  WJFRandomGifViewController.m
+//  WJFTranslationGifViewController.m
 //  Liked
 //
-//  Created by Wo Jun Feng on 3/4/16.
+//  Created by Wo Jun Feng on 3/7/16.
 //  Copyright © 2016 Wo Jun Feng. All rights reserved.
 //
 
-#import "WJFRandomGifViewController.h"
-
-#import "WJFRandomGifViewController.h"
+#import "WJFTranslationGifViewController.h"
 #import "WJFGiphyAPIClient.h"
 #import "WJFGif.h"
 #import <MBProgressHUD/MBProgressHUD.h>
 #import <YYWebImage/YYWebImage.h>
 #import <Masonry/Masonry.h>
 
-@interface WJFRandomGifViewController ()
+@interface WJFTranslationGifViewController ()
 
 @property (nonatomic, strong) NSMutableArray *gifArray;
 @property (nonatomic, strong) NSOperationQueue *bgQueue;
@@ -24,7 +22,7 @@
 
 @end
 
-@implementation WJFRandomGifViewController
+@implementation WJFTranslationGifViewController
 
 - (void)viewDidLoad
 {
@@ -45,8 +43,40 @@
 {
     [super viewDidAppear:animated];
     
-    [self fetchRandomGifFromAPI];
+    [self setupSearchAlertView];
 }
+
+- (void)setupSearchAlertView
+{
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Translate a word or phrase"
+                                                                   message:@"(try out the special Giphy sauce)"
+                                                            preferredStyle:UIAlertControllerStyleAlert];
+    [alert addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
+        textField.textAlignment = NSTextAlignmentCenter;
+    }];
+    
+    UIAlertAction *translateAction = [UIAlertAction actionWithTitle:@"Please show me now!" style:UIAlertActionStyleDefault
+                                                            handler:^(UIAlertAction * _Nonnull action) {
+                                                                if (alert.textFields[0].text.length) {
+                                                                    [self fetchGifFromAPIWithTranslationTerm:alert.textFields[0].text];
+                                                                } else {
+                                                                    [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowRandomGif" object:nil];
+                                                                }
+                                                                
+                                                            }];
+    
+    [alert addAction:translateAction];
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
+- (void)fetchGifFromAPIWithTranslationTerm:(NSString *)translationTerm
+{
+    [WJFGiphyAPIClient fetchGIFsWithTranslationTerm:translationTerm completion:^(NSArray *responseArray) {
+        self.gifArray = [responseArray mutableCopy];
+        [self addSwipeViewImage];
+    }];
+}
+
 
 - (void)setupSwipeView
 {
@@ -68,14 +98,6 @@
     [self.view addSubview:self.swipeView];
 }
 
-- (void)fetchRandomGifFromAPI
-{
-    [WJFGiphyAPIClient fetchRandomGIFsWithTag:nil completion:^(NSArray *responseArray) {
-        self.gifArray = [responseArray mutableCopy];
-        [self addSwipeViewImage];
-    }];
-}
-
 - (void)addSwipeViewImage
 {
     [self.hud setHidden:NO];
@@ -86,8 +108,7 @@
     [self.bgQueue addOperationWithBlock:^{
         if (self.gifArray.count) {
             NSDictionary *gifDict = (NSDictionary *)self.gifArray;
-            //            WJFGif *gif = [[WJFGif alloc]initWithFileName:gifDict[@"id"] url:gifDict[@"fixed_height_downsampled_url"] size:0];
-            WJFGif *gif = [[WJFGif alloc]initWithFileName:gifDict[@"id"] url:gifDict[@"image_url"] size:0];
+            WJFGif *gif = [[WJFGif alloc]initWithFileName:gifDict[@"id"] url:gifDict[@"images"][@"downsized"][@"url"] size:[gifDict[@"images"][@"downsized"][@"size"] floatValue]];
             
             [[NSOperationQueue mainQueue]addOperationWithBlock:^{
                 [self.swipeView.imageView yy_setImageWithURL:[NSURL URLWithString:gif.url] options:YYWebImageOptionProgressive];

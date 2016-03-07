@@ -7,6 +7,7 @@
 //
 
 #import <Realm/Realm.h>
+#import "WJFGif.h"
 
 @interface WJFGifRealm : RLMObject
 
@@ -20,11 +21,8 @@
                        url:(NSString *)url
                       data:(NSData *)data
                       size:(float)size;
+- (instancetype)initWithGif:(WJFGif *)gif;
 + (void)saveGif:(WJFGifRealm *)gif completion:(void (^)())completionHandler;
-
-
-
++ (NSArray *)fetchAllGif;
 
 @end
-
-RLM_ARRAY_TYPE(WJFGifRealm)

@@ -12,6 +12,7 @@
 #import <MBProgressHUD/MBProgressHUD.h>
 #import <YYWebImage/YYWebImage.h>
 #import <Masonry/Masonry.h>
+#import "WJFGifRealm.h"
 
 @interface WJFTrendingGifViewController ()
 
@@ -35,7 +36,7 @@
     self.hud.labelText = @"Loading";
     self.hud.labelFont = [UIFont fontWithName:@"Moon-Bold" size:14.0f];
     self.hud.hidden = YES;
-        
+    
     [self setupSwipeView];
 }
 
@@ -48,7 +49,6 @@
 
 - (void)setupSwipeView
 {
-    // You can customize MDCSwipeToChooseView using MDCSwipeToChooseViewOptions.
     MDCSwipeToChooseViewOptions *options = [MDCSwipeToChooseViewOptions new];
     options.delegate = self;
     options.likedText = @"LIKE";
@@ -65,8 +65,6 @@
                                                          options:options];
     
     [self.view addSubview:self.swipeView];
-    
-    //    [self setContentViewLayoutConstraintForView:self.swipeView]; //Set auto layout constraints
 }
 
 - (void)fetchTrendingGifFromAPI
@@ -88,9 +86,9 @@
         if (self.gifArray.count) {
             NSDictionary *gifDict = [self.gifArray firstObject];
             WJFGif *gif = [[WJFGif alloc]initWithFileName:gifDict[@"id"] url:gifDict[@"images"][@"downsized"][@"url"] size:[gifDict[@"images"][@"downsized"][@"size"] floatValue]];
-                
-                [self.gifArray removeObjectAtIndex:0];
-
+            self.currentGif = gif;
+            
+            [self.gifArray removeObjectAtIndex:0];
             
             [[NSOperationQueue mainQueue]addOperationWithBlock:^{
                 [self.swipeView.imageView yy_setImageWithURL:[NSURL URLWithString:gif.url] options:YYWebImageOptionProgressive];
@@ -105,13 +103,11 @@
 
 #pragma mark - MDCSwipeToChooseDelegate Callbacks
 
-// This is called when a user didn't fully swipe left or right.
 - (void)viewDidCancelSwipe:(UIView *)view
 {
     NSLog(@"Couldn't decide, huh?");
 }
 
-// Sent before a choice is made. Cancel the choice by returning `NO`. Otherwise return `YES`.
 - (BOOL)view:(UIView *)view shouldBeChosenWithDirection:(MDCSwipeDirection)direction
 {
     //    if (direction == MDCSwipeDirectionLeft) {
@@ -127,13 +123,15 @@
     return YES;
 }
 
-// This is called then a user swipes the view fully left or right.
 - (void)view:(UIView *)view wasChosenWithDirection:(MDCSwipeDirection)direction
 {
     if (direction == MDCSwipeDirectionLeft) {
         NSLog(@"Photo deleted!");
     } else {
-        NSLog(@"Photo saved!");
+        WJFGifRealm *newGif = [[WJFGifRealm alloc] initWithGif:self.currentGif];
+        [WJFGifRealm saveGif:newGif completion:^{
+            NSLog(@"Gif saved to realm");
+        }];
     }
     
     [self.swipeView removeFromSuperview];

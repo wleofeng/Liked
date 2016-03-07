@@ -45,16 +45,19 @@
      object:nil];
 }
 
-- (void)dealloc{
+- (void)dealloc
+{
     [[NSNotificationCenter defaultCenter]
      removeObserver:self];
 }
 
--(void)contentSizeDidChangeNotification:(NSNotification*)notification{
+- (void)contentSizeDidChangeNotification:(NSNotification*)notification
+{
     [self contentSizeDidChange:notification.userInfo[UIContentSizeCategoryNewValueKey]];
 }
 
--(void)contentSizeDidChange:(NSString *)size{
+- (void)contentSizeDidChange:(NSString *)size
+{
     //Implement in subclass
 }
 

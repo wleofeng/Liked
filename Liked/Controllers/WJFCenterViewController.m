@@ -12,6 +12,7 @@
 #import "WJFTrendingGifViewController.h"
 #import "WJFSearchGifViewController.h"
 #import "WJFRandomGifViewController.h"
+#import "WJFTranslationGifViewController.h"
 #import "WJFFavoriteGifViewController.h"
 #import <Masonry/Masonry.h>
 
@@ -21,6 +22,7 @@
 {
     [super viewDidLoad];
     
+    self.view.backgroundColor = [UIColor whiteColor];
     [self setupLeftMenuButton];
     
     self.containerView = [[UIView alloc] init];
@@ -31,6 +33,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setupTrendingGifViewController) name:@"ShowTrendingGif" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setupRandomGifViewController) name:@"ShowRandomGif" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setupSearchGifViewController) name:@"ShowSearchGif" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setupTranslationGifViewController) name:@"ShowTranslationGif" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setupFavoriteGifViewController) name:@"ShowFavoriteGif" object:nil];
 }
 
@@ -56,6 +59,14 @@
     self.title = @"Search";
     
     WJFSearchGifViewController *VC = [[WJFSearchGifViewController alloc] init];
+    [self setEmbeddedViewController:VC];
+}
+
+- (void)setupTranslationGifViewController
+{
+    self.title = @"Translation";
+    
+    WJFTranslationGifViewController *VC = [[WJFTranslationGifViewController alloc] init];
     [self setEmbeddedViewController:VC];
 }
 

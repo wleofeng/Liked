@@ -43,12 +43,49 @@
 {
     [super viewDidAppear:animated];
     
-    [self fetchGifWithSearchTermFromAPI];
+    [self setupSearchAlertView];
+}
+
+- (void)setupSearchAlertView
+{
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Search"
+                                                                   message:nil
+                                                            preferredStyle:UIAlertControllerStyleAlert];
+    [alert addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
+        textField.textAlignment = NSTextAlignmentCenter;
+    }];
+    
+    UIAlertAction *searchAction = [UIAlertAction actionWithTitle:@"Please show me now!" style:UIAlertActionStyleDefault
+                                                         handler:^(UIAlertAction * _Nonnull action) {
+                                                             if (alert.textFields[0].text.length) {
+                                                                [self fetchGifFromAPIWithSearchTerm:alert.textFields[0].text];
+                                                             } else {
+                                                                 [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowRandomGif" object:nil];
+                                                             }
+                                                         }];
+    
+    [alert addAction:searchAction];
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
+- (void)fetchGifFromAPIWithSearchTerm:(NSString *)seachTerm
+{
+    [WJFGiphyAPIClient fetchGIFsWithSearchTerm:seachTerm completion:^(NSArray *responseArray) {
+        self.gifArray = [responseArray mutableCopy];
+        [self addSwipeViewImage];
+    }];
+}
+
+- (void)fetchRandomGifFromAPI
+{
+    [WJFGiphyAPIClient fetchRandomGIFsWithTag:nil completion:^(NSArray *responseArray) {
+        self.gifArray = [responseArray mutableCopy];
+        [self addSwipeViewImage];
+    }];
 }
 
 - (void)setupSwipeView
 {
-    // You can customize MDCSwipeToChooseView using MDCSwipeToChooseViewOptions.
     MDCSwipeToChooseViewOptions *options = [MDCSwipeToChooseViewOptions new];
     options.delegate = self;
     options.likedText = @"LIKE";
@@ -65,16 +102,6 @@
                                                          options:options];
     
     [self.view addSubview:self.swipeView];
-    
-    //    [self setContentViewLayoutConstraintForView:self.swipeView]; //Set auto layout constraints
-}
-
-- (void)fetchGifWithSearchTermFromAPI
-{
-    [WJFGiphyAPIClient fetchGIFsWithSearchTerm:@"funny cat" completion:^(NSArray *responseArray) {
-        self.gifArray = [responseArray mutableCopy];
-        [self addSwipeViewImage];
-    }];
 }
 
 - (void)addSwipeViewImage
@@ -105,13 +132,11 @@
 
 #pragma mark - MDCSwipeToChooseDelegate Callbacks
 
-// This is called when a user didn't fully swipe left or right.
 - (void)viewDidCancelSwipe:(UIView *)view
 {
     NSLog(@"Couldn't decide, huh?");
 }
 
-// Sent before a choice is made. Cancel the choice by returning `NO`. Otherwise return `YES`.
 - (BOOL)view:(UIView *)view shouldBeChosenWithDirection:(MDCSwipeDirection)direction
 {
     //    if (direction == MDCSwipeDirectionLeft) {
@@ -127,7 +152,6 @@
     return YES;
 }
 
-// This is called then a user swipes the view fully left or right.
 - (void)view:(UIView *)view wasChosenWithDirection:(MDCSwipeDirection)direction
 {
     if (direction == MDCSwipeDirectionLeft) {
