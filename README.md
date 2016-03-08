@@ -8,7 +8,7 @@ Liked is an iOS application that brings the tinder experience to Giphy images. T
 ![alt tag](https://github.com/wleofeng/Liked/blob/master/Liked/Assets.xcassets/Giphy-Logo.dataset/Giphy-Logo.gif)
 
 #Why did I built this?
-+ For a good laugh. Who doesn't like to explore Giphy images and be surprised by what you can find?
++ For a good laugh. Who doesn't like to explore Giphy images and be surprised by what s/he can find?
 + Level up on API usage, Model, View + Container View, Controller and Object Oriented Design
 + Let go of the storyboard / XIBs, focus more on code 
 + Make a pretty app (prettificaiton in progress)
