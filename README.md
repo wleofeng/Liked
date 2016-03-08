@@ -13,14 +13,14 @@ Liked is an iOS application that brings the tinder experience to Giphy images. T
 + Make a pretty app (prettificaiton in progress = D)
 
 #ACKNOWLEDGEMENT:
-Some of the features in this product is using third party frameworks listed below: 
-MDCSwipeToChoose
-MMDrawerController
-MBProgressHUD
-AFNetworking
-Realm
-YYWebImage
-Masonry
-FontAwesomeKit
-ChameleonFramework
+Some of the features in this product is using third party frameworks listed below: <br />
+MDCSwipeToChoose <br />
+MMDrawerController <br />
+MBProgressHUD <br />
+AFNetworking <br />
+Realm <br />
+YYWebImage <br />
+Masonry <br />
+FontAwesomeKit <br />
+ChameleonFramework <br />
 
