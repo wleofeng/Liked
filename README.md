@@ -1,4 +1,4 @@
 # Liked
 
 Quick Demo
-![](https://github.com/wleofeng/Liked/blob/master/liked-demo.png)
+![](https://github.com/wleofeng/Liked/blob/master/liked-demo.gif)
