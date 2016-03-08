@@ -7,7 +7,7 @@ Quick Demo
 Liked is an iOS application that brings the tinder experience to Giphy images. This app integrates the Giphy API to fetch fresh images in Trending, Random, Search, and Translation categories. While viewing each Giphy image, user can either 'Like' or 'Nope' an image. Liked images will be saved in a collection for future revisits.  
 ![alt tag](https://github.com/wleofeng/Liked/blob/master/Liked/Assets.xcassets/Giphy-Logo.dataset/Giphy-Logo.gif)
 
-#Why did I built this?
+#Why did I build this?
 + For a good laugh. Who doesn't like to explore Giphy images and be surprised by what s/he can find?
 + Level up on API usage, Model, View + Container View, Controller and Object Oriented Design
 + Let go of the storyboard / XIBs, focus more on code 
