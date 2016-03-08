@@ -33,15 +33,15 @@
     UIViewController * centerViewController = [[WJFCenterViewController alloc]init];
 
     UINavigationController * navigationController = [[MMNavigationController alloc] initWithRootViewController:centerViewController];
-    [navigationController setRestorationIdentifier:@"MMExampleCenterNavigationControllerRestorationKey"];
+    [navigationController setRestorationIdentifier:@"WJFCenterNavigationControllerRestorationKey"];
 
     UINavigationController * leftSideNavController = [[MMNavigationController alloc] initWithRootViewController:leftSideDrawerViewController];
-    [leftSideNavController setRestorationIdentifier:@"MMExampleLeftNavigationControllerRestorationKey"];
+    [leftSideNavController setRestorationIdentifier:@"WJFLeftNavigationControllerRestorationKey"];
 
     self.drawerController = [[MMDrawerController alloc] initWithCenterViewController:navigationController leftDrawerViewController:leftSideDrawerViewController];
     
     [self.drawerController setShowsShadow:NO];
-    [self.drawerController setRestorationIdentifier:@"MMDrawer"];
+    [self.drawerController setRestorationIdentifier:@"WJFDrawer"];
 //    [self.drawerController setMaximumRightDrawerWidth:200.0];
     [self.drawerController setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeAll];
     [self.drawerController setCloseDrawerGestureModeMask:MMCloseDrawerGestureModeAll];

@@ -11,18 +11,6 @@
 
 @implementation WJFFavoriteGifCollectionViewCell
 
-//- (instancetype)init
-//{
-//    self = [super init];
-//    if (self) {
-//        _imageView = [[YYAnimatedImageView alloc] init];
-//        
-//        [self setupImageView];
-//    }
-//    
-//    return self;
-//}
-
 - (instancetype)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];

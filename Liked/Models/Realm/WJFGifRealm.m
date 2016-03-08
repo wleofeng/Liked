@@ -49,10 +49,6 @@
 {
     RLMRealm *realm = [RLMRealm defaultRealm];
     
-    //    [realm beginWriteTransaction];
-    //    [realm addOrUpdateObject:gif];
-    //    [realm commitWriteTransaction];
-    
     NSError *error;
     [realm transactionWithBlock:^{
         [realm addOrUpdateObject:gif];

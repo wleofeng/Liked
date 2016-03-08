@@ -203,6 +203,12 @@
 		4C1532E91C8F5A4F001FFC61 /* Drawer */ = {
 			isa = PBXGroup;
 			children = (
+				4C1532F81C8F5A4F001FFC61 /* WJFViewController.h */,
+				4C1532F91C8F5A4F001FFC61 /* WJFViewController.m */,
+				4C1532F61C8F5A4F001FFC61 /* WJFSideDrawerViewController.h */,
+				4C1532F71C8F5A4F001FFC61 /* WJFSideDrawerViewController.m */,
+				4C1532F41C8F5A4F001FFC61 /* WJFLeftSideDrawerViewController.h */,
+				4C1532F51C8F5A4F001FFC61 /* WJFLeftSideDrawerViewController.m */,
 				4C1532EA1C8F5A4F001FFC61 /* MMExampleDrawerVisualStateManager.h */,
 				4C1532EB1C8F5A4F001FFC61 /* MMExampleDrawerVisualStateManager.m */,
 				4C1532EC1C8F5A4F001FFC61 /* MMNavigationController.h */,
@@ -213,12 +219,6 @@
 				4C1532F11C8F5A4F001FFC61 /* MMSideDrawerTableViewCell.m */,
 				4C1532F21C8F5A4F001FFC61 /* MMTableViewCell.h */,
 				4C1532F31C8F5A4F001FFC61 /* MMTableViewCell.m */,
-				4C1532F41C8F5A4F001FFC61 /* WJFLeftSideDrawerViewController.h */,
-				4C1532F51C8F5A4F001FFC61 /* WJFLeftSideDrawerViewController.m */,
-				4C1532F61C8F5A4F001FFC61 /* WJFSideDrawerViewController.h */,
-				4C1532F71C8F5A4F001FFC61 /* WJFSideDrawerViewController.m */,
-				4C1532F81C8F5A4F001FFC61 /* WJFViewController.h */,
-				4C1532F91C8F5A4F001FFC61 /* WJFViewController.m */,
 			);
 			path = Drawer;
 			sourceTree = "<group>";
