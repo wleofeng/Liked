@@ -1,5 +1,5 @@
 //
-// ChoosePersonView.h
+// UIColor+MDCRGB8Bit.h
 //
 // Copyright (c) 2014 to present, Brian Gesiak @modocache
 //
@@ -23,17 +23,12 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "MDCSwipeToChoose.h"
-#import <YYWebImage/YYWebImage.h>
 
-@class WJFGif;
+@interface UIColor (MDCRGB8Bit)
 
-@interface WJFChooseGifView : MDCSwipeToChooseView
-
-@property (nonatomic, strong, readonly) WJFGif *gif;
-
-- (instancetype)initWithFrame:(CGRect)frame
-                          gif:(WJFGif *)gif
-                      options:(MDCSwipeToChooseViewOptions *)options;
++ (UIColor *)colorWith8BitRed:(CGFloat)red
+                        green:(CGFloat)green
+                         blue:(CGFloat)blue
+                        alpha:(CGFloat)alpha;
 
 @end

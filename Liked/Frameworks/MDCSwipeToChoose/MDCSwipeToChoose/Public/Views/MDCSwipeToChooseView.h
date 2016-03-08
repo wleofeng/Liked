@@ -1,5 +1,5 @@
 //
-// ChoosePersonView.h
+// MDCSwipeToChooseView.h
 //
 // Copyright (c) 2014 to present, Brian Gesiak @modocache
 //
@@ -23,17 +23,36 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "MDCSwipeToChoose.h"
-#import <YYWebImage/YYWebImage.h>
+#import <YYWebImage/YYImage.h>
 
-@class WJFGif;
+@class MDCSwipeToChooseViewOptions;
 
-@interface WJFChooseGifView : MDCSwipeToChooseView
+/*!
+ * A `UIView` subclass that acts nearly identically to the swipe-to-choose
+ * views in Tinder.app. Swipe right to "like", left to "dislike".
+ */
+@interface MDCSwipeToChooseView : UIView
 
-@property (nonatomic, strong, readonly) WJFGif *gif;
+/*!
+ * The main image to be displayed and then "liked" or "disliked".
+ */
+@property (nonatomic, strong) YYAnimatedImageView *imageView; //Hacked
 
+/*!
+ * The "liked" view, which fades in as the `MDCSwipeToChooseView` is panned to the right.
+ */
+@property (nonatomic, strong) UIView *likedView;
+
+/*!
+ * The "nope" view, which fades in as the `MDCSwipeToChooseView` is panned to the left.
+ */
+@property (nonatomic, strong) UIView *nopeView;
+
+/*!
+ * The designated initializer takes a `frame` and a set of options to customize
+ * the behavior of the view.
+ */
 - (instancetype)initWithFrame:(CGRect)frame
-                          gif:(WJFGif *)gif
                       options:(MDCSwipeToChooseViewOptions *)options;
 
 @end

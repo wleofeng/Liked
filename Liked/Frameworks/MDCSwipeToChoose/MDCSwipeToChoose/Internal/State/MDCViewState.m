@@ -1,5 +1,5 @@
 //
-// ChoosePersonView.h
+// MDCViewState.m
 //
 // Copyright (c) 2014 to present, Brian Gesiak @modocache
 //
@@ -22,18 +22,11 @@
 // THE SOFTWARE.
 //
 
-#import <UIKit/UIKit.h>
-#import "MDCSwipeToChoose.h"
-#import <YYWebImage/YYWebImage.h>
+#import "MDCViewState.h"
 
-@class WJFGif;
+const MDCRotationDirection MDCRotationAwayFromCenter = 1.f;
+const MDCRotationDirection MDCRotationTowardsCenter = -1.f;
 
-@interface WJFChooseGifView : MDCSwipeToChooseView
-
-@property (nonatomic, strong, readonly) WJFGif *gif;
-
-- (instancetype)initWithFrame:(CGRect)frame
-                          gif:(WJFGif *)gif
-                      options:(MDCSwipeToChooseViewOptions *)options;
+@implementation MDCViewState
 
 @end

@@ -1,5 +1,5 @@
 //
-// ChoosePersonView.h
+// MDCPanState.h
 //
 // Copyright (c) 2014 to present, Brian Gesiak @modocache
 //
@@ -23,17 +23,31 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "MDCSwipeToChoose.h"
-#import <YYWebImage/YYWebImage.h>
+#import "MDCSwipeDirection.h"
 
-@class WJFGif;
+/*!
+ * An object representing the state of the current pan gesture.
+ * This is provided as an argument to `MDCSwipeToChooseOnPanBlock` callbacks.
+ */
+@interface MDCPanState : NSObject
 
-@interface WJFChooseGifView : MDCSwipeToChooseView
+/*!
+ * The view being panned.
+ */
+@property (nonatomic, strong) UIView *view;
 
-@property (nonatomic, strong, readonly) WJFGif *gif;
+/*!
+ * The direction of the current pan. Note that a direction of `MDCSwipeDirectionRight`
+ * does not imply that the threshold has been reached.
+ */
+@property (nonatomic, assign) MDCSwipeDirection direction;
 
-- (instancetype)initWithFrame:(CGRect)frame
-                          gif:(WJFGif *)gif
-                      options:(MDCSwipeToChooseViewOptions *)options;
+/*!
+ * The ratio of the threshold that has been reached. This can take on any value
+ * between `0.0f` and `1.0f`, with `1.0f` meaning the threshold has been reached.
+ * A `thresholdRatio` of `1.0f` implies that were the user to end the pan gesture,
+ * the current direction would be chosen.
+ */
+@property (nonatomic, assign) CGFloat thresholdRatio;
 
 @end

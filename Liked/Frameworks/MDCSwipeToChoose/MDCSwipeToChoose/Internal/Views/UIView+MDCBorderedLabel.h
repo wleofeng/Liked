@@ -1,5 +1,5 @@
 //
-// ChoosePersonView.h
+// UIView+MDCBorderedLabel.h
 //
 // Copyright (c) 2014 to present, Brian Gesiak @modocache
 //
@@ -23,17 +23,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "MDCSwipeToChoose.h"
-#import <YYWebImage/YYWebImage.h>
 
-@class WJFGif;
+@interface UIView (MDCBorderedLabel)
 
-@interface WJFChooseGifView : MDCSwipeToChooseView
-
-@property (nonatomic, strong, readonly) WJFGif *gif;
-
-- (instancetype)initWithFrame:(CGRect)frame
-                          gif:(WJFGif *)gif
-                      options:(MDCSwipeToChooseViewOptions *)options;
+- (void)constructBorderedLabelWithText:(NSString *)text
+                                 color:(UIColor *)color
+                                 angle:(CGFloat)angle;
 
 @end

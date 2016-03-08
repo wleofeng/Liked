@@ -1,5 +1,5 @@
 //
-// ChoosePersonView.h
+// MDCGeometry.h
 //
 // Copyright (c) 2014 to present, Brian Gesiak @modocache
 //
@@ -23,17 +23,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "MDCSwipeToChoose.h"
-#import <YYWebImage/YYWebImage.h>
 
-@class WJFGif;
-
-@interface WJFChooseGifView : MDCSwipeToChooseView
-
-@property (nonatomic, strong, readonly) WJFGif *gif;
-
-- (instancetype)initWithFrame:(CGRect)frame
-                          gif:(WJFGif *)gif
-                      options:(MDCSwipeToChooseViewOptions *)options;
-
-@end
+extern CGPoint MDCCGPointAdd(const CGPoint a, const CGPoint b);
+extern CGPoint MDCCGPointSubtract(const CGPoint minuend, const CGPoint subtrahend);
+extern CGFloat MDCDegreesToRadians(const CGFloat degrees);
+extern CGRect MDCCGRectExtendedOutOfBounds(const CGRect rect,
+                                           const CGRect bounds,
+                                           const CGPoint translation);

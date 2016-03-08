@@ -1,5 +1,5 @@
 //
-// ChoosePersonView.h
+// MDCViewState.h
 //
 // Copyright (c) 2014 to present, Brian Gesiak @modocache
 //
@@ -23,17 +23,26 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "MDCSwipeToChoose.h"
-#import <YYWebImage/YYWebImage.h>
 
-@class WJFGif;
+typedef CGFloat MDCRotationDirection;
+extern const MDCRotationDirection MDCRotationAwayFromCenter;
+extern const MDCRotationDirection MDCRotationTowardsCenter;
 
-@interface WJFChooseGifView : MDCSwipeToChooseView
+@interface MDCViewState : NSObject
 
-@property (nonatomic, strong, readonly) WJFGif *gif;
+/*!
+ * The center of the view when the pan gesture began.
+ */
+@property (nonatomic, assign) CGPoint originalCenter;
+@property (nonatomic, assign) CATransform3D originalTransform;
 
-- (instancetype)initWithFrame:(CGRect)frame
-                          gif:(WJFGif *)gif
-                      options:(MDCSwipeToChooseViewOptions *)options;
+/*!
+ * When the pan gesture originates at the top half of the view, the view rotates
+ * away from its original center, and this property takes on a value of 1.
+ *
+ * When the pan gesture originates at the bottom half, the view rotates toward its
+ * original center, and this takes on a value of -1.
+ */
+@property (nonatomic, assign) MDCRotationDirection rotationDirection;
 
 @end

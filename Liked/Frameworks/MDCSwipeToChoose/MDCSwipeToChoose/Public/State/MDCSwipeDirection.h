@@ -1,5 +1,5 @@
 //
-// ChoosePersonView.h
+// MDCSwipeDirection.h
 //
 // Copyright (c) 2014 to present, Brian Gesiak @modocache
 //
@@ -22,18 +22,15 @@
 // THE SOFTWARE.
 //
 
-#import <UIKit/UIKit.h>
-#import "MDCSwipeToChoose.h"
-#import <YYWebImage/YYWebImage.h>
+#import <Foundation/Foundation.h>
 
-@class WJFGif;
-
-@interface WJFChooseGifView : MDCSwipeToChooseView
-
-@property (nonatomic, strong, readonly) WJFGif *gif;
-
-- (instancetype)initWithFrame:(CGRect)frame
-                          gif:(WJFGif *)gif
-                      options:(MDCSwipeToChooseViewOptions *)options;
-
-@end
+/*!
+ * MDCSwipeDirection represents the direction of a swipe. For example,
+ * `MDCSwipeToChooseView` considers a swipe to the left as negative,
+ * and a swipe to the right as positive.
+ */
+typedef NS_ENUM(NSInteger, MDCSwipeDirection) {
+    MDCSwipeDirectionNone = 0,
+    MDCSwipeDirectionLeft,
+    MDCSwipeDirectionRight
+};

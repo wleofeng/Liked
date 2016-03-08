@@ -25,6 +25,18 @@
 		4C2546DD1C89D70C00B162DA /* WJFSearchGifViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C2546DC1C89D70C00B162DA /* WJFSearchGifViewController.m */; };
 		4C2546E01C89D8BF00B162DA /* WJFRandomGifViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C2546DF1C89D8BF00B162DA /* WJFRandomGifViewController.m */; };
 		4C2D2BDE1C75742800F407AF /* WJFGif.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C2D2BDD1C75742800F407AF /* WJFGif.m */; };
+		4C748BC41C8F6744002A9282 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 4C748BA31C8F6744002A9282 /* LICENSE */; };
+		4C748BC51C8F6744002A9282 /* MDCGeometry.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C748BA71C8F6744002A9282 /* MDCGeometry.m */; };
+		4C748BC61C8F6744002A9282 /* MDCViewState.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C748BAA1C8F6744002A9282 /* MDCViewState.m */; };
+		4C748BC71C8F6744002A9282 /* UIColor+MDCRGB8Bit.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C748BAC1C8F6744002A9282 /* UIColor+MDCRGB8Bit.m */; };
+		4C748BC81C8F6744002A9282 /* UIView+MDCBorderedLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C748BAF1C8F6744002A9282 /* UIView+MDCBorderedLabel.m */; };
+		4C748BC91C8F6744002A9282 /* MDCSwipeOptions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C748BB41C8F6744002A9282 /* MDCSwipeOptions.m */; };
+		4C748BCA1C8F6744002A9282 /* MDCSwipeToChooseViewOptions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C748BB61C8F6744002A9282 /* MDCSwipeToChooseViewOptions.m */; };
+		4C748BCB1C8F6744002A9282 /* MDCPanState.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C748BB91C8F6744002A9282 /* MDCPanState.m */; };
+		4C748BCC1C8F6744002A9282 /* MDCSwipeResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C748BBC1C8F6744002A9282 /* MDCSwipeResult.m */; };
+		4C748BCD1C8F6744002A9282 /* MDCSwipeToChooseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C748BC01C8F6744002A9282 /* MDCSwipeToChooseView.m */; };
+		4C748BCE1C8F6744002A9282 /* UIView+MDCSwipeToChoose.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C748BC21C8F6744002A9282 /* UIView+MDCSwipeToChoose.m */; };
+		4C748BCF1C8F6744002A9282 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 4C748BC31C8F6744002A9282 /* README.md */; };
 		4CA978831C8A291C00859E49 /* WJFFavoriteGifViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CA978821C8A291C00859E49 /* WJFFavoriteGifViewController.m */; };
 		4CC2027E1C6EAF4C0022A859 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CC2027D1C6EAF4C0022A859 /* main.m */; };
 		4CC202811C6EAF4C0022A859 /* WJFAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CC202801C6EAF4C0022A859 /* WJFAppDelegate.m */; };
@@ -93,6 +105,31 @@
 		4C2546DF1C89D8BF00B162DA /* WJFRandomGifViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJFRandomGifViewController.m; sourceTree = "<group>"; };
 		4C2D2BDC1C75742800F407AF /* WJFGif.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJFGif.h; sourceTree = "<group>"; };
 		4C2D2BDD1C75742800F407AF /* WJFGif.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJFGif.m; sourceTree = "<group>"; };
+		4C748BA31C8F6744002A9282 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		4C748BA61C8F6744002A9282 /* MDCGeometry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDCGeometry.h; sourceTree = "<group>"; };
+		4C748BA71C8F6744002A9282 /* MDCGeometry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDCGeometry.m; sourceTree = "<group>"; };
+		4C748BA91C8F6744002A9282 /* MDCViewState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDCViewState.h; sourceTree = "<group>"; };
+		4C748BAA1C8F6744002A9282 /* MDCViewState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDCViewState.m; sourceTree = "<group>"; };
+		4C748BAB1C8F6744002A9282 /* UIColor+MDCRGB8Bit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+MDCRGB8Bit.h"; sourceTree = "<group>"; };
+		4C748BAC1C8F6744002A9282 /* UIColor+MDCRGB8Bit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+MDCRGB8Bit.m"; sourceTree = "<group>"; };
+		4C748BAE1C8F6744002A9282 /* UIView+MDCBorderedLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MDCBorderedLabel.h"; sourceTree = "<group>"; };
+		4C748BAF1C8F6744002A9282 /* UIView+MDCBorderedLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MDCBorderedLabel.m"; sourceTree = "<group>"; };
+		4C748BB11C8F6744002A9282 /* MDCSwipeToChoose.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDCSwipeToChoose.h; sourceTree = "<group>"; };
+		4C748BB31C8F6744002A9282 /* MDCSwipeOptions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDCSwipeOptions.h; sourceTree = "<group>"; };
+		4C748BB41C8F6744002A9282 /* MDCSwipeOptions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDCSwipeOptions.m; sourceTree = "<group>"; };
+		4C748BB51C8F6744002A9282 /* MDCSwipeToChooseViewOptions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDCSwipeToChooseViewOptions.h; sourceTree = "<group>"; };
+		4C748BB61C8F6744002A9282 /* MDCSwipeToChooseViewOptions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDCSwipeToChooseViewOptions.m; sourceTree = "<group>"; };
+		4C748BB81C8F6744002A9282 /* MDCPanState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDCPanState.h; sourceTree = "<group>"; };
+		4C748BB91C8F6744002A9282 /* MDCPanState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDCPanState.m; sourceTree = "<group>"; };
+		4C748BBA1C8F6744002A9282 /* MDCSwipeDirection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDCSwipeDirection.h; sourceTree = "<group>"; };
+		4C748BBB1C8F6744002A9282 /* MDCSwipeResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDCSwipeResult.h; sourceTree = "<group>"; };
+		4C748BBC1C8F6744002A9282 /* MDCSwipeResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDCSwipeResult.m; sourceTree = "<group>"; };
+		4C748BBE1C8F6744002A9282 /* MDCSwipeToChooseDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDCSwipeToChooseDelegate.h; sourceTree = "<group>"; };
+		4C748BBF1C8F6744002A9282 /* MDCSwipeToChooseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDCSwipeToChooseView.h; sourceTree = "<group>"; };
+		4C748BC01C8F6744002A9282 /* MDCSwipeToChooseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDCSwipeToChooseView.m; sourceTree = "<group>"; };
+		4C748BC11C8F6744002A9282 /* UIView+MDCSwipeToChoose.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MDCSwipeToChoose.h"; sourceTree = "<group>"; };
+		4C748BC21C8F6744002A9282 /* UIView+MDCSwipeToChoose.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MDCSwipeToChoose.m"; sourceTree = "<group>"; };
+		4C748BC31C8F6744002A9282 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		4CA978811C8A291C00859E49 /* WJFFavoriteGifViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJFFavoriteGifViewController.h; sourceTree = "<group>"; };
 		4CA978821C8A291C00859E49 /* WJFFavoriteGifViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJFFavoriteGifViewController.m; sourceTree = "<group>"; };
 		4CC202791C6EAF4C0022A859 /* Liked.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Liked.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -235,6 +272,110 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		4C748BA11C8F6744002A9282 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4C748BA21C8F6744002A9282 /* MDCSwipeToChoose */,
+			);
+			path = Frameworks;
+			sourceTree = "<group>";
+		};
+		4C748BA21C8F6744002A9282 /* MDCSwipeToChoose */ = {
+			isa = PBXGroup;
+			children = (
+				4C748BA31C8F6744002A9282 /* LICENSE */,
+				4C748BA41C8F6744002A9282 /* MDCSwipeToChoose */,
+				4C748BC31C8F6744002A9282 /* README.md */,
+			);
+			path = MDCSwipeToChoose;
+			sourceTree = "<group>";
+		};
+		4C748BA41C8F6744002A9282 /* MDCSwipeToChoose */ = {
+			isa = PBXGroup;
+			children = (
+				4C748BA51C8F6744002A9282 /* Internal */,
+				4C748BB01C8F6744002A9282 /* Public */,
+			);
+			path = MDCSwipeToChoose;
+			sourceTree = "<group>";
+		};
+		4C748BA51C8F6744002A9282 /* Internal */ = {
+			isa = PBXGroup;
+			children = (
+				4C748BA61C8F6744002A9282 /* MDCGeometry.h */,
+				4C748BA71C8F6744002A9282 /* MDCGeometry.m */,
+				4C748BA81C8F6744002A9282 /* State */,
+				4C748BAB1C8F6744002A9282 /* UIColor+MDCRGB8Bit.h */,
+				4C748BAC1C8F6744002A9282 /* UIColor+MDCRGB8Bit.m */,
+				4C748BAD1C8F6744002A9282 /* Views */,
+			);
+			path = Internal;
+			sourceTree = "<group>";
+		};
+		4C748BA81C8F6744002A9282 /* State */ = {
+			isa = PBXGroup;
+			children = (
+				4C748BA91C8F6744002A9282 /* MDCViewState.h */,
+				4C748BAA1C8F6744002A9282 /* MDCViewState.m */,
+			);
+			path = State;
+			sourceTree = "<group>";
+		};
+		4C748BAD1C8F6744002A9282 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4C748BAE1C8F6744002A9282 /* UIView+MDCBorderedLabel.h */,
+				4C748BAF1C8F6744002A9282 /* UIView+MDCBorderedLabel.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		4C748BB01C8F6744002A9282 /* Public */ = {
+			isa = PBXGroup;
+			children = (
+				4C748BB11C8F6744002A9282 /* MDCSwipeToChoose.h */,
+				4C748BB21C8F6744002A9282 /* Options */,
+				4C748BB71C8F6744002A9282 /* State */,
+				4C748BBD1C8F6744002A9282 /* Views */,
+			);
+			path = Public;
+			sourceTree = "<group>";
+		};
+		4C748BB21C8F6744002A9282 /* Options */ = {
+			isa = PBXGroup;
+			children = (
+				4C748BB31C8F6744002A9282 /* MDCSwipeOptions.h */,
+				4C748BB41C8F6744002A9282 /* MDCSwipeOptions.m */,
+				4C748BB51C8F6744002A9282 /* MDCSwipeToChooseViewOptions.h */,
+				4C748BB61C8F6744002A9282 /* MDCSwipeToChooseViewOptions.m */,
+			);
+			path = Options;
+			sourceTree = "<group>";
+		};
+		4C748BB71C8F6744002A9282 /* State */ = {
+			isa = PBXGroup;
+			children = (
+				4C748BB81C8F6744002A9282 /* MDCPanState.h */,
+				4C748BB91C8F6744002A9282 /* MDCPanState.m */,
+				4C748BBA1C8F6744002A9282 /* MDCSwipeDirection.h */,
+				4C748BBB1C8F6744002A9282 /* MDCSwipeResult.h */,
+				4C748BBC1C8F6744002A9282 /* MDCSwipeResult.m */,
+			);
+			path = State;
+			sourceTree = "<group>";
+		};
+		4C748BBD1C8F6744002A9282 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4C748BBE1C8F6744002A9282 /* MDCSwipeToChooseDelegate.h */,
+				4C748BBF1C8F6744002A9282 /* MDCSwipeToChooseView.h */,
+				4C748BC01C8F6744002A9282 /* MDCSwipeToChooseView.m */,
+				4C748BC11C8F6744002A9282 /* UIView+MDCSwipeToChoose.h */,
+				4C748BC21C8F6744002A9282 /* UIView+MDCSwipeToChoose.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		4CC202701C6EAF4C0022A859 = {
 			isa = PBXGroup;
 			children = (
@@ -273,6 +414,7 @@
 				4CC202881C6EAF4C0022A859 /* Assets.xcassets */,
 				4CC2028A1C6EAF4C0022A859 /* LaunchScreen.storyboard */,
 				4CC2028D1C6EAF4C0022A859 /* Info.plist */,
+				4C748BA11C8F6744002A9282 /* Frameworks */,
 				4CC2027C1C6EAF4C0022A859 /* Supporting Files */,
 			);
 			path = Liked;
@@ -420,6 +562,7 @@
 			files = (
 				4CC2028C1C6EAF4C0022A859 /* LaunchScreen.storyboard in Resources */,
 				4CC202891C6EAF4C0022A859 /* Assets.xcassets in Resources */,
+				4C748BC41C8F6744002A9282 /* LICENSE in Resources */,
 				4CC202871C6EAF4C0022A859 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -494,26 +637,37 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C2546E01C89D8BF00B162DA /* WJFRandomGifViewController.m in Sources */,
+				4C748BC71C8F6744002A9282 /* UIColor+MDCRGB8Bit.m in Sources */,
 				4C1532FA1C8F5A4F001FFC61 /* MMExampleDrawerVisualStateManager.m in Sources */,
 				4C2D2BDE1C75742800F407AF /* WJFGif.m in Sources */,
+				4C748BCA1C8F6744002A9282 /* MDCSwipeToChooseViewOptions.m in Sources */,
 				4CA978831C8A291C00859E49 /* WJFFavoriteGifViewController.m in Sources */,
 				4C1532CC1C8E0079001FFC61 /* WJFTranslationGifViewController.m in Sources */,
 				4C1532FE1C8F5A4F001FFC61 /* MMTableViewCell.m in Sources */,
+				4C748BC61C8F6744002A9282 /* MDCViewState.m in Sources */,
 				4C1533051C8F5A67001FFC61 /* WJFGiphyAPIClient.m in Sources */,
 				4C1532CF1C8E2F06001FFC61 /* WJFFavoriteGifCollectionViewCell.m in Sources */,
+				4C748BC51C8F6744002A9282 /* MDCGeometry.m in Sources */,
+				4C748BCE1C8F6744002A9282 /* UIView+MDCSwipeToChoose.m in Sources */,
+				4C748BCD1C8F6744002A9282 /* MDCSwipeToChooseView.m in Sources */,
 				4CC202C41C6EB5B00022A859 /* WJFConstants.m in Sources */,
+				4C748BC91C8F6744002A9282 /* MDCSwipeOptions.m in Sources */,
 				4C1532FC1C8F5A4F001FFC61 /* MMSideDrawerSectionHeaderView.m in Sources */,
 				4C1533011C8F5A4F001FFC61 /* WJFViewController.m in Sources */,
 				4C2546DD1C89D70C00B162DA /* WJFSearchGifViewController.m in Sources */,
 				4C2546DA1C89D49600B162DA /* WJFTrendingGifViewController.m in Sources */,
+				4C748BCB1C8F6744002A9282 /* MDCPanState.m in Sources */,
 				4C1532FF1C8F5A4F001FFC61 /* WJFLeftSideDrawerViewController.m in Sources */,
 				4C1532FB1C8F5A4F001FFC61 /* MMNavigationController.m in Sources */,
 				4CC202811C6EAF4C0022A859 /* WJFAppDelegate.m in Sources */,
+				4C748BC81C8F6744002A9282 /* UIView+MDCBorderedLabel.m in Sources */,
 				4C1D7F731C767AF800453890 /* WJFChooseGifView.m in Sources */,
 				4C1533001C8F5A4F001FFC61 /* WJFSideDrawerViewController.m in Sources */,
 				4CE9B6E51C87BED400505C0B /* WJFCenterViewController.m in Sources */,
+				4C748BCF1C8F6744002A9282 /* README.md in Sources */,
 				4C1532DF1C8F5661001FFC61 /* WJFGifRealm.m in Sources */,
 				4C1532E01C8F5661001FFC61 /* WJFGifSeenRealm.m in Sources */,
+				4C748BCC1C8F6744002A9282 /* MDCSwipeResult.m in Sources */,
 				4C1532FD1C8F5A4F001FFC61 /* MMSideDrawerTableViewCell.m in Sources */,
 				4CC2027E1C6EAF4C0022A859 /* main.m in Sources */,
 			);

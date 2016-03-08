@@ -1,5 +1,5 @@
 //
-// ChoosePersonView.h
+// MDCPanState.m
 //
 // Copyright (c) 2014 to present, Brian Gesiak @modocache
 //
@@ -22,18 +22,8 @@
 // THE SOFTWARE.
 //
 
-#import <UIKit/UIKit.h>
-#import "MDCSwipeToChoose.h"
-#import <YYWebImage/YYWebImage.h>
+#import "MDCPanState.h"
 
-@class WJFGif;
-
-@interface WJFChooseGifView : MDCSwipeToChooseView
-
-@property (nonatomic, strong, readonly) WJFGif *gif;
-
-- (instancetype)initWithFrame:(CGRect)frame
-                          gif:(WJFGif *)gif
-                      options:(MDCSwipeToChooseViewOptions *)options;
+@implementation MDCPanState
 
 @end

@@ -5,7 +5,7 @@
 
 target 'Liked' do
 
-pod 'MDCSwipeToChoose'
+#pod 'MDCSwipeToChoose'
 pod 'MMDrawerController'
 pod 'MBProgressHUD'
 pod 'AFNetworking'

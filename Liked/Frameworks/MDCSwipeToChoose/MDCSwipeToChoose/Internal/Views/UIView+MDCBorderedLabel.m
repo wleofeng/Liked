@@ -1,5 +1,5 @@
 //
-// ChoosePersonView.h
+// UIView+MDCBorderedLabel.m
 //
 // Copyright (c) 2014 to present, Brian Gesiak @modocache
 //
@@ -22,18 +22,29 @@
 // THE SOFTWARE.
 //
 
-#import <UIKit/UIKit.h>
-#import "MDCSwipeToChoose.h"
-#import <YYWebImage/YYWebImage.h>
+#import "UIView+MDCBorderedLabel.h"
+#import "MDCGeometry.h"
+#import <QuartzCore/QuartzCore.h>
 
-@class WJFGif;
+@implementation UIView (MDCBorderedLabel)
 
-@interface WJFChooseGifView : MDCSwipeToChooseView
+- (void)constructBorderedLabelWithText:(NSString *)text
+                                 color:(UIColor *)color
+                                 angle:(CGFloat)angle {
+    self.layer.borderColor = color.CGColor;
+    self.layer.borderWidth = 5.f;
+    self.layer.cornerRadius = 10.f;
 
-@property (nonatomic, strong, readonly) WJFGif *gif;
+    UILabel *label = [[UILabel alloc] initWithFrame:self.bounds];
+    label.text = [text uppercaseString];
+    label.textAlignment = NSTextAlignmentCenter;
+    label.font = [UIFont fontWithName:@"HelveticaNeue-CondensedBlack"
+                                 size:48.f];
+    label.textColor = color;
+    [self addSubview:label];
 
-- (instancetype)initWithFrame:(CGRect)frame
-                          gif:(WJFGif *)gif
-                      options:(MDCSwipeToChooseViewOptions *)options;
+    self.transform = CGAffineTransformRotate(CGAffineTransformIdentity,
+                                             MDCDegreesToRadians(angle));
+}
 
 @end

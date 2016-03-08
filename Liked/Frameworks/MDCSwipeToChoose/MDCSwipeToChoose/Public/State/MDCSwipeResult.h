@@ -1,5 +1,5 @@
 //
-// ChoosePersonView.h
+// MDCSwipeResult.h
 //
 // Copyright (c) 2014 to present, Brian Gesiak @modocache
 //
@@ -23,17 +23,36 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "MDCSwipeToChoose.h"
-#import <YYWebImage/YYWebImage.h>
+#import "MDCSwipeDirection.h"
 
-@class WJFGif;
+typedef void (^MDCSwipedOnCompletionBlock)(void);
 
-@interface WJFChooseGifView : MDCSwipeToChooseView
+/*!
+ * An object representing the result of a swipe.
+ * This is provided as an argument to `MDCSwipeToChooseOnChosenBlock` callbacks.
+ */
+@interface MDCSwipeResult : NSObject
 
-@property (nonatomic, strong, readonly) WJFGif *gif;
+/*!
+ * The view that was swiped.
+ */
+@property (nonatomic, strong) UIView *view;
 
-- (instancetype)initWithFrame:(CGRect)frame
-                          gif:(WJFGif *)gif
-                      options:(MDCSwipeToChooseViewOptions *)options;
+/*!
+ * The translation of the swiped view; i.e.: the distance it has been panned
+ * from its original location.
+ */
+@property (nonatomic, assign) CGPoint translation;
+
+/*!
+ * The final direction of the swipe.
+ */
+@property (nonatomic, assign) MDCSwipeDirection direction;
+
+/*!
+ * A callback to be executed after any animations performed by the `MDCSwipeOptions`
+ * `onChosen` callback.
+ */
+@property (nonatomic, copy) MDCSwipedOnCompletionBlock onCompletion;
 
 @end
