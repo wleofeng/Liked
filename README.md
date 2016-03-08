@@ -1,4 +1,4 @@
 # Liked
 
 Quick Demo
-![](https://github.com/wleofeng/Liked/blob/master/liked-demo.gif)
+[![IMAGE ALT TEXT](liked-demo.png)](https://vimeo.com/158123668 "Demo Video")
