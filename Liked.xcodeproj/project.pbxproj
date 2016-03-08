@@ -11,8 +11,15 @@
 		4C1532CF1C8E2F06001FFC61 /* WJFFavoriteGifCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C1532CE1C8E2F06001FFC61 /* WJFFavoriteGifCollectionViewCell.m */; };
 		4C1532DF1C8F5661001FFC61 /* WJFGifRealm.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C1532DC1C8F5661001FFC61 /* WJFGifRealm.m */; };
 		4C1532E01C8F5661001FFC61 /* WJFGifSeenRealm.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C1532DE1C8F5661001FFC61 /* WJFGifSeenRealm.m */; };
-		4C1532E41C8F57C2001FFC61 /* WJFGiphyAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C1532E31C8F57C2001FFC61 /* WJFGiphyAPIClient.m */; };
-		4C1532E61C8F5817001FFC61 /* WJFSideDrawerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C1532E51C8F5817001FFC61 /* WJFSideDrawerViewController.m */; };
+		4C1532FA1C8F5A4F001FFC61 /* MMExampleDrawerVisualStateManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C1532EB1C8F5A4F001FFC61 /* MMExampleDrawerVisualStateManager.m */; };
+		4C1532FB1C8F5A4F001FFC61 /* MMNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C1532ED1C8F5A4F001FFC61 /* MMNavigationController.m */; };
+		4C1532FC1C8F5A4F001FFC61 /* MMSideDrawerSectionHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C1532EF1C8F5A4F001FFC61 /* MMSideDrawerSectionHeaderView.m */; };
+		4C1532FD1C8F5A4F001FFC61 /* MMSideDrawerTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C1532F11C8F5A4F001FFC61 /* MMSideDrawerTableViewCell.m */; };
+		4C1532FE1C8F5A4F001FFC61 /* MMTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C1532F31C8F5A4F001FFC61 /* MMTableViewCell.m */; };
+		4C1532FF1C8F5A4F001FFC61 /* WJFLeftSideDrawerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C1532F51C8F5A4F001FFC61 /* WJFLeftSideDrawerViewController.m */; };
+		4C1533001C8F5A4F001FFC61 /* WJFSideDrawerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C1532F71C8F5A4F001FFC61 /* WJFSideDrawerViewController.m */; };
+		4C1533011C8F5A4F001FFC61 /* WJFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C1532F91C8F5A4F001FFC61 /* WJFViewController.m */; };
+		4C1533051C8F5A67001FFC61 /* WJFGiphyAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C1533041C8F5A67001FFC61 /* WJFGiphyAPIClient.m */; };
 		4C1D7F731C767AF800453890 /* WJFChooseGifView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C1D7F721C767AF800453890 /* WJFChooseGifView.m */; };
 		4C2546DA1C89D49600B162DA /* WJFTrendingGifViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C2546D91C89D49600B162DA /* WJFTrendingGifViewController.m */; };
 		4C2546DD1C89D70C00B162DA /* WJFSearchGifViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C2546DC1C89D70C00B162DA /* WJFSearchGifViewController.m */; };
@@ -28,13 +35,6 @@
 		4CC202A21C6EAF4C0022A859 /* LikedUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CC202A11C6EAF4C0022A859 /* LikedUITests.m */; };
 		4CC202C41C6EB5B00022A859 /* WJFConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CC202C31C6EB5B00022A859 /* WJFConstants.m */; };
 		4CE9B6E51C87BED400505C0B /* WJFCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CE9B6E41C87BED400505C0B /* WJFCenterViewController.m */; };
-		4CEE1C151C7D124C00A7D1EF /* MMExampleDrawerVisualStateManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CEE1BFE1C7D124C00A7D1EF /* MMExampleDrawerVisualStateManager.m */; };
-		4CEE1C161C7D124C00A7D1EF /* WJFLeftSideDrawerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CEE1C001C7D124C00A7D1EF /* WJFLeftSideDrawerViewController.m */; };
-		4CEE1C191C7D124C00A7D1EF /* WJFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CEE1C061C7D124C00A7D1EF /* WJFViewController.m */; };
-		4CEE1C1B1C7D124C00A7D1EF /* MMNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CEE1C0A1C7D124C00A7D1EF /* MMNavigationController.m */; };
-		4CEE1C1C1C7D124C00A7D1EF /* MMSideDrawerSectionHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CEE1C0C1C7D124C00A7D1EF /* MMSideDrawerSectionHeaderView.m */; };
-		4CEE1C1D1C7D124C00A7D1EF /* MMSideDrawerTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CEE1C0E1C7D124C00A7D1EF /* MMSideDrawerTableViewCell.m */; };
-		4CEE1C1E1C7D124C00A7D1EF /* MMTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CEE1C101C7D124C00A7D1EF /* MMTableViewCell.m */; };
 		A47CDFD36CE2160F6A760360 /* libPods-Liked.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 60A9F1A69A884A5E84F66C26 /* libPods-Liked.a */; };
 /* End PBXBuildFile section */
 
@@ -65,12 +65,26 @@
 		4C1532DC1C8F5661001FFC61 /* WJFGifRealm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJFGifRealm.m; sourceTree = "<group>"; };
 		4C1532DD1C8F5661001FFC61 /* WJFGifSeenRealm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJFGifSeenRealm.h; sourceTree = "<group>"; };
 		4C1532DE1C8F5661001FFC61 /* WJFGifSeenRealm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJFGifSeenRealm.m; sourceTree = "<group>"; };
-		4C1532E21C8F57B9001FFC61 /* WJFGiphyAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WJFGiphyAPIClient.h; path = APIClient/WJFGiphyAPIClient.h; sourceTree = "<group>"; };
-		4C1532E31C8F57C2001FFC61 /* WJFGiphyAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WJFGiphyAPIClient.m; path = APIClient/WJFGiphyAPIClient.m; sourceTree = "<group>"; };
-		4C1532E51C8F5817001FFC61 /* WJFSideDrawerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WJFSideDrawerViewController.m; path = Views/Drawer/WJFSideDrawerViewController.m; sourceTree = "<group>"; };
+		4C1532EA1C8F5A4F001FFC61 /* MMExampleDrawerVisualStateManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMExampleDrawerVisualStateManager.h; sourceTree = "<group>"; };
+		4C1532EB1C8F5A4F001FFC61 /* MMExampleDrawerVisualStateManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMExampleDrawerVisualStateManager.m; sourceTree = "<group>"; };
+		4C1532EC1C8F5A4F001FFC61 /* MMNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMNavigationController.h; sourceTree = "<group>"; };
+		4C1532ED1C8F5A4F001FFC61 /* MMNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMNavigationController.m; sourceTree = "<group>"; };
+		4C1532EE1C8F5A4F001FFC61 /* MMSideDrawerSectionHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMSideDrawerSectionHeaderView.h; sourceTree = "<group>"; };
+		4C1532EF1C8F5A4F001FFC61 /* MMSideDrawerSectionHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMSideDrawerSectionHeaderView.m; sourceTree = "<group>"; };
+		4C1532F01C8F5A4F001FFC61 /* MMSideDrawerTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMSideDrawerTableViewCell.h; sourceTree = "<group>"; };
+		4C1532F11C8F5A4F001FFC61 /* MMSideDrawerTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMSideDrawerTableViewCell.m; sourceTree = "<group>"; };
+		4C1532F21C8F5A4F001FFC61 /* MMTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMTableViewCell.h; sourceTree = "<group>"; };
+		4C1532F31C8F5A4F001FFC61 /* MMTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMTableViewCell.m; sourceTree = "<group>"; };
+		4C1532F41C8F5A4F001FFC61 /* WJFLeftSideDrawerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJFLeftSideDrawerViewController.h; sourceTree = "<group>"; };
+		4C1532F51C8F5A4F001FFC61 /* WJFLeftSideDrawerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJFLeftSideDrawerViewController.m; sourceTree = "<group>"; };
+		4C1532F61C8F5A4F001FFC61 /* WJFSideDrawerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJFSideDrawerViewController.h; sourceTree = "<group>"; };
+		4C1532F71C8F5A4F001FFC61 /* WJFSideDrawerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJFSideDrawerViewController.m; sourceTree = "<group>"; };
+		4C1532F81C8F5A4F001FFC61 /* WJFViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJFViewController.h; sourceTree = "<group>"; };
+		4C1532F91C8F5A4F001FFC61 /* WJFViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJFViewController.m; sourceTree = "<group>"; };
+		4C1533031C8F5A67001FFC61 /* WJFGiphyAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJFGiphyAPIClient.h; sourceTree = "<group>"; };
+		4C1533041C8F5A67001FFC61 /* WJFGiphyAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJFGiphyAPIClient.m; sourceTree = "<group>"; };
 		4C1D7F711C767AE500453890 /* WJFChooseGifView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJFChooseGifView.h; sourceTree = "<group>"; };
 		4C1D7F721C767AF800453890 /* WJFChooseGifView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJFChooseGifView.m; sourceTree = "<group>"; };
-		4C21261E1C85FA7F0000EF19 /* WJFSideDrawerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WJFSideDrawerViewController.h; path = Views/Drawer/WJFSideDrawerViewController.h; sourceTree = "<group>"; };
 		4C2546D81C89D49600B162DA /* WJFTrendingGifViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJFTrendingGifViewController.h; sourceTree = "<group>"; };
 		4C2546D91C89D49600B162DA /* WJFTrendingGifViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJFTrendingGifViewController.m; sourceTree = "<group>"; };
 		4C2546DB1C89D70C00B162DA /* WJFSearchGifViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJFSearchGifViewController.h; sourceTree = "<group>"; };
@@ -99,20 +113,6 @@
 		4CC202C31C6EB5B00022A859 /* WJFConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJFConstants.m; sourceTree = "<group>"; };
 		4CE9B6E31C87BED400505C0B /* WJFCenterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJFCenterViewController.h; sourceTree = "<group>"; };
 		4CE9B6E41C87BED400505C0B /* WJFCenterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJFCenterViewController.m; sourceTree = "<group>"; };
-		4CEE1BFD1C7D124C00A7D1EF /* MMExampleDrawerVisualStateManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MMExampleDrawerVisualStateManager.h; path = Views/Drawer/MMExampleDrawerVisualStateManager.h; sourceTree = "<group>"; };
-		4CEE1BFE1C7D124C00A7D1EF /* MMExampleDrawerVisualStateManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MMExampleDrawerVisualStateManager.m; path = Views/Drawer/MMExampleDrawerVisualStateManager.m; sourceTree = "<group>"; };
-		4CEE1BFF1C7D124C00A7D1EF /* WJFLeftSideDrawerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WJFLeftSideDrawerViewController.h; path = Views/Drawer/WJFLeftSideDrawerViewController.h; sourceTree = "<group>"; };
-		4CEE1C001C7D124C00A7D1EF /* WJFLeftSideDrawerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WJFLeftSideDrawerViewController.m; path = Views/Drawer/WJFLeftSideDrawerViewController.m; sourceTree = "<group>"; };
-		4CEE1C051C7D124C00A7D1EF /* WJFViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WJFViewController.h; path = Views/Drawer/WJFViewController.h; sourceTree = "<group>"; };
-		4CEE1C061C7D124C00A7D1EF /* WJFViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WJFViewController.m; path = Views/Drawer/WJFViewController.m; sourceTree = "<group>"; };
-		4CEE1C091C7D124C00A7D1EF /* MMNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MMNavigationController.h; path = Views/Drawer/MMNavigationController.h; sourceTree = "<group>"; };
-		4CEE1C0A1C7D124C00A7D1EF /* MMNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MMNavigationController.m; path = Views/Drawer/MMNavigationController.m; sourceTree = "<group>"; };
-		4CEE1C0B1C7D124C00A7D1EF /* MMSideDrawerSectionHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MMSideDrawerSectionHeaderView.h; path = Views/Drawer/MMSideDrawerSectionHeaderView.h; sourceTree = "<group>"; };
-		4CEE1C0C1C7D124C00A7D1EF /* MMSideDrawerSectionHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MMSideDrawerSectionHeaderView.m; path = Views/Drawer/MMSideDrawerSectionHeaderView.m; sourceTree = "<group>"; };
-		4CEE1C0D1C7D124C00A7D1EF /* MMSideDrawerTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MMSideDrawerTableViewCell.h; path = Views/Drawer/MMSideDrawerTableViewCell.h; sourceTree = "<group>"; };
-		4CEE1C0E1C7D124C00A7D1EF /* MMSideDrawerTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MMSideDrawerTableViewCell.m; path = Views/Drawer/MMSideDrawerTableViewCell.m; sourceTree = "<group>"; };
-		4CEE1C0F1C7D124C00A7D1EF /* MMTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MMTableViewCell.h; path = Views/Drawer/MMTableViewCell.h; sourceTree = "<group>"; };
-		4CEE1C101C7D124C00A7D1EF /* MMTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MMTableViewCell.m; path = Views/Drawer/MMTableViewCell.m; sourceTree = "<group>"; };
 		5369E8C347DE3635FB299089 /* Pods-Liked.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Liked.release.xcconfig"; path = "Pods/Target Support Files/Pods-Liked/Pods-Liked.release.xcconfig"; sourceTree = "<group>"; };
 		60A9F1A69A884A5E84F66C26 /* libPods-Liked.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Liked.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -163,6 +163,38 @@
 			path = Realm;
 			sourceTree = "<group>";
 		};
+		4C1532E91C8F5A4F001FFC61 /* Drawer */ = {
+			isa = PBXGroup;
+			children = (
+				4C1532EA1C8F5A4F001FFC61 /* MMExampleDrawerVisualStateManager.h */,
+				4C1532EB1C8F5A4F001FFC61 /* MMExampleDrawerVisualStateManager.m */,
+				4C1532EC1C8F5A4F001FFC61 /* MMNavigationController.h */,
+				4C1532ED1C8F5A4F001FFC61 /* MMNavigationController.m */,
+				4C1532EE1C8F5A4F001FFC61 /* MMSideDrawerSectionHeaderView.h */,
+				4C1532EF1C8F5A4F001FFC61 /* MMSideDrawerSectionHeaderView.m */,
+				4C1532F01C8F5A4F001FFC61 /* MMSideDrawerTableViewCell.h */,
+				4C1532F11C8F5A4F001FFC61 /* MMSideDrawerTableViewCell.m */,
+				4C1532F21C8F5A4F001FFC61 /* MMTableViewCell.h */,
+				4C1532F31C8F5A4F001FFC61 /* MMTableViewCell.m */,
+				4C1532F41C8F5A4F001FFC61 /* WJFLeftSideDrawerViewController.h */,
+				4C1532F51C8F5A4F001FFC61 /* WJFLeftSideDrawerViewController.m */,
+				4C1532F61C8F5A4F001FFC61 /* WJFSideDrawerViewController.h */,
+				4C1532F71C8F5A4F001FFC61 /* WJFSideDrawerViewController.m */,
+				4C1532F81C8F5A4F001FFC61 /* WJFViewController.h */,
+				4C1532F91C8F5A4F001FFC61 /* WJFViewController.m */,
+			);
+			path = Drawer;
+			sourceTree = "<group>";
+		};
+		4C1533021C8F5A67001FFC61 /* APIClient */ = {
+			isa = PBXGroup;
+			children = (
+				4C1533031C8F5A67001FFC61 /* WJFGiphyAPIClient.h */,
+				4C1533041C8F5A67001FFC61 /* WJFGiphyAPIClient.m */,
+			);
+			path = APIClient;
+			sourceTree = "<group>";
+		};
 		4C2D2BCA1C75302D00F407AF /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -188,7 +220,6 @@
 				4C1532CB1C8E0079001FFC61 /* WJFTranslationGifViewController.m */,
 				4CA978811C8A291C00859E49 /* WJFFavoriteGifViewController.h */,
 				4CA978821C8A291C00859E49 /* WJFFavoriteGifViewController.m */,
-				4CEE1BF41C7D121600A7D1EF /* Drawer */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -233,10 +264,11 @@
 				4CC202801C6EAF4C0022A859 /* WJFAppDelegate.m */,
 				4CC202C21C6EB5B00022A859 /* WJFConstants.h */,
 				4CC202C31C6EB5B00022A859 /* WJFConstants.m */,
-				4CC202BE1C6EB4E20022A859 /* APIClient */,
+				4C1533021C8F5A67001FFC61 /* APIClient */,
 				4C2D2BCA1C75302D00F407AF /* Models */,
 				4C2D2BD21C75304E00F407AF /* Views */,
 				4C2D2BCE1C75304600F407AF /* Controllers */,
+				4C1532E91C8F5A4F001FFC61 /* Drawer */,
 				4CC202851C6EAF4C0022A859 /* Main.storyboard */,
 				4CC202881C6EAF4C0022A859 /* Assets.xcassets */,
 				4CC2028A1C6EAF4C0022A859 /* LaunchScreen.storyboard */,
@@ -270,39 +302,6 @@
 				4CC202A31C6EAF4C0022A859 /* Info.plist */,
 			);
 			path = LikedUITests;
-			sourceTree = "<group>";
-		};
-		4CC202BE1C6EB4E20022A859 /* APIClient */ = {
-			isa = PBXGroup;
-			children = (
-				4C1532E21C8F57B9001FFC61 /* WJFGiphyAPIClient.h */,
-				4C1532E31C8F57C2001FFC61 /* WJFGiphyAPIClient.m */,
-			);
-			name = APIClient;
-			sourceTree = "<group>";
-		};
-		4CEE1BF41C7D121600A7D1EF /* Drawer */ = {
-			isa = PBXGroup;
-			children = (
-				4CEE1C051C7D124C00A7D1EF /* WJFViewController.h */,
-				4CEE1C061C7D124C00A7D1EF /* WJFViewController.m */,
-				4C21261E1C85FA7F0000EF19 /* WJFSideDrawerViewController.h */,
-				4C1532E51C8F5817001FFC61 /* WJFSideDrawerViewController.m */,
-				4CEE1BFF1C7D124C00A7D1EF /* WJFLeftSideDrawerViewController.h */,
-				4CEE1C001C7D124C00A7D1EF /* WJFLeftSideDrawerViewController.m */,
-				4CEE1BFD1C7D124C00A7D1EF /* MMExampleDrawerVisualStateManager.h */,
-				4CEE1BFE1C7D124C00A7D1EF /* MMExampleDrawerVisualStateManager.m */,
-				4CEE1C091C7D124C00A7D1EF /* MMNavigationController.h */,
-				4CEE1C0A1C7D124C00A7D1EF /* MMNavigationController.m */,
-				4CEE1C0B1C7D124C00A7D1EF /* MMSideDrawerSectionHeaderView.h */,
-				4CEE1C0C1C7D124C00A7D1EF /* MMSideDrawerSectionHeaderView.m */,
-				4CEE1C0D1C7D124C00A7D1EF /* MMSideDrawerTableViewCell.h */,
-				4CEE1C0E1C7D124C00A7D1EF /* MMSideDrawerTableViewCell.m */,
-				4CEE1C0F1C7D124C00A7D1EF /* MMTableViewCell.h */,
-				4CEE1C101C7D124C00A7D1EF /* MMTableViewCell.m */,
-			);
-			name = Drawer;
-			path = ..;
 			sourceTree = "<group>";
 		};
 		DB09AA734F625160D8EDFF83 /* Frameworks */ = {
@@ -495,27 +494,27 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C2546E01C89D8BF00B162DA /* WJFRandomGifViewController.m in Sources */,
-				4CEE1C161C7D124C00A7D1EF /* WJFLeftSideDrawerViewController.m in Sources */,
+				4C1532FA1C8F5A4F001FFC61 /* MMExampleDrawerVisualStateManager.m in Sources */,
 				4C2D2BDE1C75742800F407AF /* WJFGif.m in Sources */,
-				4CEE1C1D1C7D124C00A7D1EF /* MMSideDrawerTableViewCell.m in Sources */,
-				4CEE1C1C1C7D124C00A7D1EF /* MMSideDrawerSectionHeaderView.m in Sources */,
 				4CA978831C8A291C00859E49 /* WJFFavoriteGifViewController.m in Sources */,
 				4C1532CC1C8E0079001FFC61 /* WJFTranslationGifViewController.m in Sources */,
-				4CEE1C191C7D124C00A7D1EF /* WJFViewController.m in Sources */,
-				4C1532E61C8F5817001FFC61 /* WJFSideDrawerViewController.m in Sources */,
+				4C1532FE1C8F5A4F001FFC61 /* MMTableViewCell.m in Sources */,
+				4C1533051C8F5A67001FFC61 /* WJFGiphyAPIClient.m in Sources */,
 				4C1532CF1C8E2F06001FFC61 /* WJFFavoriteGifCollectionViewCell.m in Sources */,
 				4CC202C41C6EB5B00022A859 /* WJFConstants.m in Sources */,
+				4C1532FC1C8F5A4F001FFC61 /* MMSideDrawerSectionHeaderView.m in Sources */,
+				4C1533011C8F5A4F001FFC61 /* WJFViewController.m in Sources */,
 				4C2546DD1C89D70C00B162DA /* WJFSearchGifViewController.m in Sources */,
 				4C2546DA1C89D49600B162DA /* WJFTrendingGifViewController.m in Sources */,
-				4CEE1C1E1C7D124C00A7D1EF /* MMTableViewCell.m in Sources */,
-				4C1532E41C8F57C2001FFC61 /* WJFGiphyAPIClient.m in Sources */,
+				4C1532FF1C8F5A4F001FFC61 /* WJFLeftSideDrawerViewController.m in Sources */,
+				4C1532FB1C8F5A4F001FFC61 /* MMNavigationController.m in Sources */,
 				4CC202811C6EAF4C0022A859 /* WJFAppDelegate.m in Sources */,
 				4C1D7F731C767AF800453890 /* WJFChooseGifView.m in Sources */,
-				4CEE1C1B1C7D124C00A7D1EF /* MMNavigationController.m in Sources */,
+				4C1533001C8F5A4F001FFC61 /* WJFSideDrawerViewController.m in Sources */,
 				4CE9B6E51C87BED400505C0B /* WJFCenterViewController.m in Sources */,
-				4CEE1C151C7D124C00A7D1EF /* MMExampleDrawerVisualStateManager.m in Sources */,
 				4C1532DF1C8F5661001FFC61 /* WJFGifRealm.m in Sources */,
 				4C1532E01C8F5661001FFC61 /* WJFGifSeenRealm.m in Sources */,
+				4C1532FD1C8F5A4F001FFC61 /* MMSideDrawerTableViewCell.m in Sources */,
 				4CC2027E1C6EAF4C0022A859 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

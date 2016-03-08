@@ -6,17 +6,14 @@
 target 'Liked' do
 
 pod 'MDCSwipeToChoose'
+pod 'MMDrawerController'
+pod 'MBProgressHUD'
 pod 'AFNetworking'
-pod 'Firebase'
 pod 'Realm'
 pod 'YYWebImage'
 pod 'Masonry'
-pod 'Button'
-pod 'MBProgressHUD'
-pod 'MMDrawerController'
 pod 'FontAwesomeKit'
 pod 'ChameleonFramework'
-pod ‘Flurry-iOS-SDK/FlurrySDK’
 
 end
 
