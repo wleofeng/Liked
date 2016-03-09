@@ -59,9 +59,17 @@
             [self.gifArray removeObjectAtIndex:0];
             
             [[NSOperationQueue mainQueue]addOperationWithBlock:^{
-                [self.swipeView.imageView yy_setImageWithURL:[NSURL URLWithString:gif.url] options:YYWebImageOptionProgressive];
-                NSLog(@"new picture added!! URL: %@", gif.url);
+                //                [self.swipeView.imageView yy_setImageWithURL:[NSURL URLWithString:gif.url] options:YYWebImageOptionProgressiveBlur];
                 
+                [self.swipeView.imageView yy_setImageWithURL:[NSURL URLWithString:gif.url] placeholder:nil options:YYWebImageOptionProgressiveBlur completion:^(UIImage *image, NSURL *url, YYWebImageFromType from, YYWebImageStage stage, NSError *error) {
+                    
+                    [UIView animateWithDuration:0.2 animations:^{
+                        self.swipeView.alpha = 1.0;
+                    }];
+                }];
+                
+                NSLog(@"new picture added!! URL: %@", gif.url);
+
                 [self.hud setHidden:YES];
                 [self.swipeView setHidden:NO];
             }];
