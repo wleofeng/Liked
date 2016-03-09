@@ -36,14 +36,6 @@
     [self fetchRandomGifFromAPI];
 }
 
-- (void)fetchRandomGifFromAPI
-{
-    [WJFGiphyAPIClient fetchRandomGIFsWithTag:nil completion:^(NSArray *responseArray) {
-        self.gifArray = [responseArray mutableCopy];
-        [self addSwipeViewImage];
-    }];
-}
-
 - (void)addSwipeViewImage
 {
     [self.hud setHidden:NO];
@@ -65,6 +57,14 @@
                 [self.swipeView setHidden:NO];
             }];
         }
+    }];
+}
+
+- (void)fetchRandomGifFromAPI
+{
+    [WJFGiphyAPIClient fetchRandomGIFsWithTag:nil completion:^(NSArray *responseArray) {
+        self.gifArray = [responseArray mutableCopy];
+        [self addSwipeViewImage];
     }];
 }
 
@@ -95,7 +95,7 @@
     
     [self.swipeView removeFromSuperview];
     [self setupSwipeView];
-    [self addSwipeViewImage];
+    [self fetchRandomGifFromAPI];
 }
 
 

@@ -57,14 +57,6 @@
     [self presentViewController:alert animated:YES completion:nil];
 }
 
-- (void)fetchGifFromAPIWithSearchTerm:(NSString *)seachTerm
-{
-    [WJFGiphyAPIClient fetchGIFsWithSearchTerm:seachTerm completion:^(NSArray *responseArray) {
-        self.gifArray = [responseArray mutableCopy];
-        [self addSwipeViewImage];
-    }];
-}
-
 - (void)addSwipeViewImage
 {
     [self.hud setHidden:NO];
@@ -88,6 +80,14 @@
                 [self.swipeView setHidden:NO];
             }];
         }
+    }];
+}
+
+- (void)fetchGifFromAPIWithSearchTerm:(NSString *)seachTerm
+{
+    [WJFGiphyAPIClient fetchGIFsWithSearchTerm:seachTerm limit:100 completion:^(NSArray *responseArray) {
+        self.gifArray = [responseArray mutableCopy];
+        [self addSwipeViewImage];
     }];
 }
 

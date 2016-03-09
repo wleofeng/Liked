@@ -13,12 +13,12 @@ static NSString *const GIPHY_BASE_URL = @"https://api.giphy.com";
 
 @implementation WJFGiphyAPIClient
 
-+ (void)fetchTrendingGIFsWithLimit:(NSUInteger)maxNumber completion:(void (^)(NSArray *responseArray))completionHandler {
++ (void)fetchTrendingGIFsWithLimit:(NSUInteger)limit completion:(void (^)(NSArray *responseArray))completionHandler {
     NSString *url = [NSString stringWithFormat:@"%@/v1/gifs/trending?api_key=%@", GIPHY_BASE_URL, GIPHY_PUBLIC_BETA_KEY];
     
     NSDictionary *parameters;
-    if (maxNumber) {
-        parameters = @{@"limit": @(maxNumber)};
+    if (limit) {
+        parameters = @{@"limit": @(limit)};
     }
 
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
@@ -34,7 +34,7 @@ static NSString *const GIPHY_BASE_URL = @"https://api.giphy.com";
     
     NSDictionary *parameters;
     if (tag) {
-        parameters = @{@"tag": tag};
+        parameters = @{@"tag" : tag};
     }
     
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
@@ -45,11 +45,12 @@ static NSString *const GIPHY_BASE_URL = @"https://api.giphy.com";
     }];
 }
 
-+ (void)fetchGIFsWithSearchTerm:(NSString *)searchTerm completion:(void (^)(NSArray *responseArray))completionHandler {
++ (void)fetchGIFsWithSearchTerm:(NSString *)searchTerm limit:(NSUInteger)limit completion:(void (^)(NSArray *responseArray))completionHandler {
     NSString *url = [NSString stringWithFormat:@"%@/v1/gifs/search?api_key=%@", GIPHY_BASE_URL, GIPHY_PUBLIC_BETA_KEY];
     
     NSDictionary *parameters;
-    parameters = @{@"q": searchTerm};
+    parameters = @{@"q" : searchTerm,
+                   @"limit" : @(limit)};
     
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     [manager GET:url parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {

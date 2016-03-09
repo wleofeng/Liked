@@ -17,6 +17,7 @@
 @property (nonatomic, strong) WJFGif *currentGif;
 @property (nonatomic, strong) NSMutableArray *gifArray;
 @property (nonatomic, strong) NSOperationQueue *bgQueue;
+@property (nonatomic, strong) NSString *translationTerm;
 
 @end
 
@@ -47,7 +48,8 @@
     UIAlertAction *translateAction = [UIAlertAction actionWithTitle:@"Please show me now!" style:UIAlertActionStyleDefault
                                                             handler:^(UIAlertAction * _Nonnull action) {
                                                                 if (alert.textFields[0].text.length) {
-                                                                    [self fetchGifFromAPIWithTranslationTerm:alert.textFields[0].text];
+                                                                    self.translationTerm = alert.textFields[0].text;
+                                                                    [self fetchGifFromAPIWithTranslationTerm:self.translationTerm];
                                                                 } else {
                                                                     [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowRandomGif" object:nil];
                                                                 }
@@ -56,14 +58,6 @@
     
     [alert addAction:translateAction];
     [self presentViewController:alert animated:YES completion:nil];
-}
-
-- (void)fetchGifFromAPIWithTranslationTerm:(NSString *)translationTerm
-{
-    [WJFGiphyAPIClient fetchGIFsWithTranslationTerm:translationTerm completion:^(NSArray *responseArray) {
-        self.gifArray = [responseArray mutableCopy];
-        [self addSwipeViewImage];
-    }];
 }
 
 - (void)addSwipeViewImage
@@ -87,6 +81,14 @@
                 [self.swipeView setHidden:NO];
             }];
         }
+    }];
+}
+
+- (void)fetchGifFromAPIWithTranslationTerm:(NSString *)translationTerm
+{
+    [WJFGiphyAPIClient fetchGIFsWithTranslationTerm:translationTerm completion:^(NSArray *responseArray) {
+        self.gifArray = [responseArray mutableCopy];
+        [self addSwipeViewImage];
     }];
 }
 
@@ -117,7 +119,8 @@
     
     [self.swipeView removeFromSuperview];
     [self setupSwipeView];
-    [self addSwipeViewImage];
+    [self fetchGifFromAPIWithTranslationTerm:self.translationTerm];
+//    [self addSwipeViewImage];
 }
 
 
