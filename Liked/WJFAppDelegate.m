@@ -9,14 +9,13 @@
 #import "WJFAppDelegate.h"
 #import "WJFGiphyAPIClient.h"
 #import "WJFGif.h"
-#import "WJFLeftSideDrawerViewController.h"
 #import "WJFSideDrawerViewController.h"
 #import "WJFCenterViewController.h"
 #import <MMDrawerController/MMDrawerController.h>
 #import "MMDrawerVisualState.h"
-#import "MMExampleDrawerVisualStateManager.h"
 #import "MMNavigationController.h"
 #import <YYWebImage/YYWebImage.h>
+
 
 @interface WJFAppDelegate ()
 
@@ -28,35 +27,24 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    //Integration with drawer
-    UIViewController * leftSideDrawerViewController = [[WJFSideDrawerViewController alloc] init];
+    //Setup drawer
     UIViewController * centerViewController = [[WJFCenterViewController alloc]init];
+    UIViewController * leftSideDrawerViewController = [[WJFSideDrawerViewController alloc] init];
 
     UINavigationController * navigationController = [[MMNavigationController alloc] initWithRootViewController:centerViewController];
     [navigationController setRestorationIdentifier:@"WJFCenterNavigationControllerRestorationKey"];
-
-    UINavigationController * leftSideNavController = [[MMNavigationController alloc] initWithRootViewController:leftSideDrawerViewController];
-    [leftSideNavController setRestorationIdentifier:@"WJFLeftNavigationControllerRestorationKey"];
-
+    
     self.drawerController = [[MMDrawerController alloc] initWithCenterViewController:navigationController leftDrawerViewController:leftSideDrawerViewController];
     
-    [self.drawerController setShowsShadow:NO];
     [self.drawerController setRestorationIdentifier:@"WJFDrawer"];
-//    [self.drawerController setMaximumRightDrawerWidth:200.0];
+    [self.drawerController setShowsShadow:NO];
+    [self.drawerController setMaximumLeftDrawerWidth:200.0];
     [self.drawerController setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeAll];
     [self.drawerController setCloseDrawerGestureModeMask:MMCloseDrawerGestureModeAll];
+    [self.drawerController setCenterHiddenInteractionMode:MMDrawerOpenCenterInteractionModeNavigationBarOnly];
     
-    [self.drawerController
-     setDrawerVisualStateBlock:^(MMDrawerController *drawerController, MMDrawerSide drawerSide, CGFloat percentVisible) {
-         MMDrawerControllerDrawerVisualStateBlock block;
-         block = [[MMExampleDrawerVisualStateManager sharedManager]
-                  drawerVisualStateBlockForDrawerSide:drawerSide];
-         if(block){
-             block(drawerController, drawerSide, percentVisible);
-         }
-     }];
+    //Setup main view
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    
     UIColor * tintColor = [UIColor colorWithRed:29.0/255.0
                                           green:173.0/255.0
                                            blue:234.0/255.0

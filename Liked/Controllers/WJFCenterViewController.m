@@ -42,40 +42,40 @@
 {
     self.title = @"Trending";
     
-    WJFTrendingGifViewController *VC = [[WJFTrendingGifViewController alloc] init];
-    [self setEmbeddedViewController:VC];
+    WJFTrendingGifViewController *vc = [[WJFTrendingGifViewController alloc] init];
+    [self setEmbeddedViewController:vc];
 }
 
 - (void)setupRandomGifViewController
 {
     self.title = @"Random";
     
-    WJFRandomGifViewController *VC = [[WJFRandomGifViewController alloc] init];
-    [self setEmbeddedViewController:VC];
+    WJFRandomGifViewController *vc = [[WJFRandomGifViewController alloc] init];
+    [self setEmbeddedViewController:vc];
 }
 
 - (void)setupSearchGifViewController
 {
     self.title = @"Search";
     
-    WJFSearchGifViewController *VC = [[WJFSearchGifViewController alloc] init];
-    [self setEmbeddedViewController:VC];
+    WJFSearchGifViewController *vc = [[WJFSearchGifViewController alloc] init];
+    [self setEmbeddedViewController:vc];
 }
 
 - (void)setupTranslationGifViewController
 {
     self.title = @"Translation";
     
-    WJFTranslationGifViewController *VC = [[WJFTranslationGifViewController alloc] init];
-    [self setEmbeddedViewController:VC];
+    WJFTranslationGifViewController *vc = [[WJFTranslationGifViewController alloc] init];
+    [self setEmbeddedViewController:vc];
 }
 
 - (void)setupFavoriteGifViewController
 {
     self.title = @"Favorite";
     
-    WJFFavoriteGifViewController *VC = [[WJFFavoriteGifViewController alloc] init];
-    [self setEmbeddedViewController:VC];
+    WJFFavoriteGifViewController *vc = [[WJFFavoriteGifViewController alloc] init];
+    [self setEmbeddedViewController:vc];
 }
 
 - (void)setupLeftMenuButton
@@ -84,18 +84,13 @@
     [self.navigationItem setLeftBarButtonItem:leftDrawerButton animated:YES];
 }
 
-- (void)setupRightMenuButton
-{
-    MMDrawerBarButtonItem * rightDrawerButton = [[MMDrawerBarButtonItem alloc] initWithTarget:self action:@selector(rightDrawerButtonPress:)];
-    [self.navigationItem setRightBarButtonItem:rightDrawerButton animated:YES];
-}
-
 - (void)setEmbeddedViewController:(UIViewController *)controller
 {
     if([self.childViewControllers containsObject:controller]) {
         return;
     }
     
+    //remove all existing child view controllers
     for(UIViewController *vc in self.childViewControllers) {
         [vc willMoveToParentViewController:nil];
         
@@ -110,12 +105,19 @@
         return;
     }
     
+    //set new view controller
     [self addChildViewController:controller];
     [self.containerView addSubview:controller.view];
     [controller.view mas_updateConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(@0);
     }];
     [controller didMoveToParentViewController:self];
+    
+    //animate new view
+    [UIView animateWithDuration:0.25 animations:^{
+        self.containerView.alpha = 0.5;
+        self.containerView.alpha = 1;
+    }];
 }
 
 - (void)setupContainerViewLayoutConstraints
