@@ -63,6 +63,9 @@
                 
                 [self.swipeView.imageView yy_setImageWithURL:[NSURL URLWithString:gif.url] placeholder:nil options:YYWebImageOptionProgressiveBlur completion:^(UIImage *image, NSURL *url, YYWebImageFromType from, YYWebImageStage stage, NSError *error) {
                     
+                    self.urlTextField.text = self.currentGif.url;
+                    self.urlCopyButton.enabled = YES;
+                    
                     [UIView animateWithDuration:0.2 animations:^{
                         self.swipeView.alpha = 1.0;
                     }];

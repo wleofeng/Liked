@@ -10,8 +10,8 @@
 #import <ChameleonFramework/Chameleon.h>
 #import "UIColor+MDCRGB8Bit.h"
 
-static const CGFloat ChoosePersonButtonHorizontalPadding = 80.f;
-static const CGFloat ChoosePersonButtonVerticalPadding = 20.f;
+static const CGFloat ChooseGifButtonHorizontalPadding = 80.f;
+static const CGFloat ChooseGifButtonVerticalPadding = 20.f;
 
 @interface WJFGifViewController ()
 
@@ -19,18 +19,22 @@ static const CGFloat ChoosePersonButtonVerticalPadding = 20.f;
 
 @implementation WJFGifViewController
 
+# pragma mark - View Cycle Methods
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
     [self setupProgressHud];
     [self setupSwipeView];
+    [self setupUrlShareView];
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
 }
+
+# pragma mark - View Setup Methods
 
 - (void)setupProgressHud
 {
@@ -78,16 +82,17 @@ static const CGFloat ChoosePersonButtonVerticalPadding = 20.f;
         make.height.equalTo(self.view.mas_height).multipliedBy(2.0/3.0);
     }];
 
-    [self constructLikedButton];
-    [self constructNopeButton];
+    [self setupLikedButton];
+    [self setupNopeButton];
+    [self setupUrlShareView];
 }
 
-- (void)constructLikedButton
+- (void)setupLikedButton
 {
     UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     UIImage *image = [UIImage imageNamed:@"liked"];
-    button.frame = CGRectMake(CGRectGetMaxX(self.view.frame) - image.size.width - ChoosePersonButtonHorizontalPadding,
-                              CGRectGetMaxY(self.swipeView.frame) + ChoosePersonButtonVerticalPadding,
+    button.frame = CGRectMake(CGRectGetMaxX(self.view.frame) - image.size.width - ChooseGifButtonHorizontalPadding,
+                              CGRectGetMaxY(self.swipeView.frame) + ChooseGifButtonVerticalPadding,
                               image.size.width,
                               image.size.height);
     [button setImage:image forState:UIControlStateNormal];
@@ -96,22 +101,22 @@ static const CGFloat ChoosePersonButtonVerticalPadding = 20.f;
                                           blue:106.f/255.f
                                          alpha:1.f]];
     [button addTarget:self
-               action:@selector(likeFrontCardView)
+               action:@selector(likeButtonTapped)
      forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:button];
     
+    [self.view addSubview:button];
     [button mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.swipeView.mas_bottom).with.offset(20);
         make.centerX.equalTo(self.swipeView.mas_centerX).multipliedBy(0.70);
     }];
 }
 
-- (void)constructNopeButton
+- (void)setupNopeButton
 {
     UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     UIImage *image = [UIImage imageNamed:@"nope"];
-    button.frame = CGRectMake(ChoosePersonButtonHorizontalPadding,
-                              CGRectGetMaxY(self.swipeView.frame) + ChoosePersonButtonVerticalPadding,
+    button.frame = CGRectMake(ChooseGifButtonHorizontalPadding,
+                              CGRectGetMaxY(self.swipeView.frame) + ChooseGifButtonVerticalPadding,
                               image.size.width,
                               image.size.height);
     [button setImage:image forState:UIControlStateNormal];
@@ -120,7 +125,7 @@ static const CGFloat ChoosePersonButtonVerticalPadding = 20.f;
                                           blue:37.f/255.f
                                          alpha:1.f]];
     [button addTarget:self
-               action:@selector(nopeFrontCardView)
+               action:@selector(nopeButtonTapped)
      forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:button];
     
@@ -130,15 +135,57 @@ static const CGFloat ChoosePersonButtonVerticalPadding = 20.f;
     }];
 }
 
-- (void)likeFrontCardView
+- (void)likeButtonTapped
 {
     [self.swipeView mdc_swipe:MDCSwipeDirectionRight];
 }
 
-- (void)nopeFrontCardView
+- (void)nopeButtonTapped
 {
     [self.swipeView mdc_swipe:MDCSwipeDirectionLeft];
 }
+
+- (void)setupUrlShareView
+{
+    //Text Field
+    self.urlTextField = [[UITextField alloc] init];
+    [self.urlTextField setAllowsEditingTextAttributes:NO];
+    [self.urlTextField setBackgroundColor:[UIColor flatWhiteColor]];
+    [self.urlTextField setBorderStyle:UITextBorderStyleRoundedRect];
+    [self.urlTextField setAutocorrectionType:UITextAutocorrectionTypeNo];
+    [self.urlTextField setTextAlignment:NSTextAlignmentCenter];
+    self.urlTextField.text = @"Please wait for your link...";
+
+    [self.view addSubview:self.urlTextField];
+    [self.urlTextField mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.swipeView.mas_bottom).with.offset(100);
+        make.centerX.equalTo(self.swipeView.mas_centerX);
+        make.left.equalTo(self.swipeView.mas_left).with.offset(20);
+        make.right.equalTo(self.swipeView.mas_right).with.offset(-20);
+    }];
+    
+    //Copy button
+    self.urlCopyButton = [UIButton buttonWithType:UIButtonTypeSystem];
+    [self.urlCopyButton addTarget:self
+               action:@selector(copyButtonTapped:)
+     forControlEvents:UIControlEventTouchUpInside];
+    [self.urlCopyButton setTitle:@"Copy" forState:UIControlStateNormal];
+    [self.urlCopyButton setEnabled:NO];
+    [self.urlCopyButton setShowsTouchWhenHighlighted:YES];
+    
+    [self.view addSubview:self.urlCopyButton];
+    [self.urlCopyButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.urlTextField.mas_bottom).with.offset(10);
+        make.centerX.equalTo(self.swipeView.mas_centerX);
+    }];
+}
+
+- (void)copyButtonTapped:(UIButton *)copyButton
+{
+    UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
+    pasteboard.string = self.urlTextField.text;
+}
+
 
 
 @end

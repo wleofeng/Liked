@@ -15,6 +15,8 @@
 
 @property (nonatomic, strong) MDCSwipeToChooseView *swipeView;
 @property (nonatomic, strong) MBProgressHUD *hud;
+@property (nonatomic, strong) UITextField *urlTextField;
+@property (nonatomic, strong) UIButton *urlCopyButton;
 
 - (void)setupSwipeView;
 
