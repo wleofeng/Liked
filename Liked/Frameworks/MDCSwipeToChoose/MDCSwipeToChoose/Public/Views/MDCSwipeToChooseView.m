@@ -28,6 +28,7 @@
 #import "UIView+MDCBorderedLabel.h"
 #import "UIColor+MDCRGB8Bit.h"
 #import <QuartzCore/QuartzCore.h>
+#import <Masonry/Masonry.h>
 
 static CGFloat const MDCSwipeToChooseViewHorizontalPadding = 10.f;
 static CGFloat const MDCSwipeToChooseViewTopPadding = 20.f;

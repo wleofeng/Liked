@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "WJFChooseGifView.h"
 #import <MBProgressHUD/MBProgressHUD.h>
+#import <Masonry/Masonry.h>
 
 @interface WJFGifViewController : UIViewController <MDCSwipeToChooseDelegate>
 

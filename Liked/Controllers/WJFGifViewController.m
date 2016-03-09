@@ -8,8 +8,10 @@
 
 #import "WJFGifViewController.h"
 #import <ChameleonFramework/Chameleon.h>
+#import "UIColor+MDCRGB8Bit.h"
 
 @interface WJFGifViewController ()
+
 
 @end
 
@@ -18,7 +20,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    
     [self setupProgressHud];
     [self setupSwipeView];
 }
@@ -34,7 +36,7 @@
 
 - (void)setupSwipeView
 {
-    MDCSwipeToChooseViewOptions *options = [MDCSwipeToChooseViewOptions new];
+    MDCSwipeToChooseViewOptions *options = [[MDCSwipeToChooseViewOptions alloc] init];
     options.delegate = self;
     options.likedText = @"LIKE";
     options.likedColor = [UIColor flatGreenColor];
@@ -46,10 +48,26 @@
         }
     };
     
-    self.swipeView = [[MDCSwipeToChooseView alloc] initWithFrame:self.view.bounds
-                                                         options:options];
+    self.swipeView = [[WJFChooseGifView alloc] initWithFrame:self.view.bounds
+                                                     options:options];
+    self.swipeView.imageView.contentMode = UIViewContentModeScaleAspectFit;
     
     [self.view addSubview:self.swipeView];
+    
+    //Constrain image view first
+    [self.swipeView.imageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.equalTo(self.swipeView.mas_width);
+        make.height.equalTo(self.swipeView.mas_height);
+        make.centerY.equalTo(self.swipeView.mas_centerY);
+    }];
+    
+    //Constrain swipe view
+    [self.swipeView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.mas_topLayoutGuideBottom);
+        make.left.equalTo(self.view.mas_left);
+        make.right.equalTo(self.view.mas_right);
+        make.height.equalTo(self.view.mas_height).multipliedBy(2.0/3.0);
+    }];
 }
 
 @end

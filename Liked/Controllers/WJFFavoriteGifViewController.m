@@ -38,6 +38,8 @@
     [self.collectionView setBackgroundColor:[UIColor whiteColor]];
     
     [self.view addSubview:self.collectionView];
+    
+    //TODO: add notification observer to refresh the Gif data in Realm
 }
 
 - (void)viewWillAppear:(BOOL)animated
