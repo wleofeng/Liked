@@ -35,6 +35,7 @@
 		4C748BCD1C8F6744002A9282 /* MDCSwipeToChooseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C748BC01C8F6744002A9282 /* MDCSwipeToChooseView.m */; };
 		4C748BCE1C8F6744002A9282 /* UIView+MDCSwipeToChoose.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C748BC21C8F6744002A9282 /* UIView+MDCSwipeToChoose.m */; };
 		4C748BCF1C8F6744002A9282 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 4C748BC31C8F6744002A9282 /* README.md */; };
+		4CA65FCC1C8FB6670061974F /* WJFGifViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CA65FCB1C8FB6670061974F /* WJFGifViewController.m */; };
 		4CA978831C8A291C00859E49 /* WJFFavoriteGifViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CA978821C8A291C00859E49 /* WJFFavoriteGifViewController.m */; };
 		4CC2027E1C6EAF4C0022A859 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CC2027D1C6EAF4C0022A859 /* main.m */; };
 		4CC202811C6EAF4C0022A859 /* WJFAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CC202801C6EAF4C0022A859 /* WJFAppDelegate.m */; };
@@ -124,6 +125,8 @@
 		4C748BC11C8F6744002A9282 /* UIView+MDCSwipeToChoose.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MDCSwipeToChoose.h"; sourceTree = "<group>"; };
 		4C748BC21C8F6744002A9282 /* UIView+MDCSwipeToChoose.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MDCSwipeToChoose.m"; sourceTree = "<group>"; };
 		4C748BC31C8F6744002A9282 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		4CA65FCA1C8FB6670061974F /* WJFGifViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJFGifViewController.h; sourceTree = "<group>"; };
+		4CA65FCB1C8FB6670061974F /* WJFGifViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJFGifViewController.m; sourceTree = "<group>"; };
 		4CA978811C8A291C00859E49 /* WJFFavoriteGifViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJFFavoriteGifViewController.h; sourceTree = "<group>"; };
 		4CA978821C8A291C00859E49 /* WJFFavoriteGifViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJFFavoriteGifViewController.m; sourceTree = "<group>"; };
 		4CC202791C6EAF4C0022A859 /* Liked.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Liked.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -237,6 +240,8 @@
 			children = (
 				4CE9B6E31C87BED400505C0B /* WJFCenterViewController.h */,
 				4CE9B6E41C87BED400505C0B /* WJFCenterViewController.m */,
+				4CA65FCA1C8FB6670061974F /* WJFGifViewController.h */,
+				4CA65FCB1C8FB6670061974F /* WJFGifViewController.m */,
 				4C2546D81C89D49600B162DA /* WJFTrendingGifViewController.h */,
 				4C2546D91C89D49600B162DA /* WJFTrendingGifViewController.m */,
 				4C2546DE1C89D8BF00B162DA /* WJFRandomGifViewController.h */,
@@ -633,6 +638,7 @@
 				4CA978831C8A291C00859E49 /* WJFFavoriteGifViewController.m in Sources */,
 				4C1532CC1C8E0079001FFC61 /* WJFTranslationGifViewController.m in Sources */,
 				4C1532FE1C8F5A4F001FFC61 /* MMTableViewCell.m in Sources */,
+				4CA65FCC1C8FB6670061974F /* WJFGifViewController.m in Sources */,
 				4C748BC61C8F6744002A9282 /* MDCViewState.m in Sources */,
 				4C1533051C8F5A67001FFC61 /* WJFGiphyAPIClient.m in Sources */,
 				4C1532CF1C8E2F06001FFC61 /* WJFFavoriteGifCollectionViewCell.m in Sources */,

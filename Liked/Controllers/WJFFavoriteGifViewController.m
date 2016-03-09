@@ -13,6 +13,7 @@
 
 @interface WJFFavoriteGifViewController ()
 
+@property (nonatomic, strong) UICollectionView *collectionView;
 @property (nonatomic, strong) NSArray *gifs;
 
 @end

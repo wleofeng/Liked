@@ -10,6 +10,4 @@
 
 @interface WJFFavoriteGifViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
-@property (nonatomic, strong) UICollectionView *collectionView;
-
 @end

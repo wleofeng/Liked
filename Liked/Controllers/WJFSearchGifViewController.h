@@ -7,10 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "WJFChooseGifView.h"
+#import "WJFGifViewController.h"
 
-@interface WJFSearchGifViewController : UIViewController <MDCSwipeToChooseDelegate>
-
-@property (nonatomic, strong) WJFGif *currentGif;
+@interface WJFSearchGifViewController : WJFGifViewController
 
 @end
