@@ -154,6 +154,7 @@ static const CGFloat ChooseGifButtonVerticalPadding = 20.f;
     [self.urlTextField setBorderStyle:UITextBorderStyleRoundedRect];
     [self.urlTextField setAutocorrectionType:UITextAutocorrectionTypeNo];
     [self.urlTextField setTextAlignment:NSTextAlignmentCenter];
+    [self.urlTextField setUserInteractionEnabled:NO];
     self.urlTextField.text = @"Please wait for your link...";
 
     [self.view addSubview:self.urlTextField];
