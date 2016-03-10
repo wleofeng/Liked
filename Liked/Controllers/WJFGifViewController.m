@@ -157,12 +157,13 @@ static const CGFloat ChooseGifButtonVerticalPadding = 20.f;
     //Text Field
     self.urlTextField = [[UITextField alloc] init];
     [self.urlTextField setAllowsEditingTextAttributes:NO];
-    [self.urlTextField setBackgroundColor:[UIColor flatWhiteColor]];
+    [self.urlTextField setBackgroundColor:[UIColor flatBlackColor]];
     [self.urlTextField setBorderStyle:UITextBorderStyleRoundedRect];
     [self.urlTextField setAutocorrectionType:UITextAutocorrectionTypeNo];
     [self.urlTextField setTextAlignment:NSTextAlignmentCenter];
     [self.urlTextField setUserInteractionEnabled:NO];
     self.urlTextField.text = @"Please wait for your link...";
+    self.urlTextField.textColor = [UIColor flatWhiteColor];
 
     [self.view addSubview:self.urlTextField];
     [self.urlTextField mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -173,13 +174,14 @@ static const CGFloat ChooseGifButtonVerticalPadding = 20.f;
     }];
     
     //Copy button
-    self.urlCopyButton = [UIButton buttonWithType:UIButtonTypeSystem];
+    self.urlCopyButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     [self.urlCopyButton addTarget:self
                action:@selector(copyButtonTapped:)
      forControlEvents:UIControlEventTouchUpInside];
-    [self.urlCopyButton setTitle:@"Copy" forState:UIControlStateNormal];
+    [self.urlCopyButton setTitle:@"Copy it!" forState:UIControlStateNormal];
     [self.urlCopyButton setEnabled:NO];
-    [self.urlCopyButton setShowsTouchWhenHighlighted:YES];
+//    [self.urlCopyButton setShowsTouchWhenHighlighted:YES];
+    self.urlCopyButton.titleLabel.textColor = [UIColor flatBlueColor];
     
     [self.view addSubview:self.urlCopyButton];
     [self.urlCopyButton mas_makeConstraints:^(MASConstraintMaker *make) {

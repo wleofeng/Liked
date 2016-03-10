@@ -22,7 +22,7 @@
 {
     [super viewDidLoad];
     
-    self.view.backgroundColor = [UIColor whiteColor];
+    self.view.backgroundColor = [UIColor blackColor];
     [self setupLeftMenuButton];
     
     self.containerView = [[UIView alloc] init];
