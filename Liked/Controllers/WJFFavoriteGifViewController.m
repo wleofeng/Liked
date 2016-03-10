@@ -26,7 +26,10 @@
 {
     [super viewDidLoad];
     
-    self.view = [[UIView alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    CGRect rect = [[UIScreen mainScreen] bounds];
+    rect.size.height -= [UIApplication sharedApplication].statusBarFrame.size.height+self.navigationController.navigationBar.frame.size.height;
+    
+    self.view = [[UIView alloc] initWithFrame:rect];
     
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
     layout.scrollDirection = UICollectionViewScrollDirectionVertical;
@@ -35,7 +38,7 @@
     self.collectionView.delegate = self;
     
     [self.collectionView registerClass:[WJFFavoriteGifCollectionViewCell class] forCellWithReuseIdentifier:@"WJFFavoriteGifCollectionViewCell"];
-    [self.collectionView setBackgroundColor:[UIColor whiteColor]];
+    [self.collectionView setBackgroundColor:[UIColor blackColor]];
     
     [self.view addSubview:self.collectionView];
     
@@ -68,15 +71,19 @@
     NSURL *url = [NSURL URLWithString:gif.url];
     [cell.imageView yy_setImageWithURL:url options:YYWebImageOptionProgressive];
     
-    cell.backgroundColor = [UIColor blueColor];
+    cell.backgroundColor = [UIColor whiteColor];
     return cell;
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    return CGSizeMake((self.view.frame.size.width/2)-5, 300);
+    WJFGifRealm *gif = self.gifs[indexPath.row];
+    YYImage *image = [YYImage imageWithData:gif.data];
+    
+    CGFloat width = (self.view.frame.size.width/2.0)-5.0;
+    CGFloat height = (width/image.size.width)*image.size.height;
+    
+    return CGSizeMake(width, height);
 }
-
-
 
 @end

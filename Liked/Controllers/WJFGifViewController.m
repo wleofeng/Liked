@@ -15,6 +15,9 @@ static const CGFloat ChooseGifButtonVerticalPadding = 20.f;
 
 @interface WJFGifViewController ()
 
+@property (nonatomic, strong) UIButton *likeButton;
+@property (nonatomic, strong) UIButton *nopeButton;
+
 @end
 
 @implementation WJFGifViewController
@@ -62,7 +65,7 @@ static const CGFloat ChooseGifButtonVerticalPadding = 20.f;
     
     self.swipeView = [[WJFChooseGifView alloc] initWithFrame:self.view.bounds
                                                      options:options];
-    self.swipeView.imageView.contentMode = UIViewContentModeScaleAspectFit;
+    [self.swipeView.imageView setContentMode:UIViewContentModeScaleAspectFit];
     self.swipeView.alpha = 0;
     
     [self.view addSubview:self.swipeView];
@@ -82,6 +85,10 @@ static const CGFloat ChooseGifButtonVerticalPadding = 20.f;
         make.height.equalTo(self.view.mas_height).multipliedBy(2.0/3.0);
     }];
 
+    [self.likeButton removeFromSuperview];
+    [self.nopeButton removeFromSuperview];
+    [self.urlTextField removeFromSuperview];
+    [self.urlCopyButton removeFromSuperview];
     [self setupLikedButton];
     [self setupNopeButton];
     [self setupUrlShareView];
@@ -89,48 +96,49 @@ static const CGFloat ChooseGifButtonVerticalPadding = 20.f;
 
 - (void)setupLikedButton
 {
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    self.likeButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     UIImage *image = [UIImage imageNamed:@"liked"];
-    button.frame = CGRectMake(CGRectGetMaxX(self.view.frame) - image.size.width - ChooseGifButtonHorizontalPadding,
+    self.likeButton.frame = CGRectMake(CGRectGetMaxX(self.view.frame) - image.size.width - ChooseGifButtonHorizontalPadding,
                               CGRectGetMaxY(self.swipeView.frame) + ChooseGifButtonVerticalPadding,
                               image.size.width,
                               image.size.height);
-    [button setImage:image forState:UIControlStateNormal];
-    [button setTintColor:[UIColor colorWithRed:29.f/255.f
+    [self.likeButton setImage:image forState:UIControlStateNormal];
+    [self.likeButton setTintColor:[UIColor colorWithRed:29.f/255.f
                                          green:245.f/255.f
                                           blue:106.f/255.f
                                          alpha:1.f]];
-    [button addTarget:self
+    [self.likeButton addTarget:self
                action:@selector(likeButtonTapped)
      forControlEvents:UIControlEventTouchUpInside];
+    NSLog(@"size, %f",((self.view.frame.size.height*(1.0/3.0)*(1.0/2.0))-image.size.height)*(1.0/2.0));
     
-    [self.view addSubview:button];
-    [button mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.swipeView.mas_bottom).with.offset(20);
+    [self.view addSubview:self.likeButton];
+    [self.likeButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.swipeView.mas_bottom).with.offset(((self.view.frame.size.height*(1.0/3.0)*(1.0/2.0))-image.size.height)*(1.0/2.0));
         make.centerX.equalTo(self.swipeView.mas_centerX).multipliedBy(0.70);
     }];
 }
 
 - (void)setupNopeButton
 {
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    self.nopeButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     UIImage *image = [UIImage imageNamed:@"nope"];
-    button.frame = CGRectMake(ChooseGifButtonHorizontalPadding,
+    self.nopeButton.frame = CGRectMake(ChooseGifButtonHorizontalPadding,
                               CGRectGetMaxY(self.swipeView.frame) + ChooseGifButtonVerticalPadding,
                               image.size.width,
                               image.size.height);
-    [button setImage:image forState:UIControlStateNormal];
-    [button setTintColor:[UIColor colorWithRed:247.f/255.f
+    [self.nopeButton setImage:image forState:UIControlStateNormal];
+    [self.nopeButton setTintColor:[UIColor colorWithRed:247.f/255.f
                                          green:91.f/255.f
                                           blue:37.f/255.f
                                          alpha:1.f]];
-    [button addTarget:self
+    [self.nopeButton addTarget:self
                action:@selector(nopeButtonTapped)
      forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:button];
+    [self.view addSubview:self.nopeButton];
     
-    [button mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.swipeView.mas_bottom).with.offset(20);
+    [self.nopeButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.swipeView.mas_bottom).with.offset(((self.view.frame.size.height*(1.0/3.0)*(1.0/2.0))-image.size.height)*(1.0/2.0));
         make.centerX.equalTo(self.swipeView.mas_centerX).multipliedBy(1.30);
     }];
 }
@@ -159,10 +167,10 @@ static const CGFloat ChooseGifButtonVerticalPadding = 20.f;
 
     [self.view addSubview:self.urlTextField];
     [self.urlTextField mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.swipeView.mas_bottom).with.offset(100);
+        make.top.equalTo(self.likeButton.mas_bottom).with.offset(self.view.frame.size.height*(1.0/3.0)*(0.5/10.0));
+        make.left.equalTo(self.swipeView.mas_left).with.offset(10);
+        make.right.equalTo(self.swipeView.mas_right).with.offset(-10);
         make.centerX.equalTo(self.swipeView.mas_centerX);
-        make.left.equalTo(self.swipeView.mas_left).with.offset(20);
-        make.right.equalTo(self.swipeView.mas_right).with.offset(-20);
     }];
     
     //Copy button
@@ -176,7 +184,7 @@ static const CGFloat ChooseGifButtonVerticalPadding = 20.f;
     
     [self.view addSubview:self.urlCopyButton];
     [self.urlCopyButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.urlTextField.mas_bottom).with.offset(10);
+        make.top.equalTo(self.urlTextField.mas_bottom).with.offset(self.view.frame.size.height*(1.0/3.0)*(0.5/10.0));
         make.centerX.equalTo(self.swipeView.mas_centerX);
     }];
 }

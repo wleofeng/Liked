@@ -23,6 +23,7 @@
 
 - (void)setupImageView
 {
+//    [self.imageView setContentMode:UIViewContentModeScaleAspectFit];
     [self.contentView addSubview:self.imageView];
     [self.imageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.contentView);
