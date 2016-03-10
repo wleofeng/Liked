@@ -73,9 +73,10 @@
             
             
             [[NSOperationQueue mainQueue]addOperationWithBlock:^{
-//                [self.swipeView.imageView yy_setImageWithURL:[NSURL URLWithString:gif.url] options:YYWebImageOptionProgressive];
                 [self.swipeView.imageView yy_setImageWithURL:[NSURL URLWithString:gif.url] placeholder:nil options:YYWebImageOptionProgressiveBlur completion:^(UIImage *image, NSURL *url, YYWebImageFromType from, YYWebImageStage stage, NSError *error) {
                     
+                    self.likeButton.enabled = YES;
+                    self.nopeButton.enabled = YES;
                     self.urlTextField.text = self.currentGif.url;
                     self.urlCopyButton.enabled = YES;
                     

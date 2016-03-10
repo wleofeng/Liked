@@ -15,9 +15,6 @@ static const CGFloat ChooseGifButtonVerticalPadding = 20.f;
 
 @interface WJFGifViewController ()
 
-@property (nonatomic, strong) UIButton *likeButton;
-@property (nonatomic, strong) UIButton *nopeButton;
-
 @end
 
 @implementation WJFGifViewController
@@ -97,6 +94,7 @@ static const CGFloat ChooseGifButtonVerticalPadding = 20.f;
 - (void)setupLikedButton
 {
     self.likeButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    self.likeButton.enabled = NO;
     UIImage *image = [UIImage imageNamed:@"liked"];
     self.likeButton.frame = CGRectMake(CGRectGetMaxX(self.view.frame) - image.size.width - ChooseGifButtonHorizontalPadding,
                               CGRectGetMaxY(self.swipeView.frame) + ChooseGifButtonVerticalPadding,
@@ -110,7 +108,7 @@ static const CGFloat ChooseGifButtonVerticalPadding = 20.f;
     [self.likeButton addTarget:self
                action:@selector(likeButtonTapped)
      forControlEvents:UIControlEventTouchUpInside];
-    NSLog(@"size, %f",((self.view.frame.size.height*(1.0/3.0)*(1.0/2.0))-image.size.height)*(1.0/2.0));
+//    NSLog(@"size, %f",((self.view.frame.size.height*(1.0/3.0)*(1.0/2.0))-image.size.height)*(1.0/2.0));
     
     [self.view addSubview:self.likeButton];
     [self.likeButton mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -122,6 +120,7 @@ static const CGFloat ChooseGifButtonVerticalPadding = 20.f;
 - (void)setupNopeButton
 {
     self.nopeButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    self.nopeButton.enabled = NO;
     UIImage *image = [UIImage imageNamed:@"nope"];
     self.nopeButton.frame = CGRectMake(ChooseGifButtonHorizontalPadding,
                               CGRectGetMaxY(self.swipeView.frame) + ChooseGifButtonVerticalPadding,

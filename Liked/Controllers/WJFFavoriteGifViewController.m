@@ -32,7 +32,7 @@
     self.view = [[UIView alloc] initWithFrame:rect];
     
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
-    layout.scrollDirection = UICollectionViewScrollDirectionVertical;
+    layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
     self.collectionView = [[UICollectionView alloc] initWithFrame:self.view.frame collectionViewLayout:layout];
     self.collectionView.dataSource = self;
     self.collectionView.delegate = self;
@@ -70,6 +70,11 @@
     WJFGifRealm *gif = self.gifs[indexPath.row];
     NSURL *url = [NSURL URLWithString:gif.url];
     [cell.imageView yy_setImageWithURL:url options:YYWebImageOptionProgressive];
+    
+//    YYImage *image = [YYImage imageWithData:gif.data];
+//    CGFloat width = (self.view.frame.size.width/2.0)-5.0;
+//    CGFloat height = (width/image.size.width)*image.size.height;
+//    cell.imageView.frame = CGRectMake(0, 0, width, height);
     
     cell.backgroundColor = [UIColor whiteColor];
     return cell;

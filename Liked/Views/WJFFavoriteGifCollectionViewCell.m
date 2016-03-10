@@ -15,7 +15,7 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        _imageView = [[YYAnimatedImageView alloc] init];
+        _imageView = [[YYAnimatedImageView alloc] initWithFrame:frame];
         [self setupImageView];
     }
     return self;

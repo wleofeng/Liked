@@ -15,6 +15,10 @@
 
 @property (nonatomic, strong) MDCSwipeToChooseView *swipeView;
 @property (nonatomic, strong) MBProgressHUD *hud;
+
+@property (nonatomic, strong) UIButton *likeButton;
+@property (nonatomic, strong) UIButton *nopeButton;
+
 @property (nonatomic, strong) UITextField *urlTextField;
 @property (nonatomic, strong) UIButton *urlCopyButton;
 
