@@ -13,6 +13,7 @@
 typedef NS_ENUM(NSInteger, MMDrawerSection){
     WJFDrawerSectionGif,
     WJFDrawerSectionFavorite,
+    WJFDrawerSectionFooter
 };
 
 @interface WJFSideDrawerViewController : WJFDrawerViewController <UITableViewDataSource,UITableViewDelegate>

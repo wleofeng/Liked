@@ -11,6 +11,7 @@
 #import "MMSideDrawerTableViewCell.h"
 #import "MMSideDrawerSectionHeaderView.h"
 #import "MMNavigationController.h"
+#import <YYImage/YYImage.h>
 
 @implementation WJFSideDrawerViewController
 
@@ -80,7 +81,7 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    return 2;
+    return 3;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -90,6 +91,8 @@
         case WJFDrawerSectionGif:
             return 4;
         case WJFDrawerSectionFavorite:
+            return 1;
+        case WJFDrawerSectionFooter:
             return 1;
         default:
             return 0;
@@ -106,6 +109,9 @@
         [cell setSelectionStyle:UITableViewCellSelectionStyleBlue];
     }
     
+    UIImage *image = [YYImage imageNamed:@"PoweredBy_200_Horizontal_Light-Backgrounds_With_Logo"];
+    UIImageView *imageView = [[YYAnimatedImageView alloc] initWithImage:image];
+
     switch (indexPath.section) {
         case WJFDrawerSectionGif:
             switch (indexPath.row) {
@@ -125,6 +131,10 @@
         case WJFDrawerSectionFavorite:
             [cell.textLabel setText:@"Liked Giphy"];
             break;
+        case WJFDrawerSectionFooter:
+            [cell addSubview:imageView];
+            [cell bringSubviewToFront:imageView];
+            break;
         default:
             break;
     }
@@ -139,6 +149,8 @@
             return @"Giphy";
         case WJFDrawerSectionFavorite:
             return @"Favorite";
+        case WJFDrawerSectionFooter:
+//            return @"Source";
         default:
             return nil;
     }
