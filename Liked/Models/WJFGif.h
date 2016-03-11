@@ -13,13 +13,16 @@
 
 @property (nonatomic, copy) NSString *ID;
 @property (nonatomic, copy) NSString *url;
-@property (nonatomic, strong) UIImage *image;
 @property (nonatomic, assign) CGFloat size;
+@property (nonatomic, assign) CGFloat width;
+@property (nonatomic, assign) CGFloat height;
 
 - (instancetype)init;
-- (instancetype)initWithFileName:(NSString *)ID
+- (instancetype)initWithId:(NSString *)ID
                              url:(NSString *)url
-                            size:(CGFloat)size;
+                            size:(CGFloat)size
+                           width:(CGFloat)width
+                          height:(CGFloat)height;
 
 
 @end

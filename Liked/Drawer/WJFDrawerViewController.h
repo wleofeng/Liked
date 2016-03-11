@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface WJFViewController : UIViewController
+@interface WJFDrawerViewController : UIViewController
 
 - (void)contentSizeDidChange:(NSString*)size;
 

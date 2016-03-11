@@ -37,7 +37,13 @@
     
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
     layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
-    self.collectionView = [[UICollectionView alloc] initWithFrame:self.view.frame collectionViewLayout:layout];
+    layout.minimumInteritemSpacing = 5;
+    layout.minimumLineSpacing = 5;
+    layout.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0);
+    
+    CGRect frame = self.view.frame;
+    //    frame.size.width /= 2.0;
+    self.collectionView = [[UICollectionView alloc] initWithFrame:frame collectionViewLayout:layout];
     self.collectionView.dataSource = self;
     self.collectionView.delegate = self;
     
@@ -62,6 +68,7 @@
 
 - (void)fetchAllGifRealm
 {
+    [self.gifs removeAllObjects];
     self.gifs = [[WJFGifRealm fetchAllGif] mutableCopy];
     [self.collectionView reloadData];
 }
@@ -85,12 +92,9 @@
     WJFGifRealm *gif = self.gifs[indexPath.row];
     NSURL *url = [NSURL URLWithString:gif.url];
     [cell.imageView yy_setImageWithURL:url options:YYWebImageOptionProgressive];
-    
-    //    YYImage *image = [YYImage imageWithData:gif.data];
-    //    CGFloat width = (self.view.frame.size.width/2.0)-5.0;
-    //    CGFloat height = (width/image.size.width)*image.size.height;
-    //    cell.imageView.frame = CGRectMake(0, 0, width, height);
-    
+
+    cell.layer.borderWidth=1.0f;
+    cell.layer.borderColor=[UIColor whiteColor].CGColor;
     cell.backgroundColor = [UIColor whiteColor];
     return cell;
 }
@@ -98,10 +102,9 @@
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     WJFGifRealm *gif = self.gifs[indexPath.row];
-    YYImage *image = [YYImage imageWithData:gif.data];
     
-    CGFloat width = (self.view.frame.size.width/2.0)-5.0;
-    CGFloat height = (width/image.size.width)*image.size.height;
+    CGFloat width = (self.view.frame.size.width/2.0);
+    CGFloat height = (width/gif.width)*gif.height;
     
     return CGSizeMake(width, height);
 }

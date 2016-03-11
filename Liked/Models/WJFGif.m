@@ -12,32 +12,35 @@
 
 - (instancetype)init
 {
-    self = [self initWithFileName:@"" url:@"" size:0];
+    self = [self initWithId:@"" url:@"" size:0.0 width:0.0 height:0.0 ];
     return self;
 }
 
-- (instancetype)initWithFileName:(NSString *)ID
-                             url:(NSString *)url
-                            size:(CGFloat)size
+- (instancetype)initWithId:(NSString *)ID
+                       url:(NSString *)url
+                      size:(CGFloat)size
+                     width:(CGFloat)width
+                    height:(CGFloat)height
 {
     self = [super init];
     if (self) {
         _ID = ID;
         _url = url;
-        _image = [self getImageByUrl:url];
         _size = size;
+        _width = width;
+        _height = height;
     }
     return self;
 }
 
-- (UIImage *)getImageByUrl:(NSString *)url
-{
-    NSURL *imgUrl = [NSURL URLWithString:url];
-    NSData *imgData = [NSData dataWithContentsOfURL:imgUrl];
-    
-    UIImage *image = [UIImage imageWithData:imgData];
-
-    return image;
-}
+//- (UIImage *)getImageByUrl:(NSString *)url
+//{
+//    NSURL *imgUrl = [NSURL URLWithString:url];
+//    NSData *imgData = [NSData dataWithContentsOfURL:imgUrl];
+//    
+//    UIImage *image = [UIImage imageWithData:imgData];
+//    
+//    return image;
+//}
 
 @end

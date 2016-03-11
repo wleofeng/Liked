@@ -14,14 +14,18 @@
 @property (nonatomic, copy) NSString *ID;
 @property (nonatomic, copy) NSString *url;
 @property (nonatomic, strong) NSData *data;
-@property (nonatomic, assign) float size;
+@property (nonatomic, assign) CGFloat size;
+@property (nonatomic, assign) CGFloat width;
+@property (nonatomic, assign) CGFloat height;
 @property (nonatomic, strong) NSDate *createDate;
 
 - (instancetype)init;
 - (instancetype)initWithId:(NSString *)ID
                        url:(NSString *)url
                       data:(NSData *)data
-                      size:(float)size
+                      size:(CGFloat)size
+                     width:(CGFloat)width
+                    height:(CGFloat)height
                 createDate:(NSDate *)createDate;
 - (instancetype)initWithGif:(WJFGif *)gif;
 + (void)saveGif:(WJFGifRealm *)gif completion:(void (^)())completionHandler;

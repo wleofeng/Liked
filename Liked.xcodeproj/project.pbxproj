@@ -16,7 +16,7 @@
 		4C1532FD1C8F5A4F001FFC61 /* MMSideDrawerTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C1532F11C8F5A4F001FFC61 /* MMSideDrawerTableViewCell.m */; };
 		4C1532FE1C8F5A4F001FFC61 /* MMTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C1532F31C8F5A4F001FFC61 /* MMTableViewCell.m */; };
 		4C1533001C8F5A4F001FFC61 /* WJFSideDrawerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C1532F71C8F5A4F001FFC61 /* WJFSideDrawerViewController.m */; };
-		4C1533011C8F5A4F001FFC61 /* WJFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C1532F91C8F5A4F001FFC61 /* WJFViewController.m */; };
+		4C1533011C8F5A4F001FFC61 /* WJFDrawerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C1532F91C8F5A4F001FFC61 /* WJFDrawerViewController.m */; };
 		4C1533051C8F5A67001FFC61 /* WJFGiphyAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C1533041C8F5A67001FFC61 /* WJFGiphyAPIClient.m */; };
 		4C1D7F731C767AF800453890 /* WJFChooseGifView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C1D7F721C767AF800453890 /* WJFChooseGifView.m */; };
 		4C2546DA1C89D49600B162DA /* WJFTrendingGifViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C2546D91C89D49600B162DA /* WJFTrendingGifViewController.m */; };
@@ -86,8 +86,8 @@
 		4C1532F31C8F5A4F001FFC61 /* MMTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMTableViewCell.m; sourceTree = "<group>"; };
 		4C1532F61C8F5A4F001FFC61 /* WJFSideDrawerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJFSideDrawerViewController.h; sourceTree = "<group>"; };
 		4C1532F71C8F5A4F001FFC61 /* WJFSideDrawerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJFSideDrawerViewController.m; sourceTree = "<group>"; };
-		4C1532F81C8F5A4F001FFC61 /* WJFViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJFViewController.h; sourceTree = "<group>"; };
-		4C1532F91C8F5A4F001FFC61 /* WJFViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJFViewController.m; sourceTree = "<group>"; };
+		4C1532F81C8F5A4F001FFC61 /* WJFDrawerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJFDrawerViewController.h; sourceTree = "<group>"; };
+		4C1532F91C8F5A4F001FFC61 /* WJFDrawerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJFDrawerViewController.m; sourceTree = "<group>"; };
 		4C1533031C8F5A67001FFC61 /* WJFGiphyAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJFGiphyAPIClient.h; sourceTree = "<group>"; };
 		4C1533041C8F5A67001FFC61 /* WJFGiphyAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJFGiphyAPIClient.m; sourceTree = "<group>"; };
 		4C1D7F711C767AE500453890 /* WJFChooseGifView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJFChooseGifView.h; sourceTree = "<group>"; };
@@ -200,8 +200,8 @@
 		4C1532E91C8F5A4F001FFC61 /* Drawer */ = {
 			isa = PBXGroup;
 			children = (
-				4C1532F81C8F5A4F001FFC61 /* WJFViewController.h */,
-				4C1532F91C8F5A4F001FFC61 /* WJFViewController.m */,
+				4C1532F81C8F5A4F001FFC61 /* WJFDrawerViewController.h */,
+				4C1532F91C8F5A4F001FFC61 /* WJFDrawerViewController.m */,
 				4C1532F61C8F5A4F001FFC61 /* WJFSideDrawerViewController.h */,
 				4C1532F71C8F5A4F001FFC61 /* WJFSideDrawerViewController.m */,
 				4C1532EC1C8F5A4F001FFC61 /* MMNavigationController.h */,
@@ -648,7 +648,7 @@
 				4CC202C41C6EB5B00022A859 /* WJFConstants.m in Sources */,
 				4C748BC91C8F6744002A9282 /* MDCSwipeOptions.m in Sources */,
 				4C1532FC1C8F5A4F001FFC61 /* MMSideDrawerSectionHeaderView.m in Sources */,
-				4C1533011C8F5A4F001FFC61 /* WJFViewController.m in Sources */,
+				4C1533011C8F5A4F001FFC61 /* WJFDrawerViewController.m in Sources */,
 				4C2546DD1C89D70C00B162DA /* WJFSearchGifViewController.m in Sources */,
 				4C2546DA1C89D49600B162DA /* WJFTrendingGifViewController.m in Sources */,
 				4C748BCB1C8F6744002A9282 /* MDCPanState.m in Sources */,

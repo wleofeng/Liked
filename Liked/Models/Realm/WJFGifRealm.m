@@ -21,15 +21,17 @@
 
 - (instancetype)init
 {
-    self = [self initWithId:@"" url:@"" data:[[NSData alloc] init] size:0 createDate:[[NSDate alloc] init]];
+    self = [self initWithId:@"" url:@"" data:[[NSData alloc] init] size:0.0 width:0.0 height:0.0 createDate:[[NSDate alloc] init]];
     return self;
 }
 
 - (instancetype)initWithId:(NSString *)ID
                        url:(NSString *)url
                       data:(NSData *)data
-                      size:(float)size
-                      createDate:(NSDate *)createDate
+                      size:(CGFloat)size
+                     width:(CGFloat)width
+                    height:(CGFloat)height
+                createDate:(NSDate *)createDate
 {
     self = [super init];
     if (self) {
@@ -37,6 +39,8 @@
         _url = url;
         _data = data;
         _size = size;
+        _width = width;
+        _height = height;
         _createDate = createDate;
     }
     return self;
@@ -46,7 +50,7 @@
 {
     NSURL *url = [NSURL URLWithString:gif.url];
     NSData *data = [NSData dataWithContentsOfURL:url];
-    self = [self initWithId:gif.ID url:gif.url data:data size:gif.size createDate:[NSDate date]];
+    self = [self initWithId:gif.ID url:gif.url data:data size:gif.size width:gif.width height:gif.height createDate:[NSDate date]];
     return self;
 }
 

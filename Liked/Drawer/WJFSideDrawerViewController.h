@@ -8,14 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import "UIViewController+MMDrawerController.h"
-#import "WJFViewController.h"
+#import "WJFDrawerViewController.h"
 
 typedef NS_ENUM(NSInteger, MMDrawerSection){
     WJFDrawerSectionGif,
     WJFDrawerSectionFavorite,
 };
 
-@interface WJFSideDrawerViewController : WJFViewController <UITableViewDataSource,UITableViewDelegate>
+@interface WJFSideDrawerViewController : WJFDrawerViewController <UITableViewDataSource,UITableViewDelegate>
 
 @property (nonatomic, strong) UITableView * tableView;
 @property (nonatomic, strong) NSArray * drawerWidths;

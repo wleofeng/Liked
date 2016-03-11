@@ -46,7 +46,13 @@
     [self.bgQueue addOperationWithBlock:^{
         if (self.gifArray.count) {
             NSDictionary *gifDict = (NSDictionary *)self.gifArray;
-            WJFGif *gif = [[WJFGif alloc]initWithFileName:gifDict[@"id"] url:gifDict[@"image_url"] size:0];
+            NSString *ID = gifDict[@"id"];
+            NSString *url = gifDict[@"image_url"];
+            CGFloat size = 0;
+            CGFloat width = [gifDict[@"image_width"] floatValue];
+            CGFloat height = [gifDict[@"image_height"] floatValue];
+            
+            WJFGif *gif = [[WJFGif alloc]initWithId:ID url:url size:size width:width height:height];
             self.currentGif = gif;
             
             [[NSOperationQueue mainQueue]addOperationWithBlock:^{

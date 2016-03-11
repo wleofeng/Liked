@@ -23,7 +23,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <YYWebImage/YYImage.h>
+#import <YYWebImage/YYWebImage.h>
 
 @class MDCSwipeToChooseViewOptions;
 

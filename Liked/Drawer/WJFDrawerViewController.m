@@ -6,13 +6,13 @@
 //  Copyright © 2016 Wo Jun Feng. All rights reserved.
 //
 
-#import "WJFViewController.h"
+#import "WJFDrawerViewController.h"
 
-@interface WJFViewController ()
+@interface WJFDrawerViewController ()
 
 @end
 
-@implementation WJFViewController
+@implementation WJFDrawerViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
