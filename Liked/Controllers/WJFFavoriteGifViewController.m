@@ -10,11 +10,13 @@
 #import "WJFGifRealm.h"
 #import <YYWebImage/YYWebImage.h>
 #import "WJFFavoriteGifCollectionViewCell.h"
+#import <FontAwesomeKit/FAKIonIcons.h>
 
-@interface WJFFavoriteGifViewController ()
+@interface WJFFavoriteGifViewController () <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UIGestureRecognizerDelegate>
 
 @property (nonatomic, strong) UICollectionView *collectionView;
-@property (nonatomic, strong) NSArray *gifs;
+@property (nonatomic, strong) NSMutableArray *gifs;
+@property (nonatomic, assign) BOOL isDeleteActive;
 
 @end
 
@@ -25,6 +27,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.gifs = [[NSMutableArray alloc] init];
     
     CGRect rect = [[UIScreen mainScreen] bounds];
     rect.size.height -= [UIApplication sharedApplication].statusBarFrame.size.height+self.navigationController.navigationBar.frame.size.height;
@@ -42,13 +46,24 @@
     
     [self.view addSubview:self.collectionView];
     
-    //TODO: add notification observer to refresh the Gif data in Realm
+    UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self
+                                                                                            action:@selector(activateDeletionMode:)];
+    longPress.delegate = self;
+    [self.collectionView addGestureRecognizer:longPress];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(fetchAllGifRealm) name:@"WJFFetchRealm" object:nil];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    self.gifs = [WJFGifRealm fetchAllGif];
+    [self fetchAllGifRealm];
+}
+
+- (void)fetchAllGifRealm
+{
+    self.gifs = [[WJFGifRealm fetchAllGif] mutableCopy];
+    [self.collectionView reloadData];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -71,10 +86,10 @@
     NSURL *url = [NSURL URLWithString:gif.url];
     [cell.imageView yy_setImageWithURL:url options:YYWebImageOptionProgressive];
     
-//    YYImage *image = [YYImage imageWithData:gif.data];
-//    CGFloat width = (self.view.frame.size.width/2.0)-5.0;
-//    CGFloat height = (width/image.size.width)*image.size.height;
-//    cell.imageView.frame = CGRectMake(0, 0, width, height);
+    //    YYImage *image = [YYImage imageWithData:gif.data];
+    //    CGFloat width = (self.view.frame.size.width/2.0)-5.0;
+    //    CGFloat height = (width/image.size.width)*image.size.height;
+    //    cell.imageView.frame = CGRectMake(0, 0, width, height);
     
     cell.backgroundColor = [UIColor whiteColor];
     return cell;
@@ -90,5 +105,62 @@
     
     return CGSizeMake(width, height);
 }
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSLog(@"cell selected, section:%ld row:%ld",indexPath.section, (long)indexPath.row);
+}
+
+- (void)activateDeletionMode:(UILongPressGestureRecognizer *)longPress
+{
+    if (longPress.state == UIGestureRecognizerStateBegan) {
+        if (!self.isDeleteActive) {
+            self.isDeleteActive = YES;
+            
+            NSIndexPath *indexPath = [self.collectionView indexPathForItemAtPoint:[longPress locationInView:self.collectionView]];
+            UICollectionViewCell *cell = [self.collectionView cellForItemAtIndexPath:indexPath];
+            
+            UIButton *deleteButton=[[UIButton alloc]initWithFrame:CGRectMake(0, 0, 20, 20)];
+            deleteButton.backgroundColor = [UIColor whiteColor];
+            deleteButton.tag = indexPath.row;
+            
+            FAKIonIcons *deleteIcon = [FAKIonIcons closeIconWithSize:20];
+            UIImage *deleteImage = [deleteIcon imageWithSize:CGSizeMake(20, 20)];
+            [deleteButton setImage:deleteImage forState:UIControlStateNormal];
+            
+            [deleteButton addTarget:self action:@selector(deleteButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
+            [cell addSubview:deleteButton];
+            [deleteButton bringSubviewToFront:self.collectionView];
+        } else {
+            self.isDeleteActive = NO;
+            
+            NSIndexPath *indexPath = [self.collectionView indexPathForItemAtPoint:[longPress locationInView:self.collectionView]];
+            UICollectionViewCell *cell = [self.collectionView cellForItemAtIndexPath:indexPath];
+            
+            for (UIButton *button in cell.subviews)
+            {
+                if([button isKindOfClass:[UIButton class]])
+                {
+                    [button removeFromSuperview];
+                }
+            }
+        }
+    }
+}
+
+- (void)deleteButtonTapped:(UIButton *)deleteButton
+{
+    WJFGifRealm *gif = self.gifs[deleteButton.tag];
+    [WJFGifRealm deleteGif:gif completion:^{
+        NSLog(@"Gif is removed from realm");
+    }];
+    
+    [self.gifs removeObjectAtIndex:deleteButton.tag];
+    [deleteButton removeFromSuperview];
+    
+    [self.collectionView reloadData];
+}
+
+
 
 @end

@@ -101,6 +101,7 @@
             WJFGifRealm *newGif = [[WJFGifRealm alloc] initWithGif:self.currentGif];
             [WJFGifRealm saveGif:newGif completion:^{
                 NSLog(@"Gif saved to realm");
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"WJFNewDataRealm" object:nil];
             }];
         }];
     }

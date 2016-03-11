@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface WJFFavoriteGifViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
+@interface WJFFavoriteGifViewController : UIViewController 
 
 @end

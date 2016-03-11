@@ -8,8 +8,11 @@
 
 #import "WJFGifRealm.h"
 
-@implementation WJFGifRealm
+@interface WJFGifRealm ()
 
+@end
+
+@implementation WJFGifRealm
 
 + (NSString *)primaryKey //override primary key
 {
@@ -18,7 +21,7 @@
 
 - (instancetype)init
 {
-    self = [self initWithId:@"" url:@"" data:[[NSData alloc] init] size:0];
+    self = [self initWithId:@"" url:@"" data:[[NSData alloc] init] size:0 createDate:[[NSDate alloc] init]];
     return self;
 }
 
@@ -26,6 +29,7 @@
                        url:(NSString *)url
                       data:(NSData *)data
                       size:(float)size
+                      createDate:(NSDate *)createDate
 {
     self = [super init];
     if (self) {
@@ -33,6 +37,7 @@
         _url = url;
         _data = data;
         _size = size;
+        _createDate = createDate;
     }
     return self;
 }
@@ -41,24 +46,40 @@
 {
     NSURL *url = [NSURL URLWithString:gif.url];
     NSData *data = [NSData dataWithContentsOfURL:url];
-    self = [self initWithId:gif.ID url:gif.url data:data size:gif.size];
+    self = [self initWithId:gif.ID url:gif.url data:data size:gif.size createDate:[NSDate date]];
     return self;
 }
 
 + (void)saveGif:(WJFGifRealm *)gif completion:(void (^)())completionHandler
 {
-    RLMRealm *realm = [RLMRealm defaultRealm];
-    
-    NSError *error;
-    [realm transactionWithBlock:^{
-        [realm addOrUpdateObject:gif];
-    } error:&error];
-    
-    if (error) {
-        NSLog(@"Realm save error: %@", error);
-    }
-    
-    completionHandler();
+        RLMRealm *realm = [RLMRealm defaultRealm];
+        NSError *error;
+        
+        [realm transactionWithBlock:^{
+            [realm addOrUpdateObject:gif];
+        } error:&error];
+        
+        if (error) {
+            NSLog(@"Realm save object error: %@", error);
+        }
+        
+        completionHandler();
+}
+
++ (void)deleteGif:(WJFGifRealm *)gif completion:(void (^)())completionHandler
+{
+        RLMRealm *realm = [RLMRealm defaultRealm];
+        NSError *error;
+        
+        [realm transactionWithBlock:^{
+            [realm deleteObject:gif];
+        } error:&error];
+        
+        if (error) {
+            NSLog(@"Realm delete object error: %@", error);
+        }
+        
+        completionHandler();
 }
 
 + (NSArray *)fetchAllGif
@@ -66,10 +87,14 @@
     RLMResults *results = [WJFGifRealm allObjects];
     
     NSMutableArray *array = [NSMutableArray arrayWithCapacity:results.count];
-    for (RLMObject *object in results) {
+    for (WJFGifRealm *object in results) {
         [array addObject:object];
     }
-    return array;
+    
+    NSSortDescriptor *sortByDateAsc = [NSSortDescriptor sortDescriptorWithKey:@"createDate" ascending:YES];
+    NSArray *sortedArray = [array sortedArrayUsingDescriptors:[NSArray arrayWithObject:sortByDateAsc]];
+
+    return sortedArray;
 }
 
 @end
