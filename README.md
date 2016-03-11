@@ -1,7 +1,7 @@
 #Liked - Tinder With Giphy
 
 Quick Demo
-[![IMAGE ALT TEXT](liked-demo.png)](https://vimeo.com/158123668 "Demo Video")
+[![IMAGE ALT TEXT](liked-demo.png)](https://vimeo.com/158684313 "Demo Video")
 
 #What is it?
 Liked is an iOS application that brings the tinder experience to Giphy images. This app integrates the Giphy API to fetch fresh images in Trending, Random, Search, and Translation categories. While viewing each Giphy image, user can either 'Like' or 'Nope' an image. Liked images will be saved in a collection for future revisits.  
