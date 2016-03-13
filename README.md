@@ -1,4 +1,4 @@
-#Liked - Tinder With Giphy
+#![alt tag](https://github.com/wleofeng/Liked/blob/master/Liked/Assets.xcassets/AppIcon.appiconset/Icon-40.png)iked - Tinder With Giphy
 
 Quick Demo
 [![IMAGE ALT TEXT](liked-demo.png)](https://vimeo.com/158684313 "Demo Video")
