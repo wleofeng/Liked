@@ -18,6 +18,8 @@
 
 @implementation WJFCenterViewController
 
+#pragma mark - View Cycle Methods
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -27,9 +29,15 @@
     
     self.containerView = [[UIView alloc] init];
     [self.view addSubview:self.containerView];
-    [self setupContainerViewLayoutConstraints];
+    [self.containerView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.mas_topLayoutGuideBottom);
+        make.bottom.equalTo(self.view.mas_bottom);
+        make.left.equalTo(self.view.mas_left);
+        make.right.equalTo(self.view.mas_right);
+    }];
     
     [self setupTrendingGifViewController];
+    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setupTrendingGifViewController) name:@"ShowTrendingGif" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setupRandomGifViewController) name:@"ShowRandomGif" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setupSearchGifViewController) name:@"ShowSearchGif" object:nil];
@@ -37,7 +45,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setupFavoriteGifViewController) name:@"ShowFavoriteGif" object:nil];
 }
 
-#pragma mark - View Methods
+#pragma mark - View Setup Methods
 - (void)setupTrendingGifViewController
 {
     self.title = @"Trending";
@@ -120,25 +128,10 @@
     }];
 }
 
-- (void)setupContainerViewLayoutConstraints
-{
-    [self.containerView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.mas_topLayoutGuideBottom);
-        make.bottom.equalTo(self.view.mas_bottom);
-        make.left.equalTo(self.view.mas_left);
-        make.right.equalTo(self.view.mas_right);
-    }];
-}
-
 #pragma mark - Button Handlers
 - (void)leftDrawerButtonPress:(id)sender
 {
     [self.mm_drawerController toggleDrawerSide:MMDrawerSideLeft animated:YES completion:nil];
-}
-
-- (void)rightDrawerButtonPress:(id)sender
-{
-    [self.mm_drawerController toggleDrawerSide:MMDrawerSideRight animated:YES completion:nil];
 }
 
 @end
