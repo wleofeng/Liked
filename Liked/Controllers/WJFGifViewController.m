@@ -101,10 +101,11 @@ static const CGFloat ChooseGifButtonVerticalPadding = 20.f;
                               image.size.width,
                               image.size.height);
     [self.likeButton setImage:image forState:UIControlStateNormal];
-    [self.likeButton setTintColor:[UIColor colorWithRed:29.f/255.f
-                                         green:245.f/255.f
-                                          blue:106.f/255.f
-                                         alpha:1.f]];
+//    [self.likeButton setTintColor:[UIColor colorWithRed:29.f/255.f
+//                                         green:245.f/255.f
+//                                          blue:106.f/255.f
+//                                         alpha:1.f]];
+    [self.likeButton setTintColor:[UIColor flatGreenColor]];
     [self.likeButton addTarget:self
                action:@selector(likeButtonTapped)
      forControlEvents:UIControlEventTouchUpInside];
@@ -127,10 +128,11 @@ static const CGFloat ChooseGifButtonVerticalPadding = 20.f;
                               image.size.width,
                               image.size.height);
     [self.nopeButton setImage:image forState:UIControlStateNormal];
-    [self.nopeButton setTintColor:[UIColor colorWithRed:247.f/255.f
-                                         green:91.f/255.f
-                                          blue:37.f/255.f
-                                         alpha:1.f]];
+//    [self.nopeButton setTintColor:[UIColor colorWithRed:247.f/255.f
+//                                         green:91.f/255.f
+//                                          blue:37.f/255.f
+//                                         alpha:1.f]];
+    [self.nopeButton setTintColor:[UIColor flatRedColor]];
     [self.nopeButton addTarget:self
                action:@selector(nopeButtonTapped)
      forControlEvents:UIControlEventTouchUpInside];
