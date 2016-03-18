@@ -1,5 +1,7 @@
 ![alt tag](https://github.com/wleofeng/Liked/blob/master/Liked/Assets.xcassets/AppIcon.appiconset/Icon-40%402x.png)<br />
-#Liked - Tinder With Giphy
+#Liked GIF - Tinder With Giphy
+
+V1.0 is now available at App Store - https://itunes.apple.com/us/app/id1092916951
 
 Quick Demo
 [![IMAGE ALT TEXT](liked-demo.png)](https://vimeo.com/158684313 "Demo Video")

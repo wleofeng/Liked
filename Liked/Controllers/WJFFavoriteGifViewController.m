@@ -96,6 +96,19 @@
     cell.layer.borderWidth=1.0f;
     cell.layer.borderColor=[UIColor whiteColor].CGColor;
     cell.backgroundColor = [UIColor whiteColor];
+    
+    
+    //Test code here
+    NSData *data = [NSData dataWithContentsOfURL:url];
+    UIImage *image = [UIImage imageWithData:data];
+    
+    CGSize size = CGSizeMake(image.size.width, image.size.height);
+    CGRect frame = cell.imageView.frame;
+    frame.size = size;
+    
+    cell.imageView.frame = frame;
+    //end test code
+    
     return cell;
 }
 
