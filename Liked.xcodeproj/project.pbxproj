@@ -23,6 +23,7 @@
 		4C2546DD1C89D70C00B162DA /* WJFSearchGifViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C2546DC1C89D70C00B162DA /* WJFSearchGifViewController.m */; };
 		4C2546E01C89D8BF00B162DA /* WJFRandomGifViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C2546DF1C89D8BF00B162DA /* WJFRandomGifViewController.m */; };
 		4C2D2BDE1C75742800F407AF /* WJFGif.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C2D2BDD1C75742800F407AF /* WJFGif.m */; };
+		4C3126651CA0F9AD0027FA4D /* WJFGifBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C3126641CA0F9AD0027FA4D /* WJFGifBuffer.m */; };
 		4C5ADF7B1C936B5500CECD1B /* PoweredBy_200_Horizontal_Light-Backgrounds_With_Logo.gif in Resources */ = {isa = PBXBuildFile; fileRef = 4C5ADF7A1C936B5500CECD1B /* PoweredBy_200_Horizontal_Light-Backgrounds_With_Logo.gif */; };
 		4C748BC41C8F6744002A9282 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 4C748BA31C8F6744002A9282 /* LICENSE */; };
 		4C748BC51C8F6744002A9282 /* MDCGeometry.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C748BA71C8F6744002A9282 /* MDCGeometry.m */; };
@@ -102,6 +103,8 @@
 		4C2546DF1C89D8BF00B162DA /* WJFRandomGifViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJFRandomGifViewController.m; sourceTree = "<group>"; };
 		4C2D2BDC1C75742800F407AF /* WJFGif.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJFGif.h; sourceTree = "<group>"; };
 		4C2D2BDD1C75742800F407AF /* WJFGif.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJFGif.m; sourceTree = "<group>"; };
+		4C3126631CA0F9AD0027FA4D /* WJFGifBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WJFGifBuffer.h; path = Utils/WJFGifBuffer.h; sourceTree = "<group>"; };
+		4C3126641CA0F9AD0027FA4D /* WJFGifBuffer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WJFGifBuffer.m; path = Utils/WJFGifBuffer.m; sourceTree = "<group>"; };
 		4C5ADF7A1C936B5500CECD1B /* PoweredBy_200_Horizontal_Light-Backgrounds_With_Logo.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "PoweredBy_200_Horizontal_Light-Backgrounds_With_Logo.gif"; sourceTree = "<group>"; };
 		4C748BA31C8F6744002A9282 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		4C748BA61C8F6744002A9282 /* MDCGeometry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDCGeometry.h; sourceTree = "<group>"; };
@@ -271,6 +274,15 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		4C3126621CA0F9670027FA4D /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				4C3126631CA0F9AD0027FA4D /* WJFGifBuffer.h */,
+				4C3126641CA0F9AD0027FA4D /* WJFGifBuffer.m */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
 		4C5ADF7F1C936C5C00CECD1B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -414,6 +426,7 @@
 				4CC202C31C6EB5B00022A859 /* WJFConstants.m */,
 				4C1533021C8F5A67001FFC61 /* APIClient */,
 				4C2D2BCA1C75302D00F407AF /* Models */,
+				4C3126621CA0F9670027FA4D /* Utils */,
 				4C2D2BD21C75304E00F407AF /* Views */,
 				4C2D2BCE1C75304600F407AF /* Controllers */,
 				4C1532E91C8F5A4F001FFC61 /* Drawer */,
@@ -658,6 +671,7 @@
 				4CA65FCC1C8FB6670061974F /* WJFGifViewController.m in Sources */,
 				4C748BC61C8F6744002A9282 /* MDCViewState.m in Sources */,
 				4C1533051C8F5A67001FFC61 /* WJFGiphyAPIClient.m in Sources */,
+				4C3126651CA0F9AD0027FA4D /* WJFGifBuffer.m in Sources */,
 				4C1532CF1C8E2F06001FFC61 /* WJFFavoriteGifCollectionViewCell.m in Sources */,
 				4C748BC51C8F6744002A9282 /* MDCGeometry.m in Sources */,
 				4C748BCE1C8F6744002A9282 /* UIView+MDCSwipeToChoose.m in Sources */,
