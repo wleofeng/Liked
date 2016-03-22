@@ -17,4 +17,10 @@ typedef NS_ENUM(NSInteger, WJFGifBufferType) {
 
 @interface WJFGifBuffer : NSObject
 
+@property (nonatomic, assign) WJFGifBufferType bufferType;
+@property (nonatomic, strong) NSMutableArray *gifArray;
+
+- (instancetype)init;
+- (instancetype)initWithGifBufferType:(WJFGifBufferType)bufferType;
+
 @end
