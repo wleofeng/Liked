@@ -36,9 +36,9 @@
         make.right.equalTo(self.view.mas_right);
     }];
     
-//    [self setupTrendingGifViewController];
+    [self setupTrendingGifViewController];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setupTrendingGifViewController:) name:@"ShowTrendingGif" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setupTrendingGifViewController) name:@"ShowTrendingGif" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setupRandomGifViewController) name:@"ShowRandomGif" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setupSearchGifViewController) name:@"ShowSearchGif" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setupTranslationGifViewController) name:@"ShowTranslationGif" object:nil];
@@ -46,9 +46,8 @@
 }
 
 #pragma mark - View Setup Methods
-- (void)setupTrendingGifViewController:(NSNotification *)notification
+- (void)setupTrendingGifViewController
 {
-    NSString *myDictionary = (NSString *)notification.object;
     self.title = @"Trending";
     
     WJFTrendingGifViewController *vc = [[WJFTrendingGifViewController alloc] init];

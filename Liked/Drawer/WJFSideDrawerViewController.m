@@ -190,8 +190,7 @@
                 case 0:
                     [self.mm_drawerController toggleDrawerSide:MMDrawerSideLeft animated:YES completion:^(BOOL finished) {
                         if (finished) {
-                            NSString *obj = @"hello";
-                            [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowTrendingGif" object:obj];
+                            [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowTrendingGif" object:nil];
                         }
                     }];
                     break;

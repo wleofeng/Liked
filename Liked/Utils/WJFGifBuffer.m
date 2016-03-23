@@ -19,17 +19,57 @@
 
 - (instancetype)initWithGifBufferType:(WJFGifBufferType)bufferType
 {
+    self = [self initWithGifBufferType:bufferType gifs:[[NSMutableArray alloc]init]];
+    return self;
+}
+
+- (instancetype)initWithGifBufferType:(WJFGifBufferType)bufferType gifs:(NSMutableArray *)gifs
+{
     self = [super init];
     if (self) {
         _bufferType = bufferType;
+        _gifs = gifs;
     }
     return self;
 }
 
-- (void)bufferGif
+//maintain and buffer up to 10 gif in the stack, at all times
+- (void)bufferGifs
 {
-    //maintain and buffer up to 10 gif in the stacks, at all times
+
+    
+    
 }
+
+- (SEL)determineAPIMethodCallForBufferType:(WJFGifBufferType)buffterType
+{
+    SEL selector;
+    switch (buffterType) {
+        case WJFGifBufferTrending:
+            selector = @selector(fetchTrendingGifFromAPIWithLimit:);
+            break;
+        case WJFGifBufferRandom:
+//            selector = ;
+            break;
+            
+        default:
+            break;
+    }
+    return nil;
+}
+
+- (void)fetchTrendingGifFromAPIWithLimit:(NSUInteger)limit
+{
+    [WJFGiphyAPIClient fetchTrendingGIFsWithLimit:limit completion:^(NSArray *responseArray) {
+        self.gifs = [responseArray mutableCopy];
+    }];
+}
+
+- (void)fetchRandom
+{
+//    [WJFGiphyAPIClient ]
+}
+
 
 
 @end
