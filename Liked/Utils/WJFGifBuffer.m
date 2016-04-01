@@ -78,12 +78,8 @@
 
 - (void)fetchRandomGifFromAPI
 {
-    if(self.bufferTimer)
-    {
-        [self.bufferTimer invalidate];
-        self.bufferTimer = nil;
-    }
     self.bufferTimer = [NSTimer scheduledTimerWithTimeInterval:0.1f target:self selector:@selector(triggerRandomGifFetch:) userInfo:nil repeats:YES];
+    [self.bufferTimer fire];
 }
 
 - (void)triggerRandomGifFetch:(NSTimer *)bufferTimer
@@ -99,7 +95,6 @@
             [self.delegate gifDataDidFinishBuffer:self];
             
             [self.bufferTimer invalidate];
-            self.bufferTimer = nil;
         }
     }];
 }
