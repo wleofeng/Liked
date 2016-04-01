@@ -8,16 +8,18 @@
 
 #import "WJFRandomGifViewController.h"
 #import "WJFGiphyAPIClient.h"
-#import "WJFGif.h"
+#import "WJFRandomGif.h"
 #import <YYWebImage/YYWebImage.h>
 #import "WJFGifRealm.h"
+#import "WJFGifBuffer.h"
 
 
 @interface WJFRandomGifViewController ()
 
-@property (nonatomic, strong) WJFGif *currentGif;
-@property (nonatomic, strong) NSMutableArray *gifArray;
+@property (nonatomic, strong) WJFRandomGif *currentGif;
+//@property (nonatomic, strong) NSMutableArray *gifs;
 @property (nonatomic, strong) NSOperationQueue *bgQueue;
+@property (nonatomic, strong) WJFGifBuffer *gifBuffer;
 
 @end
 
@@ -27,13 +29,17 @@
 {
     [super viewDidLoad];
     self.bgQueue = [[NSOperationQueue alloc] init];
+    
+    self.gifBuffer = [[WJFGifBuffer alloc] initWithGifBufferType:WJFGifBufferRandom];
+    [self.gifBuffer bufferGifs];
+    self.gifBuffer.delegate = self;
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
     
-    [self fetchRandomGifFromAPI];
+//    [self fetchRandomGifFromAPI];
 }
 
 - (void)addSwipeViewImage
@@ -44,19 +50,16 @@
     [self.bgQueue cancelAllOperations];
     
     [self.bgQueue addOperationWithBlock:^{
-        if (self.gifArray.count) {
-            NSDictionary *gifDict = (NSDictionary *)self.gifArray;
-            NSString *ID = gifDict[@"id"];
-            NSString *url = gifDict[@"image_url"];
-            CGFloat size = 0;
-            CGFloat width = [gifDict[@"image_width"] floatValue];
-            CGFloat height = [gifDict[@"image_height"] floatValue];
+        if (self.gifBuffer.gifs.count) {
+            self.currentGif = [self.gifBuffer.gifs firstObject];
             
-            WJFGif *gif = [[WJFGif alloc]initWithId:ID url:url size:size width:width height:height];
-            self.currentGif = gif;
+//            [self.gifs removeObjectAtIndex:0];
+            
+            [self.gifBuffer.gifs removeObjectAtIndex:0];
+            [self.gifBuffer bufferGifs];
             
             [[NSOperationQueue mainQueue]addOperationWithBlock:^{
-                [self.swipeView.imageView yy_setImageWithURL:[NSURL URLWithString:gif.url] placeholder:nil options:YYWebImageOptionProgressiveBlur completion:^(UIImage *image, NSURL *url, YYWebImageFromType from, YYWebImageStage stage, NSError *error) {
+                [self.swipeView.imageView yy_setImageWithURL:[NSURL URLWithString:self.currentGif.url] placeholder:nil options:YYWebImageOptionProgressiveBlur completion:^(UIImage *image, NSURL *url, YYWebImageFromType from, YYWebImageStage stage, NSError *error) {
                     
                     self.likeButton.enabled = YES;
                     self.nopeButton.enabled = YES;
@@ -69,7 +72,7 @@
                 }];
 
 
-                NSLog(@"new picture added!! URL: %@", gif.url);
+                NSLog(@"new picture added!! URL: %@", self.currentGif.url);
                 
                 [self.hud setHidden:YES];
                 [self.swipeView setHidden:NO];
@@ -78,13 +81,13 @@
     }];
 }
 
-- (void)fetchRandomGifFromAPI
-{
-    [WJFGiphyAPIClient fetchRandomGIFsWithTag:nil completion:^(NSArray *responseArray) {
-        self.gifArray = [responseArray mutableCopy];
-        [self addSwipeViewImage];
-    }];
-}
+//- (void)fetchRandomGifFromAPI
+//{
+//    [WJFGiphyAPIClient fetchRandomGIFsWithTag:nil completion:^(NSArray *responseArray) {
+//        self.gifArray = [responseArray mutableCopy];
+//        [self addSwipeViewImage];
+//    }];
+//}
 
 #pragma mark - MDCSwipeToChooseDelegate Callbacks
 
@@ -114,8 +117,21 @@
     
     [self.swipeView removeFromSuperview];
     [self setupSwipeView];
-    [self fetchRandomGifFromAPI];
+    [self addSwipeViewImage];
+//    [self fetchRandomGifFromAPI]; //this trigger the re-fetch for more random GIF
 }
 
+#pragma marks - WJFGifBufferDelegate Methods
+- (void)gifDataDidUpdate:(WJFGifBuffer *)gifBuffer
+{
+//    self.gifArray = gifBuffer.gifs;
+//    [self addSwipeViewImage];
+}
+
+- (void)gifDataDidFinishBuffer:(WJFGifBuffer *)gifBuffer
+{
+    self.gifBuffer = gifBuffer;
+    [self addSwipeViewImage];
+}
 
 @end

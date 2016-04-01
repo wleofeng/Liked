@@ -9,7 +9,8 @@
 #import "WJFGifBuffer.h"
 #import "WJFGiphyAPIClient.h"
 #import <YYWebImage/YYWebImage.h>
-#import "WJFGif.h"
+#import "WJFTrendingGif.h"
+#import "WJFRandomGif.h"
 
 @implementation WJFGifBuffer
 
@@ -50,10 +51,10 @@
     SEL selector;
     switch (buffterType) {
         case WJFGifBufferTrending:
-            selector = @selector(fetchTrendingGifFromAPIWithLimit:);
+            selector = @selector(fetchTrendingGifFromAPI);
             break;
         case WJFGifBufferRandom:
-            selector = @selector(fetchRandomGifFromAPIWithTag:);
+            selector = @selector(fetchRandomGifFromAPI);
             break;
         default:
             break;
@@ -61,13 +62,12 @@
     return selector;
 }
 
-- (void)fetchTrendingGifFromAPIWithLimit:(NSUInteger)limit
+- (void)fetchTrendingGifFromAPI
 {
-    [WJFGiphyAPIClient fetchTrendingGIFsWithLimit:limit completion:^(NSArray *responseArray) {
-//        self.gifs = [responseArray mutableCopy];
+    [WJFGiphyAPIClient fetchTrendingGIFsWithLimit:100 completion:^(NSArray *responseArray) {
         if (responseArray.count) {
             for (NSDictionary *gifDict in responseArray) {
-                WJFGif *newGif = [self trendingGifDictionaryToWJFGif:gifDict];
+                WJFTrendingGif *newGif = [[WJFTrendingGif alloc] initWithGifDictionary:gifDict];
                 [self.gifs addObject:newGif];
             }
             
@@ -76,34 +76,45 @@
     }];
 }
 
-- (void)fetchRandomGifFromAPIWithTag:(NSString *)tag
+- (void)fetchRandomGifFromAPI
 {
-//    [WJFGiphyAPIClient fetchRandomGIFsWithTag:tag completion:^(NSArray *responseArray) {
-//        self.gifs = [responseArray mutableCopy];
-//        if (self.gifs) {
-//            [self.delegate gifDataDidUpdate:self];
-//        }
-//    }];
+    if(self.bufferTimer)
+    {
+        [self.bufferTimer invalidate];
+        self.bufferTimer = nil;
+    }
+    self.bufferTimer = [NSTimer scheduledTimerWithTimeInterval:0.1f target:self selector:@selector(triggerRandomGifFetch:) userInfo:nil repeats:YES];
 }
 
-
-- (NSData *)downloadGifDataWithUrl:(NSURL *)url
+- (void)triggerRandomGifFetch:(NSTimer *)bufferTimer
 {
-    return [NSData dataWithContentsOfURL:url];
-//    YYImage *image = [YYImage imageWithData:gifData];
-//    self.swipeView.imageView.image = image;
+    [WJFGiphyAPIClient fetchRandomGIFsWithTag:nil completion:^(NSArray *responseArray) {
+        if (responseArray.count && ![self isFullyBuffered]) {
+            NSDictionary *gifDict = (NSDictionary *)responseArray;
+            WJFRandomGif *newGif = [[WJFRandomGif alloc] initWithGifDictionary:gifDict];
+            [self.gifs addObject:newGif];
+            
+            [self.delegate gifDataDidUpdate:self];
+        } else {
+            [self.delegate gifDataDidFinishBuffer:self];
+            
+            [self.bufferTimer invalidate];
+            self.bufferTimer = nil;
+        }
+    }];
 }
 
-- (WJFGif *)trendingGifDictionaryToWJFGif:(NSDictionary *)gifDict
+- (BOOL)isFullyBuffered
 {
-    NSString *ID = gifDict[@"id"];
-    NSString *url = gifDict[@"images"][@"downsized"][@"url"];
-    CGFloat size = [gifDict[@"images"][@"downsized"][@"size"] floatValue];
-    CGFloat width = [gifDict[@"images"][@"downsized"][@"width"] floatValue];
-    CGFloat height = [gifDict[@"images"][@"downsized"][@"height"] floatValue];
-    
-    WJFGif *gif = [[WJFGif alloc]initWithId:ID url:url size:size width:width height:height];
-    return gif;
+    return self.gifs.count > 2 ? YES : NO;
 }
+
+//- (NSData *)downloadGifDataWithUrl:(NSURL *)url
+//{
+//    return [NSData dataWithContentsOfURL:url];
+////    YYImage *image = [YYImage imageWithData:gifData];
+////    self.swipeView.imageView.image = image;
+//}
+
 
 @end

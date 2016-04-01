@@ -8,13 +8,13 @@
 
 #import "WJFTrendingGifViewController.h"
 #import "WJFGiphyAPIClient.h"
-#import "WJFGif.h"
+#import "WJFTrendingGif.h"
 #import <YYWebImage/YYWebImage.h>
 #import "WJFGifRealm.h"
 
 @interface WJFTrendingGifViewController ()
 
-@property (nonatomic, strong) WJFGif *currentGif;
+@property (nonatomic, strong) WJFTrendingGif *currentGif;
 @property (nonatomic, strong) NSMutableArray *gifArray;
 @property (nonatomic, strong) NSOperationQueue *bgQueue;
 
