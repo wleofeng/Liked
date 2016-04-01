@@ -53,28 +53,6 @@
     [self.window makeKeyAndVisible];
     [self.window setRootViewController:self.drawerController];
     
-    
-//    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-//    [self.window setBackgroundColor:[UIColor greenColor]];
-//    [self.window makeKeyAndVisible];
-//    
-//    CGRect frame = self.window.frame;
-//    frame.size.height = self.window.frame.size.height * 1.0/2.0;
-//    
-//    UIViewController *vc = [[UIViewController alloc] init];
-////    [vc.view setFrame:frame];
-//    
-//    UIView *subView = [[UIView alloc] init];
-//    [vc.view addSubview:subView];
-//    
-//    [subView setFrame:frame];
-//    [subView setBackgroundColor:[UIColor blueColor]];
-////    NSLog(@"height = %f", vc.view.frame.size.height);
-//    
-//    
-//    [vc.view setBackgroundColor:[UIColor grayColor]];
-//    [self.window setRootViewController:vc];
-    
     return YES;
 }
 

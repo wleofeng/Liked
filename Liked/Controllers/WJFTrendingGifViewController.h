@@ -8,7 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import "WJFGifViewController.h"
+#import "WJFGifBuffer.h"
 
-@interface WJFTrendingGifViewController : WJFGifViewController
+@interface WJFTrendingGifViewController : WJFGifViewController <WJFGifBufferDataDelegate>
 
 @end

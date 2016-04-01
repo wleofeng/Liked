@@ -25,23 +25,27 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     self.bgQueue = [[NSOperationQueue alloc] init];
+    
+    WJFGifBuffer *gifBuffer = [[WJFGifBuffer alloc] initWithGifBufferType:WJFGifBufferTrending];
+    [gifBuffer bufferGifs];
+    gifBuffer.delegate = self;
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    
-    [self fetchTrendingGifFromAPI];
+//    [self fetchTrendingGifFromAPI];
 }
 
-- (void)fetchTrendingGifFromAPI
-{
-    [WJFGiphyAPIClient fetchTrendingGIFsWithLimit:100 completion:^(NSArray *responseArray) {
-        self.gifArray = [responseArray mutableCopy];
-        [self addSwipeViewImage];
-    }];
-}
+//- (void)fetchTrendingGifFromAPI
+//{
+//    [WJFGiphyAPIClient fetchTrendingGIFsWithLimit:100 completion:^(NSArray *responseArray) {
+//        self.gifArray = [responseArray mutableCopy];
+//        [self addSwipeViewImage];
+//    }];
+//}
 
 - (void)addSwipeViewImage
 {
@@ -52,20 +56,12 @@
     
     [self.bgQueue addOperationWithBlock:^{
         if (self.gifArray.count) {
-            NSDictionary *gifDict = [self.gifArray firstObject];
-            NSString *ID = gifDict[@"id"];
-            NSString *url = gifDict[@"images"][@"downsized"][@"url"];
-            CGFloat size = [gifDict[@"images"][@"downsized"][@"size"] floatValue];
-            CGFloat width = [gifDict[@"images"][@"downsized"][@"width"] floatValue];
-            CGFloat height = [gifDict[@"images"][@"downsized"][@"height"] floatValue];
-            
-            WJFGif *gif = [[WJFGif alloc]initWithId:ID url:url size:size width:width height:height];
-            self.currentGif = gif;
-            
+            self.currentGif = [self.gifArray firstObject];
+    
             [self.gifArray removeObjectAtIndex:0];
             
             [[NSOperationQueue mainQueue]addOperationWithBlock:^{
-                [self.swipeView.imageView yy_setImageWithURL:[NSURL URLWithString:gif.url] placeholder:nil options:YYWebImageOptionProgressiveBlur completion:^(UIImage *image, NSURL *url, YYWebImageFromType from, YYWebImageStage stage, NSError *error) {
+                [self.swipeView.imageView yy_setImageWithURL:[NSURL URLWithString:self.currentGif.url] placeholder:nil options:YYWebImageOptionProgressiveBlur completion:^(UIImage *image, NSURL *url, YYWebImageFromType from, YYWebImageStage stage, NSError *error) {
                     
                     self.likeButton.enabled = YES;
                     self.nopeButton.enabled = YES;
@@ -77,7 +73,13 @@
                     }];
                 }];
                 
-                NSLog(@"new picture added!! URL: %@", gif.url);
+                //test code
+//                NSData *gifData = [NSData dataWithContentsOfURL:[NSURL URLWithString:self.currentGif.url]];
+//                YYImage *image = [YYImage imageWithData:gifData];
+//                self.swipeView.imageView.image = image;
+                //end test
+                
+                NSLog(@"new picture added!! URL: %@", self.currentGif.url);
 
                 [self.hud setHidden:YES];
                 [self.swipeView setHidden:NO];
@@ -117,6 +119,13 @@
     [self addSwipeViewImage];
 }
 
+#pragma marks - WJFGifBufferDelegate Methods
+- (void)gifDataDidUpdate:(WJFGifBuffer *)gifBuffer
+{
+//    NSLog(@"delegate method is called here ");
+    self.gifArray = gifBuffer.gifs;
+    [self addSwipeViewImage];
+}
 
 @end
 

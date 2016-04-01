@@ -8,6 +8,8 @@
 
 #import "WJFGifBuffer.h"
 #import "WJFGiphyAPIClient.h"
+#import <YYWebImage/YYWebImage.h>
+#import "WJFGif.h"
 
 @implementation WJFGifBuffer
 
@@ -37,10 +39,9 @@
 #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
 - (void)bufferGifs
 {
-    self.APISelector = [self determineAPIMethodCallForBufferType:self.bufferType];
-    [self performSelectorInBackground:self.APISelector withObject:nil];
-    if ([self respondsToSelector:self.APISelector]) {
-        [self performSelector:self.APISelector];
+    SEL APISelector = [self determineAPIMethodCallForBufferType:self.bufferType];
+    if ([self respondsToSelector:APISelector]) {
+        [self performSelector:APISelector];
     }
 }
 
@@ -63,9 +64,13 @@
 - (void)fetchTrendingGifFromAPIWithLimit:(NSUInteger)limit
 {
     [WJFGiphyAPIClient fetchTrendingGIFsWithLimit:limit completion:^(NSArray *responseArray) {
-        self.gifs = [responseArray mutableCopy];
-        
-        if (self.gifs) {
+//        self.gifs = [responseArray mutableCopy];
+        if (responseArray.count) {
+            for (NSDictionary *gifDict in responseArray) {
+                WJFGif *newGif = [self trendingGifDictionaryToWJFGif:gifDict];
+                [self.gifs addObject:newGif];
+            }
+            
             [self.delegate gifDataDidUpdate:self];
         }
     }];
@@ -73,15 +78,32 @@
 
 - (void)fetchRandomGifFromAPIWithTag:(NSString *)tag
 {
-    [WJFGiphyAPIClient fetchRandomGIFsWithTag:tag completion:^(NSArray *responseArray) {
-        self.gifs = [responseArray mutableCopy];
-        
-        if (self.gifs) {
-            [self.delegate gifDataDidUpdate:self];
-        }
-    }];
+//    [WJFGiphyAPIClient fetchRandomGIFsWithTag:tag completion:^(NSArray *responseArray) {
+//        self.gifs = [responseArray mutableCopy];
+//        if (self.gifs) {
+//            [self.delegate gifDataDidUpdate:self];
+//        }
+//    }];
 }
 
 
+- (NSData *)downloadGifDataWithUrl:(NSURL *)url
+{
+    return [NSData dataWithContentsOfURL:url];
+//    YYImage *image = [YYImage imageWithData:gifData];
+//    self.swipeView.imageView.image = image;
+}
+
+- (WJFGif *)trendingGifDictionaryToWJFGif:(NSDictionary *)gifDict
+{
+    NSString *ID = gifDict[@"id"];
+    NSString *url = gifDict[@"images"][@"downsized"][@"url"];
+    CGFloat size = [gifDict[@"images"][@"downsized"][@"size"] floatValue];
+    CGFloat width = [gifDict[@"images"][@"downsized"][@"width"] floatValue];
+    CGFloat height = [gifDict[@"images"][@"downsized"][@"height"] floatValue];
+    
+    WJFGif *gif = [[WJFGif alloc]initWithId:ID url:url size:size width:width height:height];
+    return gif;
+}
 
 @end
