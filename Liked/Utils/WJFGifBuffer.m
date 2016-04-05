@@ -95,7 +95,8 @@
 
 - (void)fetchRandomGifFromAPI
 {
-    self.bufferTimer = [NSTimer scheduledTimerWithTimeInterval:0.1f target:self selector:@selector(triggerRandomGifFetch:) userInfo:nil repeats:YES];
+    //shouldn't use NSTimer, making too many network calls, use a counter.. something like self.gifs.count
+    self.bufferTimer = [NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@selector(triggerRandomGifFetch:) userInfo:nil repeats:YES];
     [self.bufferTimer fire];
 }
 
@@ -114,6 +115,7 @@
             [self.delegate gifDataDidFinishBuffer:self];
             
             [self.bufferTimer invalidate];
+            self.bufferTimer = nil;
         }
     }];
 }
@@ -148,6 +150,15 @@
             [self.delegate gifDataDidUpdate:self];
         }
     }];
+}
+
+- (void)removeFirstGif
+{
+    if (self.gifs.count) {
+        [self.gifs removeObjectAtIndex:0];
+        [self bufferGifs];
+    }
+    
 }
 
 - (BOOL)isFullyBuffered

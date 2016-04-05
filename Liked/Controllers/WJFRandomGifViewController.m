@@ -33,14 +33,6 @@
     self.gifBuffer.delegate = self;
 }
 
-- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-    
-//    [self fetchRandomGifFromAPI];
-    [self addSwipeViewImage];
-}
-
 - (void)addSwipeViewImage //optimize this 
 {
     [self.hud setHidden:NO];
@@ -52,8 +44,9 @@
         if (self.gifBuffer.gifs.count) {
             self.currentGif = [self.gifBuffer.gifs firstObject];
             
-            [self.gifBuffer.gifs removeObjectAtIndex:0];
-            [self.gifBuffer bufferGifs];
+//            [self.gifBuffer.gifs removeObjectAtIndex:0];
+//            [self.gifBuffer bufferGifs];
+            [self.gifBuffer removeFirstGif];
             
             [[NSOperationQueue mainQueue] addOperationWithBlock:^{
                 [self.swipeView.imageView yy_setImageWithURL:[NSURL URLWithString:self.currentGif.url] placeholder:nil options:YYWebImageOptionProgressiveBlur completion:^(UIImage *image, NSURL *url, YYWebImageFromType from, YYWebImageStage stage, NSError *error) {
@@ -77,14 +70,6 @@
         }
     }];
 }
-
-//- (void)fetchRandomGifFromAPI
-//{
-//    [WJFGiphyAPIClient fetchRandomGIFsWithTag:nil completion:^(NSArray *responseArray) {
-//        self.gifArray = [responseArray mutableCopy];
-//        [self addSwipeViewImage];
-//    }];
-//}
 
 #pragma mark - MDCSwipeToChooseDelegate Callbacks
 
@@ -115,7 +100,6 @@
     [self.swipeView removeFromSuperview];
     [self setupSwipeView];
     [self addSwipeViewImage];
-//    [self fetchRandomGifFromAPI]; //this trigger the re-fetch for more random GIF
 }
 
 #pragma marks - WJFGifBufferDelegate Methods
@@ -123,18 +107,15 @@
 {
     self.gifBuffer = gifBuffer;
     
-    //kick off the first image view
-//    dispatch_once (&onceToken, ^{
-//        [self addSwipeViewImage];
-//    });
+    //first load
+    if (!self.currentGif) {
+        [self addSwipeViewImage];
+    }
 }
 
 - (void)gifDataDidFinishBuffer:(WJFGifBuffer *)gifBuffer
 {
-//    dispatch_once (&onceToken, ^{
-//        self.gifBuffer = gifBuffer;
-//        [self addSwipeViewImage];
-//    });
+    
 }
 
 @end

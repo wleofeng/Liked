@@ -43,5 +43,6 @@ typedef NS_ENUM(NSInteger, WJFGifBufferType) {
                                  gifs:(NSMutableArray *)gifs
                            parameters:(NSDictionary *)parameters;
 - (void)bufferGifs;
+- (void)removeFirstGif;
 
 @end
