@@ -13,11 +13,9 @@
 #import "WJFGifRealm.h"
 #import "WJFGifBuffer.h"
 
-
 @interface WJFRandomGifViewController ()
 
 @property (nonatomic, strong) WJFRandomGif *currentGif;
-//@property (nonatomic, strong) NSMutableArray *gifs;
 @property (nonatomic, strong) NSOperationQueue *bgQueue;
 @property (nonatomic, strong) WJFGifBuffer *gifBuffer;
 
@@ -30,7 +28,7 @@
     [super viewDidLoad];
     self.bgQueue = [[NSOperationQueue alloc] init];
     
-    self.gifBuffer = [[WJFGifBuffer alloc] initWithGifBufferType:WJFGifBufferRandom];
+    self.gifBuffer = [[WJFGifBuffer alloc] initWithGifBufferType:WJFGifBufferRandom parameters:nil];
     [self.gifBuffer bufferGifs];
     self.gifBuffer.delegate = self;
 }
@@ -40,9 +38,10 @@
     [super viewDidAppear:animated];
     
 //    [self fetchRandomGifFromAPI];
+    [self addSwipeViewImage];
 }
 
-- (void)addSwipeViewImage
+- (void)addSwipeViewImage //optimize this 
 {
     [self.hud setHidden:NO];
     [self.swipeView setHidden:YES]; //Hide swipeView to avoid user interaction
@@ -53,12 +52,10 @@
         if (self.gifBuffer.gifs.count) {
             self.currentGif = [self.gifBuffer.gifs firstObject];
             
-//            [self.gifs removeObjectAtIndex:0];
-            
             [self.gifBuffer.gifs removeObjectAtIndex:0];
             [self.gifBuffer bufferGifs];
             
-            [[NSOperationQueue mainQueue]addOperationWithBlock:^{
+            [[NSOperationQueue mainQueue] addOperationWithBlock:^{
                 [self.swipeView.imageView yy_setImageWithURL:[NSURL URLWithString:self.currentGif.url] placeholder:nil options:YYWebImageOptionProgressiveBlur completion:^(UIImage *image, NSURL *url, YYWebImageFromType from, YYWebImageStage stage, NSError *error) {
                     
                     self.likeButton.enabled = YES;
@@ -124,14 +121,20 @@
 #pragma marks - WJFGifBufferDelegate Methods
 - (void)gifDataDidUpdate:(WJFGifBuffer *)gifBuffer
 {
-//    self.gifArray = gifBuffer.gifs;
-//    [self addSwipeViewImage];
+    self.gifBuffer = gifBuffer;
+    
+    //kick off the first image view
+//    dispatch_once (&onceToken, ^{
+//        [self addSwipeViewImage];
+//    });
 }
 
 - (void)gifDataDidFinishBuffer:(WJFGifBuffer *)gifBuffer
 {
-    self.gifBuffer = gifBuffer;
-    [self addSwipeViewImage];
+//    dispatch_once (&onceToken, ^{
+//        self.gifBuffer = gifBuffer;
+//        [self addSwipeViewImage];
+//    });
 }
 
 @end

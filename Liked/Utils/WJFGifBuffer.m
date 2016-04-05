@@ -11,27 +11,36 @@
 #import <YYWebImage/YYWebImage.h>
 #import "WJFTrendingGif.h"
 #import "WJFRandomGif.h"
+#import "WJFSearchGif.h"
 
 @implementation WJFGifBuffer
 
 - (instancetype)init
 {
-    self = [self initWithGifBufferType:WJFGifBufferTrending];
+    self = [self initWithGifBufferType:WJFGifBufferTrending
+                                  gifs:[[NSMutableArray alloc]init]
+                            parameters:@{}];
     return self;
 }
 
 - (instancetype)initWithGifBufferType:(WJFGifBufferType)bufferType
+                           parameters:(NSDictionary *)parameters
 {
-    self = [self initWithGifBufferType:bufferType gifs:[[NSMutableArray alloc]init]];
+    self = [self initWithGifBufferType:bufferType
+                                  gifs:[[NSMutableArray alloc]init]
+                            parameters:parameters];
     return self;
 }
 
-- (instancetype)initWithGifBufferType:(WJFGifBufferType)bufferType gifs:(NSMutableArray *)gifs
+- (instancetype)initWithGifBufferType:(WJFGifBufferType)bufferType
+                                 gifs:(NSMutableArray *)gifs
+                           parameters:(NSDictionary *)parameters
 {
     self = [super init];
     if (self) {
         _bufferType = bufferType;
         _gifs = gifs;
+        _parameters = parameters;
     }
     return self;
 }
@@ -56,6 +65,12 @@
         case WJFGifBufferRandom:
             selector = @selector(fetchRandomGifFromAPI);
             break;
+        case WJFGifBufferSearch:
+            selector = @selector(fetchSearchGifFromAPI);
+            break;
+        case WJFGifBufferTranslation:
+            selector = @selector(fetchTranslationGifFromAPI);
+            break;
         default:
             break;
     }
@@ -64,7 +79,9 @@
 
 - (void)fetchTrendingGifFromAPI
 {
-    [WJFGiphyAPIClient fetchTrendingGIFsWithLimit:100 completion:^(NSArray *responseArray) {
+    NSUInteger limit = [self.parameters[@"limit"] integerValue];
+    
+    [WJFGiphyAPIClient fetchTrendingGIFsWithLimit:limit completion:^(NSArray *responseArray) {
         if (responseArray.count) {
             for (NSDictionary *gifDict in responseArray) {
                 WJFTrendingGif *newGif = [[WJFTrendingGif alloc] initWithGifDictionary:gifDict];
@@ -84,7 +101,9 @@
 
 - (void)triggerRandomGifFetch:(NSTimer *)bufferTimer
 {
-    [WJFGiphyAPIClient fetchRandomGIFsWithTag:nil completion:^(NSArray *responseArray) {
+    NSString *tag = [self.parameters[@"tag"] stringValue];
+    
+    [WJFGiphyAPIClient fetchRandomGIFsWithTag:tag completion:^(NSArray *responseArray) {
         if (responseArray.count && ![self isFullyBuffered]) {
             NSDictionary *gifDict = (NSDictionary *)responseArray;
             WJFRandomGif *newGif = [[WJFRandomGif alloc] initWithGifDictionary:gifDict];
@@ -95,6 +114,38 @@
             [self.delegate gifDataDidFinishBuffer:self];
             
             [self.bufferTimer invalidate];
+        }
+    }];
+}
+
+- (void)fetchSearchGifFromAPI
+{
+    NSString *term = [self.parameters[@"q"] stringValue];
+    NSUInteger limit = [self.parameters[@"limit"] integerValue];
+    
+    [WJFGiphyAPIClient fetchGIFsWithSearchTerm:term limit:limit completion:^(NSArray *responseArray) {
+        if (responseArray.count) {
+            for (NSDictionary *gifDict in responseArray) {
+                WJFSearchGif *newGif = [[WJFSearchGif alloc] initWithGifDictionary:gifDict];
+                [self.gifs addObject:newGif];
+            }
+            
+            [self.delegate gifDataDidUpdate:self];
+        }
+    }];
+}
+
+- (void)fetchTranslationGifFromAPI
+{
+    NSString *term = [self.parameters[@"s"] stringValue];
+    [WJFGiphyAPIClient fetchGIFsWithTranslationTerm:term completion:^(NSArray *responseArray) {
+        if (responseArray.count) {
+            for (NSDictionary *gifDict in responseArray) {
+                WJFSearchGif *newGif = [[WJFSearchGif alloc] initWithGifDictionary:gifDict];
+                [self.gifs addObject:newGif];
+            }
+            
+            [self.delegate gifDataDidUpdate:self];
         }
     }];
 }

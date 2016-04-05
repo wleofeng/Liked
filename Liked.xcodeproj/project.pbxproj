@@ -51,6 +51,7 @@
 		4CC202A21C6EAF4C0022A859 /* LikedUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CC202A11C6EAF4C0022A859 /* LikedUITests.m */; };
 		4CC202C41C6EB5B00022A859 /* WJFConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CC202C31C6EB5B00022A859 /* WJFConstants.m */; };
 		4CE9B6E51C87BED400505C0B /* WJFCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CE9B6E41C87BED400505C0B /* WJFCenterViewController.m */; };
+		4CECD6551CB349A3003135E3 /* WJFSearchGif.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CECD6541CB349A3003135E3 /* WJFSearchGif.m */; };
 		A47CDFD36CE2160F6A760360 /* libPods-Liked.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 60A9F1A69A884A5E84F66C26 /* libPods-Liked.a */; };
 /* End PBXBuildFile section */
 
@@ -160,6 +161,8 @@
 		4CC202C31C6EB5B00022A859 /* WJFConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJFConstants.m; sourceTree = "<group>"; };
 		4CE9B6E31C87BED400505C0B /* WJFCenterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJFCenterViewController.h; sourceTree = "<group>"; };
 		4CE9B6E41C87BED400505C0B /* WJFCenterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJFCenterViewController.m; sourceTree = "<group>"; };
+		4CECD6531CB349A3003135E3 /* WJFSearchGif.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJFSearchGif.h; sourceTree = "<group>"; };
+		4CECD6541CB349A3003135E3 /* WJFSearchGif.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJFSearchGif.m; sourceTree = "<group>"; };
 		5369E8C347DE3635FB299089 /* Pods-Liked.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Liked.release.xcconfig"; path = "Pods/Target Support Files/Pods-Liked/Pods-Liked.release.xcconfig"; sourceTree = "<group>"; };
 		60A9F1A69A884A5E84F66C26 /* libPods-Liked.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Liked.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -247,6 +250,8 @@
 				4C10381E1CAEEBDC0009077B /* WJFTrendingGif.m */,
 				4C1038201CAEEEC50009077B /* WJFRandomGif.h */,
 				4C1038211CAEEEC50009077B /* WJFRandomGif.m */,
+				4CECD6531CB349A3003135E3 /* WJFSearchGif.h */,
+				4CECD6541CB349A3003135E3 /* WJFSearchGif.m */,
 				4C1532DA1C8F5661001FFC61 /* Realm */,
 			);
 			path = Models;
@@ -704,6 +709,7 @@
 				4C748BCF1C8F6744002A9282 /* README.md in Sources */,
 				4C1532DF1C8F5661001FFC61 /* WJFGifRealm.m in Sources */,
 				4C1532E01C8F5661001FFC61 /* WJFGifSeenRealm.m in Sources */,
+				4CECD6551CB349A3003135E3 /* WJFSearchGif.m in Sources */,
 				4C748BCC1C8F6744002A9282 /* MDCSwipeResult.m in Sources */,
 				4C1532FD1C8F5A4F001FFC61 /* MMSideDrawerTableViewCell.m in Sources */,
 				4CC2027E1C6EAF4C0022A859 /* main.m in Sources */,

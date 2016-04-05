@@ -12,11 +12,13 @@
 #import <YYWebImage/YYWebImage.h>
 #import "WJFGifRealm.h"
 
+static dispatch_once_t onceToken;
+
 @interface WJFTrendingGifViewController ()
 
 @property (nonatomic, strong) WJFTrendingGif *currentGif;
-@property (nonatomic, strong) NSMutableArray *gifArray;
 @property (nonatomic, strong) NSOperationQueue *bgQueue;
+@property (nonatomic, strong) WJFGifBuffer *gifBuffer;
 
 @end
 
@@ -28,7 +30,8 @@
     
     self.bgQueue = [[NSOperationQueue alloc] init];
     
-    WJFGifBuffer *gifBuffer = [[WJFGifBuffer alloc] initWithGifBufferType:WJFGifBufferTrending];
+    NSDictionary *parameters = @{@"limit": @(100)};
+    WJFGifBuffer *gifBuffer = [[WJFGifBuffer alloc] initWithGifBufferType:WJFGifBufferTrending parameters:parameters];
     [gifBuffer bufferGifs];
     gifBuffer.delegate = self;
 }
@@ -55,10 +58,10 @@
     [self.bgQueue cancelAllOperations];
     
     [self.bgQueue addOperationWithBlock:^{
-        if (self.gifArray.count) {
-            self.currentGif = [self.gifArray firstObject];
+        if (self.gifBuffer.gifs.count) {
+            self.currentGif = [self.gifBuffer.gifs firstObject];
     
-            [self.gifArray removeObjectAtIndex:0];
+            [self.gifBuffer.gifs removeObjectAtIndex:0];
             
             [[NSOperationQueue mainQueue]addOperationWithBlock:^{
                 [self.swipeView.imageView yy_setImageWithURL:[NSURL URLWithString:self.currentGif.url] placeholder:nil options:YYWebImageOptionProgressiveBlur completion:^(UIImage *image, NSURL *url, YYWebImageFromType from, YYWebImageStage stage, NSError *error) {
@@ -122,9 +125,12 @@
 #pragma marks - WJFGifBufferDelegate Methods
 - (void)gifDataDidUpdate:(WJFGifBuffer *)gifBuffer
 {
-//    NSLog(@"delegate method is called here ");
-    self.gifArray = gifBuffer.gifs;
-    [self addSwipeViewImage];
+    self.gifBuffer = gifBuffer;
+    
+    //kick off the first image view
+    dispatch_once (&onceToken, ^{
+        [self addSwipeViewImage];
+    });
 }
 
 @end

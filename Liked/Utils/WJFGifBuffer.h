@@ -21,6 +21,8 @@ typedef NS_ENUM(NSInteger, WJFGifBufferType) {
 
 @required
 - (void) gifDataDidUpdate: (WJFGifBuffer *)gifBuffer;
+
+@optional
 - (void) gifDataDidFinishBuffer: (WJFGifBuffer *)gifBuffer;
 
 @end
@@ -31,11 +33,15 @@ typedef NS_ENUM(NSInteger, WJFGifBufferType) {
 @property (nonatomic, assign) WJFGifBufferType bufferType;
 @property (nonatomic, strong) NSMutableArray *gifs;
 @property (nonatomic, strong) NSTimer *bufferTimer;
+@property (nonatomic, assign) NSDictionary *parameters;
 @property (nonatomic, weak) id delegate;
 
 - (instancetype)init;
-- (instancetype)initWithGifBufferType:(WJFGifBufferType)bufferType;
-- (instancetype)initWithGifBufferType:(WJFGifBufferType)bufferType gifs:(NSMutableArray *)gifs;
+- (instancetype)initWithGifBufferType:(WJFGifBufferType)bufferType
+                           parameters:(NSDictionary *)parameters;
+- (instancetype)initWithGifBufferType:(WJFGifBufferType)bufferType
+                                 gifs:(NSMutableArray *)gifs
+                           parameters:(NSDictionary *)parameters;
 - (void)bufferGifs;
 
 @end
