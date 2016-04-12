@@ -13,6 +13,8 @@
 #import "WJFRandomGif.h"
 #import "WJFSearchGif.h"
 
+
+
 @implementation WJFGifBuffer
 
 - (instancetype)init
@@ -95,29 +97,21 @@
 
 - (void)fetchRandomGifFromAPI
 {
-    //shouldn't use NSTimer, making too many network calls, use a counter.. something like self.gifs.count
-    self.bufferTimer = [NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@selector(triggerRandomGifFetch:) userInfo:nil repeats:YES];
-    [self.bufferTimer fire];
-}
-
-- (void)triggerRandomGifFetch:(NSTimer *)bufferTimer
-{
-    NSString *tag = [self.parameters[@"tag"] stringValue];
-    
-    [WJFGiphyAPIClient fetchRandomGIFsWithTag:tag completion:^(NSArray *responseArray) {
-        if (responseArray.count && ![self isFullyBuffered]) {
-            NSDictionary *gifDict = (NSDictionary *)responseArray;
-            WJFRandomGif *newGif = [[WJFRandomGif alloc] initWithGifDictionary:gifDict];
-            [self.gifs addObject:newGif];
-            
-            [self.delegate gifDataDidUpdate:self];
-        } else {
-            [self.delegate gifDataDidFinishBuffer:self];
-            
-            [self.bufferTimer invalidate];
-            self.bufferTimer = nil;
-        }
-    }];
+    for (NSUInteger i = self.gifs.count; i < MAX_GIF_COUNT; i++) {
+        NSString *tag = [self.parameters[@"tag"] stringValue];
+        
+        [WJFGiphyAPIClient fetchRandomGIFsWithTag:tag completion:^(NSArray *responseArray) {
+            if (responseArray.count && ![self isFullyBuffered]) {
+                NSDictionary *gifDict = (NSDictionary *)responseArray;
+                WJFRandomGif *newGif = [[WJFRandomGif alloc] initWithGifDictionary:gifDict];
+                [self.gifs addObject:newGif];
+                
+                [self.delegate gifDataDidUpdate:self];
+            } else {
+                [self.delegate gifDataDidFinishBuffer:self];
+            }
+        }];
+    }
 }
 
 - (void)fetchSearchGifFromAPI
@@ -163,7 +157,7 @@
 
 - (BOOL)isFullyBuffered
 {
-    return self.gifs.count > 2 ? YES : NO;
+    return self.gifs.count > (NSUInteger)MAX_GIF_COUNT ? YES : NO;
 }
 
 //- (NSData *)downloadGifDataWithUrl:(NSURL *)url
