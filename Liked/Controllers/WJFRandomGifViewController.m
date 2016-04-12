@@ -33,40 +33,44 @@
     self.gifBuffer.delegate = self;
 }
 
-- (void)addSwipeViewImage //optimize this 
+- (void)addSwipeViewImage //optimize this
 {
     [self.hud setHidden:NO];
     [self.swipeView setHidden:YES]; //Hide swipeView to avoid user interaction
     
     [self.bgQueue cancelAllOperations];
-    
     [self.bgQueue addOperationWithBlock:^{
-        if (self.gifBuffer.gifs.count) {
+        if (self.gifBuffer.gifs.count > 1) {
             self.currentGif = [self.gifBuffer.gifs firstObject];
-            
-//            [self.gifBuffer.gifs removeObjectAtIndex:0];
-//            [self.gifBuffer bufferGifs];
             [self.gifBuffer removeFirstGif];
             
-            [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-                [self.swipeView.imageView yy_setImageWithURL:[NSURL URLWithString:self.currentGif.url] placeholder:nil options:YYWebImageOptionProgressiveBlur completion:^(UIImage *image, NSURL *url, YYWebImageFromType from, YYWebImageStage stage, NSError *error) {
-                    
+//            [self.swipeView.imageView setImage:self.currentGif.image];
+//            self.swipeView.imageView.autoPlayAnimatedImage = NO;
+//            self.swipeView.imageView.runloopMode = NSDefaultRunLoopMode;
+            
+//            http://stackoverflow.com/questions/19179185/how-to-asynchronously-load-an-image-in-an-uiimageview/19251240#19251240
+//            UIGraphicsBeginImageContext(CGSizeMake(1,1));
+//            CGContextRef context = UIGraphicsGetCurrentContext();
+//            CGContextDrawImage(context, CGRectMake(0, 0, 1, 1), [self.currentGif.image CGImage]);
+//            UIGraphicsEndImageContext();
+            [self.swipeView.imageView setImage:self.currentGif.image];
+            
+            if (self.swipeView.imageView) {
+                [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+                    //                    [UIView animateWithDuration:0.2 animations:^{
+                    self.swipeView.imageView.autoPlayAnimatedImage = YES;
+                    self.swipeView.hidden = NO;
+                    self.swipeView.alpha = 1.0;
                     self.likeButton.enabled = YES;
                     self.nopeButton.enabled = YES;
                     self.urlTextField.text = self.currentGif.url;
                     self.urlCopyButton.enabled = YES;
+                    self.hud.hidden = YES;
+                    //                    }];
                     
-                    [UIView animateWithDuration:0.2 animations:^{
-                        self.swipeView.alpha = 1.0;
-                    }];
+                    NSLog(@"new picture added!! URL: %@", self.currentGif.url);
                 }];
-
-
-                NSLog(@"new picture added!! URL: %@", self.currentGif.url);
-                
-                [self.hud setHidden:YES];
-                [self.swipeView setHidden:NO];
-            }];
+            }
         }
     }];
 }
@@ -75,16 +79,21 @@
 
 - (void)viewDidCancelSwipe:(UIView *)view
 {
+    //    self.swipeView.imageView.autoPlayAnimatedImage = NO;
+    
     NSLog(@"Couldn't decide, huh?");
 }
 
 - (BOOL)view:(UIView *)view shouldBeChosenWithDirection:(MDCSwipeDirection)direction
 {
+    //    self.swipeView.imageView.autoPlayAnimatedImage = NO;
     return YES;
 }
 
 - (void)view:(UIView *)view wasChosenWithDirection:(MDCSwipeDirection)direction
 {
+    //    self.swipeView.imageView.autoPlayAnimatedImage = NO;
+    
     if (direction == MDCSwipeDirectionLeft) {
         NSLog(@"Photo deleted!");
     } else {

@@ -29,6 +29,8 @@
         _size = size;
         _width = width;
         _height = height;
+        _image = [self getImageByUrl:url];
+        
     }
     return self;
 }
@@ -42,5 +44,15 @@
 //    
 //    return image;
 //}
+
+- (YYImage *)getImageByUrl:(NSString *)url
+{
+    NSURL *imgUrl = [NSURL URLWithString:url];
+    NSData *data = [NSData dataWithContentsOfURL:imgUrl];
+    YYImage *image = [YYImage imageWithData:data];
+
+    return image;
+}
+
 
 @end

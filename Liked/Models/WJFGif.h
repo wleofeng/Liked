@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import <YYWebImage/YYWebImage.h>
 
 @interface WJFGif : NSObject
 
@@ -16,6 +17,7 @@
 @property (nonatomic, assign) CGFloat size;
 @property (nonatomic, assign) CGFloat width;
 @property (nonatomic, assign) CGFloat height;
+@property (nonatomic, strong) YYImage *image;
 
 - (instancetype)init;
 - (instancetype)initWithId:(NSString *)ID

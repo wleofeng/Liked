@@ -30,7 +30,7 @@ static dispatch_once_t onceToken;
     
     self.bgQueue = [[NSOperationQueue alloc] init];
     
-    NSDictionary *parameters = @{@"limit": @(100)};
+    NSDictionary *parameters = @{@"limit": @(3)};
     WJFGifBuffer *gifBuffer = [[WJFGifBuffer alloc] initWithGifBufferType:WJFGifBufferTrending parameters:parameters];
     [gifBuffer bufferGifs];
     gifBuffer.delegate = self;

@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-#define MAX_GIF_COUNT ((NSUInteger)5)
+#define MAX_GIF_COUNT ((NSUInteger)10)
 
 typedef NS_ENUM(NSInteger, WJFGifBufferType) {
     WJFGifBufferTrending,
