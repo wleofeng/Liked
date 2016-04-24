@@ -12,9 +12,8 @@ Liked is an iOS application that brings the tinder experience to Giphy images. T
 
 #Why did I build this?
 + For a good laugh. Who doesn't like to explore Giphy images and be surprised by what s/he can find?
-+ Level up on API usage, Model, View + Container View, Controller and Object Oriented Design
-+ Let go of the storyboard / XIBs, focus more on code 
-+ Make a pretty app (prettificaiton in progress)
++ Use API, MVC and Object Oriented design
++ Let go of storyboard/XIB, focus more on code 
 
 #Acknowledgement:
 Some of the features in this product is using third party frameworks listed below: <br />
