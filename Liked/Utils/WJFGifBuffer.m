@@ -63,7 +63,8 @@
 
 - (void)fetchTrendingGifFromAPIWithLimit:(NSUInteger)limit
 {
-    [WJFGiphyAPIClient fetchTrendingGIFsWithLimit:limit completion:^(NSArray *responseArray) {
+    // Default limit to 25
+    [WJFGiphyAPIClient fetchTrendingGIFsWithLimit:25 completion:^(NSArray *responseArray) {
 //        self.gifs = [responseArray mutableCopy];
         if (responseArray.count) {
             for (NSDictionary *gifDict in responseArray) {
