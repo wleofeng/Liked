@@ -120,6 +120,7 @@
 {
     [WJFGiphyAPIClient fetchGIFsWithTranslationTerm:translationTerm completion:^(NSArray *responseArray) {
         self.gifArray = [responseArray mutableCopy];
+        
         if (self.gifArray.count) {
             [self addSwipeViewImage];
         } else {
