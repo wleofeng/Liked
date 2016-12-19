@@ -60,6 +60,21 @@
     [self presentViewController:alert animated:YES completion:nil];
 }
 
+- (void)setupNotFoundAlertView
+{
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Ops"
+                                                                   message:@"Didn't find anything, try again"
+                                                            preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction *action = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault
+                                                   handler:^(UIAlertAction * _Nonnull action) {
+                                                       [self setupSearchAlertView];
+                                                   }];
+    
+    [alert addAction:action];
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
 - (void)addSwipeViewImage
 {
     [self.hud setHidden:NO];
@@ -105,7 +120,12 @@
 {
     [WJFGiphyAPIClient fetchGIFsWithTranslationTerm:translationTerm completion:^(NSArray *responseArray) {
         self.gifArray = [responseArray mutableCopy];
-        [self addSwipeViewImage];
+        
+        if (self.gifArray.count) {
+            [self addSwipeViewImage];
+        } else {
+            [self setupNotFoundAlertView];
+        }
     }];
 }
 
