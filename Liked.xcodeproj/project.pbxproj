@@ -556,6 +556,7 @@
 					4CC202781C6EAF4C0022A859 = {
 						CreatedOnToolsVersion = 7.2.1;
 						DevelopmentTeam = C364U78854;
+						ProvisioningStyle = Manual;
 					};
 					4CC202911C6EAF4C0022A859 = {
 						CreatedOnToolsVersion = 7.2.1;
@@ -935,13 +936,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				DEVELOPMENT_TEAM = C364U78854;
 				INFOPLIST_FILE = Liked/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = WJF.Liked;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "c635afa8-d65a-48ff-ad8e-e502ad404212";
+				PROVISIONING_PROFILE_SPECIFIER = "Liked Distribution";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -952,13 +955,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				DEVELOPMENT_TEAM = C364U78854;
 				INFOPLIST_FILE = Liked/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = WJF.Liked;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "5d5e6068-54b7-4e35-a15b-a688f39612a0";
+				PROVISIONING_PROFILE_SPECIFIER = "Liked Distribution";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
